@@ -1,0 +1,51 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: "FunctionProBook","Myriad Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.wrapper {
+	width: 830px;
+	margin: 0 auto;
+}
+
+#header {
+	background: transparent url(/templates/evolve/images/header_repeat.png) repeat 0 0;
+}
+
+#logo {
+	background: transparent url(/templates/evolve/images/header.png) no-repeat 0 0;
+	width: 1697px;
+	height: 102px;
+	margin: 0 auto;
+}
+
+#main {
+}
+
+#login {
+	background: transparent url(/templates/evolve/images/login.png) no-repeat 0 0;
+	width: 213px;
+	height: 211px;
+	text-indent: -5000em;
+	display: block;
+	margin: 20px auto;
+}
+
+#footer {
+	background-color: #6e6d6d;
+	border-top: medium none #383838;
+	color: #222;
+	font-size: 16px;
+	text-align: center;
+	height: 40px;
+}
+
+#footer_content {
+	padding-top: 12px;
+}
+
+#footer_content a {
+	color: #85A6C7;
+	text-decoration: none;
+}

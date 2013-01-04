@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE install PUBLIC "-//Joomla! 1.5//DTD template 1.0//EN" "http://www.joomla.org/xml/dtd/1.5/template-install.dtd">
+<install version="1.5" type="template">
+	version="1.0"
+	type="template"
+	client="site">
+	<name>evolve</name>
+	<creationDate>4/20/12</creationDate>
+	<author>Evolve Media Corp</author>
+	<authorEmail>si-tech@gorillanation.com</authorEmail>
+	<authorUrl></authorUrl>
+	<copyright></copyright>
+	<license></license>
+	<version>1.1.0</version>
+	<description>TPL_EVOLVE_XML_DESCRIPTION</description>
+	<files>
+		<filename>index.php</filename>
+	</files>
+	<positions></positions>
+</install>

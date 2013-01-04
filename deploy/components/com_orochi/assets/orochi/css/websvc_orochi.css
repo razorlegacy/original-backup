@@ -1,0 +1,392 @@
+/***** 250 *****/
+
+/***** 600 *****/
+
+/***** GENERAL *****/
+a {
+	outline: none;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+h1, h2, h3, h4, h5 {
+	margin: 0;
+}
+
+.emcOrochi-list-inline {
+	margin: 0;
+	padding: 0;
+}
+
+.emcOrochi-inline,
+.emcOrochi-list-inline li {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.emcOrochi-hidden {
+	display: none;
+}
+
+.emcOrochi-left {
+	width: 95px;
+}
+
+.emcOrochi-right {
+	width: 200px;
+}
+
+.emcOrochi_full {
+	width: 290px;
+	margin: 0 5px;
+}
+
+.emcOrochi-scrollable {
+	/* width: 205px; */
+	width: 100%;
+	overflow: auto;
+	outline: none;
+}
+
+/***** LAYOUT *****/
+#emcOrochi_main {
+	width: 300px;
+	margin: 0 auto;
+}
+
+#emcOrochi_wrapper {
+	
+}
+
+.emcOrochi_250,
+.emcOrochi_600 {
+	width: 300px;
+	position: relative;
+	overflow: hidden;
+}
+
+.emcOrochi_250 {
+	height: 250px;
+}
+
+.emcOrochi_600 {
+	height: 600px;
+/*
+	font-size: .75em;
+	line-height: 1.35em;
+*/
+}
+
+#emcOrochi_header {
+	width: 100%;
+	height: 50px;
+	position: relative;
+}
+
+#emcOrochi_headerClick_left {
+	position: absolute;
+	width: 50%;
+	height: 100%;
+	left: 0;
+}
+
+#emcOrochi_headerClick {
+	position: absolute;
+	width: 50%;
+	height: 100%;
+	right: 0;
+}
+
+.emcOrochi_body {
+	font-family: Helvetica, Arial, sans;
+}
+
+.emcOrochi_page {
+	/* margin-top: 5px; */
+}
+
+.emcOrochi_250 .emcOrochi_body {
+	height: 200px;
+}
+
+.emcOrochi_250 .emcOrochi_page {
+	height: 169px;
+}
+
+.emcOrochi_600 .emcOrochi_body {
+	height: 550px;
+}
+
+.emcOrochi_600 .emcOrochi_page {
+	height: 519px;
+	overflow: hidden;
+}
+
+.emcOrochi_body {
+	position: relative;
+}
+
+.emcOrochi_menu_top,
+.emcOrochi_menu_bottom,
+.emcOrochi_page_top,
+.emcOrochi_page_bottom {
+	position: absolute;
+	width: 300px;
+}
+
+.emcOrochi_menu_top,
+.emcOrochi_page_bottom {
+	top: 0;
+}
+
+.emcOrochi_menu_bottom,
+.emcOrochi_page_top {
+	bottom: 0;
+}
+
+#emcOrochi_menu li {
+	text-align: center;
+	height: 100%;
+	line-height: 31px;
+}
+
+#emcOrochi_menu a,
+#emcOrochi_menu a:hover {
+	text-decoration: none;
+	font-size: .8em;
+}
+
+.emcOrochi_cycle {
+	width: 300px;
+	height: 100%;
+}
+
+.emcOrochi_group {
+	width: 300px;
+	height: 100%;
+	display: block;
+	overflow: hidden;
+}
+
+.emcOrochi_group_size_1 {
+	height: 169px;
+}
+
+.emcOrochi_600 .emcOrochi_group_size_2 {
+	height: 343px;
+}
+
+.emcOrochi_600 .emcOrochi_group_size_3,
+.emcOrochi_iframe iframe {
+	height: 519px;
+}
+
+.emcOrochi_group_size_1 .emcOrochi-scrollable {
+	height: 130px;
+}
+
+.emcOrochi_group_size_2 .emcOrochi-scrollable {
+	height: 300px;
+}
+
+.emcOrochi_group_size_3 .emcOrochi-scrollable {
+	height: 475px;
+}
+
+/***** TABS *****/
+#emcOrochi_menu {
+	height: 31px;
+	width: 100%;
+}
+
+/*
+.emcOrochi_tab {
+	width: 100%;
+	height: 31px;
+}
+*/
+
+.emcOrochi_tab a {
+	width: 100%;
+	height: 100%;
+	font-weight: bold;
+	text-align: center;
+	line-height: 31px;
+	display: block;
+}
+
+.emcOrochi_tab_hex {
+
+}
+
+.emcOrochi_tab_bg {
+	text-indent: -5000em;
+}
+
+.emcOrochi_tab_bg.ui-tabs-selected,
+.emcOrochi_tab_bg.ui-state-hover  {
+	background-position: left bottom !important;
+}
+/***** CONTENT *****/
+.emcOrochi_title,
+.emcOrochi_content,
+.emcOrochi_link,
+.emcOrochi_twitter {
+	font-family: Helvetica, Arial, sans;
+	font-size: .7em;
+	line-height: 1.3em;
+}
+
+.emcOrochi_title {
+	/* margin: 5px 5px 0 0; */
+	font-size: 1.5em;
+}
+
+.emcOrochi_content {
+	width: 100%;
+	/* width: 197px; */
+	/* margin-top: 5px; */
+}
+
+/***** SOCIAL *****/
+#emcOrochi_social {
+	position: absolute;
+	top: 0;
+	right: 2px;
+	z-index: 5000;
+}
+
+#emcOrochi_social a {
+	background: transparent url(../images/social.png) no-repeat 0 0;
+	width: 16px;
+	height: 16px;
+	text-indent: -5000em;
+	display: block;
+	border-radius: 3px;
+	margin: 1px 0;
+	opacity: .5;
+}
+
+#emcOrochi_social a:hover {
+	opacity: 1;
+}
+
+.emcOrochi_social_facebook {
+	background-position: left bottom !important;
+}
+
+
+
+/***** ARTICLE *****/
+.emcOrochi_article {
+	margin: 5px 0;
+}
+
+.emcOrochi_article_image {
+/*
+	max-width: 85px;
+	max-height: 125px;
+*/
+	border: none;
+	float: left;
+	margin: 0 10px 5px 0;
+}
+
+.emcOrochi_article .emcOrochi-left {
+	text-align: center;
+	margin-top: 10px;
+}
+
+/***** RSS *****/
+.emcOrochi_rss_item {
+	margin: 0 0 10px 0;
+}
+
+/***** TWITTER *****/
+.emcOrochi_twitter .tweet {
+	margin: 0 5px;
+	line-height: 1.1em;
+}
+/*
+
+.emcOrochi_tweets .tweet {
+	position: relative;
+	padding: 5px 0;
+	height: 50px;
+}
+
+.emcOrochi_tweets .tweet_avatar,
+.emcOrochi_tweets .tweet_username,
+.emcOrochi_tweets .tweet_text,
+.emcOrochi_tweets .tweet_time {
+	position: absolute;
+}
+
+.emcOrochi_tweets .tweet_username {
+	top: 5px;
+	left: 30px;
+}
+
+.emcOrochi_tweets .tweet_text {
+	top: 17px;
+	left: 30px;
+}
+
+.emcOrochi_tweets .tweet_time {
+	left: 30px;
+	bottom: 0;
+}
+*/
+
+/***** PAGER *****/
+.emcOrochi_group_wrapper {
+	position: relative;
+}
+
+.emcOrochi_group_pager {
+	position: absolute;
+	bottom: 0;
+	right: 5px;
+	z-index: 1000;
+	height: 15px;
+	padding: 0 5px;
+	border-radius: 5px;
+}
+
+.emcOrochi_group_pager>a,
+.emcOrochi_group_pager_index {
+	height: 100%;
+	margin: 0 1px;
+}
+
+.emcOrochi_group_pager a,
+.emcOrochi_group_pager a:hover {
+	text-decoration: none;
+}
+
+.emcOrochi_group_pager_index a {
+	text-indent: -5000em;
+	width: 6px;
+	height: 6px;
+	border-radius: 3px;
+	margin: 4px 2px 0;
+}
+
+.emcOrochi_600 .emcOrochi_group_pager_index a {
+	margin: 5px 2px 0;
+}
+
+
+.emcOrochi_group_pager_index a:hover,
+.emcOrochi_group_pager_index a.activeSlide {
+	opacity: 1;
+}
+
+.ui-tabs .ui-tabs-nav li a, .ui-tabs.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-selected a { cursor: pointer; }
+.emcOrochi_cycle_hide, .ui-tabs .ui-tabs-hide {/*  display: none !important;  */position: absolute; left: -5000em !important; display: block !important}
+
+.jspContainer{overflow:hidden;position:relative}.jspPane{position:absolute}.jspVerticalBar{position:absolute;top:0;right:0;width:7px;height:80%;}.jspVerticalBar *,.jspHorizontalBar *{margin:0;padding:0}.jspCap{display:none}.jspHorizontalBar .jspCap{float:left}.jspTrack{position:relative}.jspDrag{position:relative;top:0;left:0;cursor:pointer;border-radius:7px;opacity:.7}.jspVerticalBar .jspArrow:focus{outline:none}.jspCorner{background:#eeeef4;float:left;height:80%}* html .jspCorner{margin:0 -3px 0 0}

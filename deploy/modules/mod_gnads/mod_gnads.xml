@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install type="module" version="1.5.0">
+	<name>GN Ad Tag Generator</name>
+	<author>Paul Sweeney</author>
+	<creationDate>June 2009</creationDate>
+	<copyright>Copyright (C) 2009 AtomicOnline. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail>paul.sweeney@atomiconline.com</authorEmail>
+	<authorUrl>www.joomla.org</authorUrl>
+	<version>1.5.0</version>
+	<description>This module generates a Gorilla Nation Ad Tag</description>
+	<files>
+		<filename module="mod_gnads">mod_gnads.php</filename>
+	</files>
+	<params>
+		<param name="sitename" type="text" size="40" default="" label="Sitename" description="As part of gn.cr.{sitename}/home/sect=home;" />
+		<param name="size" type="text" size="40" default="728x90" label="Size(s)" description="Ad size or sizes (comma separated)" />	
+		<param name="triggertags" type="radio" default="0" label="Use TriggerTags" description="Should TriggerTags be enabled for this module?">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="else" type="textarea" default="" label="TriggerTag 'else' condition" description="Code, if any, to be executed on an 'else' condition, where no triggered ad is found" cols="70" rows="10" />
+		<param name="test_mode" type="radio" default="0" label="Enable 'Testing Mode'" description="This will change the 'ct=' param to 'testing' while active">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+	</params>
+	<params group="advanced">
+		<param name="prefix" type="text" size="40" default="" label="Section Prefix" description="Allows for more control of the ad zone (prefix will go to sect={prefix}_xxx)" />
+		<param name="extra_params" type="text" size="80" default="" label="Extra Params" description="Add additional params needed for the ad" />
+		<param name="extra_triggers" type="text" size="80" default="" label="Extra Triggers" description="Additional variables / expressions to check when triggering an ad" />
+	</params>
+</install>

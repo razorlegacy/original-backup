@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head><meta charset="UTF-8"><title></title>
+<style>
+iframe { border: none; }
+</style>
+	</head>
+	<body>
+		<script>
+var flowscriptsrc = 'http://flowplayer.org/js/flowplayer-3.2.6.js';
+var video = 'http://blip.tv/file/get/N8inpasadena-Flowers457.flv';
+
+var blah = document.createElement('iframe');
+document.body.appendChild(blah);
+blah.id = 'iframe';
+//var doc = document.implementation.createHTMLDocument('slivervideo');
+var iframe = document.getElementById('iframe');
+//var srcdoc = doc.documentElement;
+//var newnode = iframe.contentDocument.importNode(srcdoc, true);
+//iframe.contentDocument.replaceChild(newnode, iframe.contentDocument.documentElement);
+
+var iframeready = function (e, window, document) {
+	var flowscripttag = document.createElement('script');
+	flowscripttag.onload = function (e) {
+		window.flowplayer('sb_flowplayer', 'http://releases.flowplayer.org/swf/flowplayer-3.2.7.swf').onLoad(function() {
+			window.top.alert('player loaded');
+		});
+	};
+
+	var vidlink = document.createElement('a');
+	vidlink.href = video;
+	vidlink.id = 'sb_flowplayer';
+
+	document.body.appendChild(vidlink);
+	document.body.appendChild(flowscripttag);
+	flowscripttag.src = flowscriptsrc;
+};
+var iframereadywrapper = function (e) {
+	iframeready(e, iframe.contentWindow, iframe.contentDocument);
+};
+
+iframe.contentWindow.onload = iframereadywrapper;
+if( iframe.contentDocument.readyState === 'complete') {
+	iframereadywrapper(null);
+}
+
+iframe.style.width = '384px';
+iframe.style.height = '216px';
+iframe.contentDocument.body.style.overflow = 'hidden';
+iframe.contentDocument.body.style.margin = '0';
+
+		</script>
+	</body>
+</html>

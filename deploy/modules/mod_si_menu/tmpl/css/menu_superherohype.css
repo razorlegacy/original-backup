@@ -1,0 +1,107 @@
+/* ============== */
+/* ! Navigation   */
+/* ============== */
+.menubar,
+.menubar li {
+	margin:0;
+	padding:0;
+	list-style:none;
+	text-align:center;
+}
+
+.menubar {
+	width:983px;
+	height:45px;
+	
+	position:relative;
+	z-index:10;
+}
+
+.menubar li {
+	float:left;
+	width:125px;
+
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 16px;
+	font-style: italic;
+}
+
+.menubar li,
+.menubar li a {
+	height:45px;
+}
+
+.menubar li a {
+	display:block;
+	text-indent:-10000em;
+	width:100%;
+}
+
+.menubar .nav_forums a {background:transparent url(/modules/mod_si_menu/tmpl/css/superherohype/nav_forums.png) no-repeat 0 0;}
+.menubar .nav_images a {background:transparent url(/modules/mod_si_menu/tmpl/css/superherohype/nav_images.png) no-repeat 0 0;}
+.menubar .nav_contact a {background:transparent url(/modules/mod_si_menu/tmpl/css/superherohype/nav_contact.png) no-repeat 0 0;}
+
+.menubar .nav_heroes {width:130px;}
+.menubar .nav_heroes a {background:transparent url(/modules/mod_si_menu/tmpl/css/superherohype/nav_heroes.png) no-repeat 0 0;}
+
+.menubar .nav_features {width:145px;}
+.menubar .nav_features a {background:transparent url(/modules/mod_si_menu/tmpl/css/superherohype/nav_features.png) no-repeat 0 0;}
+
+.menubar .nav_search {
+	background:transparent url(/modules/mod_si_menu/tmpl/css/superherohype/nav_search.png) no-repeat 0 0;
+	width:333px;
+}
+
+.menubar .nav_search form {
+	display:block;
+	line-height:45px; 
+	padding:0 0 0 90px;
+}
+
+.menubar .nav_search input {vertical-align:middle}
+.menubar .nav_search input.text {
+	border:1px solid black;
+	padding:3px;
+	
+	font-weight:bold;
+	color:#333;
+	background:white url(/modules/mod_si_menu/tmpl/css/superherohype/bg_search_field.png) no-repeat scroll 0 0;
+}
+
+.menubar li ul {display:none}
+
+.menubar li.over ul,
+.menubar li:hover ul {display:block}
+
+.menubar li ul {
+	width:125px;
+	padding:0;
+	margin:-5px 0 0 5px;
+}
+
+.menubar li ul li,
+#header .menubar li ul a {
+	float:none;
+	width:auto;
+	height:auto;
+	text-indent:0;
+	text-align:left;
+}
+
+.menubar li ul li {
+	font-size:.7em;
+	border-bottom:1px solid #0c4360;
+}
+
+#header .menubar li ul a {
+	border-top:1px solid #155c82;
+	background:#155c82;
+	color:white;
+	padding:.5em 1em;
+}
+
+#header .menubar li ul a:hover {
+	border-top-color:#0c344a;
+	background:#0c4360;
+}

@@ -1,0 +1,79 @@
+#emcSyndi_iframe {
+	width: 270px;
+	height: 169px;
+	margin: 10px 20px 0 10px;
+	position: relative;
+}
+
+#emcSyndi_iframe .pds-answer-feedback,
+#emcSyndi_iframe a.pds-pd-link {
+	display: none !important;
+}
+
+#emcSyndi_iframe div.pds-box {
+	background-color: transparent;
+}
+
+#emcSyndi_iframe label.pds-input-label {
+	font-size: .8em;
+}
+
+#emcSyndi_iframe .pds-question {
+	margin: 5px 0;
+}
+
+#emcSyndi_iframe .pds-answer-group,
+#emcSyndi_iframe .pds-feedback-group {
+	padding: 0 !important;
+}
+
+#emcSyndi_iframe span.pds-links a,
+#emcSyndi_iframe a.pds-return-poll {
+	text-decoration: none;
+}
+
+#emcSyndi_iframe span.pds-links a:hover,
+#emcSyndi_iframe a.pds-return-poll:hover {
+	text-decoration: underline;
+}
+
+#emcSyndi_iframe span.pds-links,
+#emcSyndi_iframe a.pds-return-poll {
+	position: absolute;
+	bottom: 30px;
+	width: 50%;
+	left: 25%;
+	padding: 0;
+}
+
+#emcSyndi_iframe a.pds-view-results,
+#emcSyndi_iframe a.pds-return-poll {
+	float: none;
+	padding: 0;
+	text-align: center;
+}
+
+
+
+body#emcSyndi_iframe div.twtr-doc, 
+body#emcSyndi_iframe div.twtr-hd a, 
+body#emcSyndi_iframe h3, 
+body#emcSyndi_iframe h4, 
+body#emcSyndi_iframe div.twtr-popular,
+body#emcSyndi_iframe div.twtr-new-results, 
+body#emcSyndi_iframe div.twtr-results-inner, 
+body#emcSyndi_iframe div.twtr-timeline {
+	background: none !important;
+}
+
+#emcSyndi_iframe .twtr-hd {
+	padding: 0;
+}
+
+#emcSyndi_iframe .twtr-widget .twtr-tweet-wrap {
+	padding: 5px 0;
+}
+
+#emcSyndi_iframe .twtr-ft {
+	display: none;
+}

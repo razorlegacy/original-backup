@@ -1,0 +1,197 @@
+/***** BASE *****/
+#emcCartographer_main {
+	padding: 0;
+	margin: 0;
+	font-size: .85em;
+	line-height: 16px;
+	font-family: Verdana, sans-serif;
+}
+
+#emcCartographer_wrapper {
+	position: relative;
+}
+
+/***** LAYERS *****/
+.emcCartographer_layer_marker,
+.emcCartographer_layer_map {
+	position: absolute;
+}
+
+.emcCartographer_layer_marker {
+	z-index: 1000;
+}
+
+.emcCartographer_layer_map {
+	z-index: 500;
+}
+
+/***** MARKER *****/
+.emcCartographer_marker {
+	position: absolute;
+	cursor: pointer;
+}
+
+.emcCartographer_marker_placeholder {
+	background-color: red;
+	width: 16px;
+	height: 16px;
+}
+
+.emcCartographer_marker:hover .emcCartographer_marker_icon {
+	opacity: 0;
+}
+
+.emcCartographer_marker:hover .emcCartographer_marker_icon_hover {
+	opacity: 1;
+}
+
+.emcCartographer_marker_icon,
+.emcCartographer_marker_icon_hover {
+	position: absolute;
+	opacity: 1;
+}
+
+.emcCartographer_marker_icon {
+	z-index: 10;
+}
+
+.emcCartographer_marker_icon_hover {
+	z-index: 5;
+	opacity: 0;
+}
+
+/***** TOOLTIP *****/
+.emcCartographer_tooltip {
+	padding: 5px 10px;
+	border-radius: 5px;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.emcCartographer_tooltip .ui-tooltip-titlebar {
+	padding: 5px 0;
+	font-size: 1.3em;
+}
+
+.emcCartographer_tooltip .ui-tooltip-content {
+	padding: 0;
+	border: 0 none;
+	overflow: auto;
+	margin: 0 auto;
+	outline: none;
+}
+
+.emcCartographer_tooltip .ui-tooltip-content p:first-child {
+	margin: 0;
+}
+
+.emcCartographer_tooltip .ui-tooltip-content a {
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.emcCartographer_tooltip .ui-tooltip-content a:hover {
+	text-decoration: underline;
+}
+
+.slimScrollBar {
+	cursor: pointer;
+}
+
+.slimScrollDiv {
+	height: auto !important;
+}
+
+/***** WORKSPACE *****/
+
+.ui-tooltip, .qtip{
+position: absolute;
+left: -28000px;
+top: -28000px;
+display: none;
+}
+
+.ui-tooltip-fluid{
+	display: block;
+	visibility: hidden;
+	position: static !important;
+	float: left !important;
+}
+
+.ui-tooltip-content{
+	position: relative;
+	overflow: hidden;
+	text-align: left;
+	word-wrap: break-word;
+	overflow: hidden;
+}
+
+.ui-tooltip-titlebar{
+	position: relative;
+	/* min-height: 14px; */
+	height: 16px;
+	padding: 5px 35px 5px 10px;
+	overflow: hidden;
+
+	border-width: 1px 1px 0;
+
+	font-weight: bold;
+}
+
+.ui-tooltip-titlebar + .ui-tooltip-content{ border-top-width: 0px !important; }
+	.ui-tooltip-titlebar .ui-state-default{
+		position: absolute;
+		right: 4px;
+		top: 50%;
+		margin-top: -9px;
+
+		cursor: pointer;
+		outline: medium none;
+
+		border-width: 1px;
+		border-style: solid;
+	}
+	
+	* html .ui-tooltip-titlebar .ui-state-default{ top: 16px; }
+
+	.ui-tooltip-titlebar .ui-icon,
+	.ui-tooltip-icon .ui-icon{
+		display: block;
+		text-indent: -1000em;
+	}
+
+	.ui-tooltip-icon, .ui-tooltip-icon .ui-icon{
+		-moz-border-radius: 3px;
+		-webkit-border-radius: 3px;
+		border-radius: 3px;
+	}
+
+		.ui-tooltip-icon .ui-icon{
+			width: 18px;
+			height: 14px;
+
+			text-align: center;
+			text-indent: 0;
+
+			color: inherit;
+			background: transparent none no-repeat -100em -100em;
+		}
+
+
+.ui-tooltip .ui-tooltip-tip{
+margin: 0 auto;
+overflow: hidden;
+z-index: 10;
+}
+
+.ui-tooltip .ui-tooltip-tip,
+.ui-tooltip .ui-tooltip-tip *{
+	position: absolute;
+	
+	line-height: 0.1px !important;
+	font-size: 0.1px !important;
+
+	background: transparent;
+	border: 0px dashed transparent;
+}
+
+.ui-tooltip .ui-tooltip-tip canvas{ top: 0; left: 0; }

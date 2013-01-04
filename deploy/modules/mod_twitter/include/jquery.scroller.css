@@ -1,0 +1,10 @@
+.container {
+	margin: 0 auto;
+	width: 735px;
+}
+ 
+.container .wrap {
+	width: 735px;
+	overflow: hidden;
+	position: relative;
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install type="module" version="1.5.0">
+	<name>Editorial Hubs Banner</name>
+	<author></author>
+	<creationDate></creationDate>
+	<copyright>Copyright (C) 2010 AtomicOnline. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail></authorEmail>
+	<authorUrl>www.joomla.org</authorUrl>
+	<version>1.0</version>
+	<description>Generates Editorial Hubs Banner w/link</description>
+	<files>
+		<filename module="mod_editorial_banner">mod_editorial_banner.php</filename>
+		<filename>index.html</filename>
+	</files>
+	<params>
+		<param name="site" type="text" default="" label="Sponsor" description="Sponsor's name" />
+		<param name="link" type="text" default="" label="Click-through Link" description="Links to..." />
+	</params>
+</install>

@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install type="module" version="1.5" method="upgrade">
+  <name>JoomImages</name>
+  <author>JoomGallery::Project Team</author>
+  <creationDate>16.3.2010</creationDate>
+  <copyright>This module is released under the GNU/GPL License</copyright>
+  <authorEmail>team@joomgallery.net</authorEmail>
+  <authorUrl>www.joomgallery.net</authorUrl>
+  <version>1.5.4</version>
+  <description>JoomImages</description>
+  <files>
+    <filename module="mod_joomimg">mod_joomimg.php</filename>
+    <filename>helper.php</filename>
+    <filename>index.html</filename>
+    <filename>assets/slideshow.js</filename>
+    <filename>assets/mod_joomimg.css</filename>
+    <filename>assets/index.html</filename>
+    <filename>helper/resize.php</filename>
+    <filename>helper/index.html</filename>
+    <filename>tmpl/default.php</filename>
+    <filename>tmpl/slideshow.php</filename>
+    <filename>tmpl/index.html</filename>
+  </files>
+  <languages>
+    <language tag="da-DK">languages/da-DK/da-DK.mod_joomimg.ini</language>
+    <language tag="de-DE">languages/de-DE/de-DE.mod_joomimg.ini</language>
+    <language tag="en-GB">languages/en-GB/en-GB.mod_joomimg.ini</language>
+    <language tag="es-ES">languages/es-ES/es-ES.mod_joomimg.ini</language>
+    <language tag="fr-FR">languages/fr-FR/fr-FR.mod_joomimg.ini</language>
+    <language tag="hu-HU">languages/hu-HU/hu-HU.mod_joomimg.ini</language>
+    <language tag="ja-JP">languages/ja-JP/ja-JP.mod_joomimg.ini</language>
+    <language tag="nb-NO">languages/nb-NO/nb-NO.mod_joomimg.ini</language>
+    <language tag="pt-BR">languages/pt-BR/pt-BR.mod_joomimg.ini</language>
+    <language tag="ru-RU">languages/ru-RU/ru-RU.mod_joomimg.ini</language>
+    <language tag="zh-CN">languages/zh-CN/zh-CN.mod_joomimg.ini</language>
+    <language tag="zh-TW">languages/zh-TW/zh-TW.mod_joomimg.ini</language>
+  </languages>
+  <params>
+    <param description="" label="" default="JIGROUPCOMMON" type="spacer" name="@spacer" />
+    <param name="moduleclass_sfx" type="text" default="" label="Module Class Suffix" description="JIIDENTIFY" />
+    <param name="itemid" type="text" default="" label="JIITEMID" description="JIITEMIDDESC" />
+    <param name="slideshowthis" type="radio" default="0" label="JICHOOSEVIEW" description="JICHOOSEVIEWDESC">
+      <option value="0">Default</option>
+      <option value="1">Slideshow</option>
+    </param>
+    <param name="imagetype" type="list" default="0" label="JITYPIMG" description="JITYPIMGDESC" >
+      <option value="0">Thumbnails</option>
+      <option value="1">JITYPDTL</option>
+      <option value="2">JITYPORG</option>
+    </param>
+    <param name="limit" type="text" default="4" label="JILIMIT" description="JILIMITDESC" />
+    <param name="sorting" type="list" default="rand()" label="JISORTLABEL" description="JISORTDESC">
+      <option value="rand()">JISORTRAND</option>
+      <option value="p.id DESC">JISORTIDDESC</option>
+      <option value="p.id ASC">JISORTIDASC</option>
+      <option value="p.imgtitle DESC">JISORTTITLEDESC</option>
+      <option value="p.imgtitle ASC">JISORTTITELASC</option>
+      <option value="p.imgfilename DESC">JISORTFILENAMEDESC</option>
+      <option value="p.imgfilename ASC">JISORTFILENAMEASC</option>
+      <option value="p.imgdate DESC">JISORTPICDATEDESC</option>
+      <option value="p.imgdate ASC">JISORTPICDATEASC</option>
+      <option value="p.imgcounter DESC">JISORTHITSDESC</option>
+      <option value="p.imgcounter ASC">JISORTHITSASC</option>
+      <option value="vote DESC,p.imgvotesum DESC">JISORTVOTEDESC</option>
+      <option value="vote ASC,p.imgvotesum ASC">JISORTVOTEASC</option>
+      <option value="p.imgvotes DESC">JISORTCOUNTVOTESDESC</option>
+      <option value="p.imgvotes ASC">JISORTCOUNTVOTESASC</option>
+      <option value="commentrand">JISORTRANDCOMMENTS</option>
+      <option value="co.cmtdate DESC">JISORTCOMMENTDATEDESC</option>
+      <option value="co.cmtdate ASC">JISORTCOMMENTDATEASC</option>
+      <option value="cmtcount DESC">JISORTCOMMCOUNTDESC</option>
+      <option value="cmtcount ASC">JISORTCOMMCOUNTASC</option>
+      <option value="n.ndate DESC">JISORTNAMEDATEDESC</option>
+      <option value="n.ndate ASC">JISORTNAMEDATEASC</option>
+    </param>
+    <param name="resultbytime" type="list" default="0" label="JIRESULTBYTIME" description="JIRESULTBYTIMEDESCR">
+      <option value="0">JINO</option>
+      <option value="1">JIRESULTDAY</option>
+      <option value="2">JIRESULTWEEK</option>
+      <option value="3">JIRESULTMONTH</option>
+      <option value="4">JIRESULTYEAR</option>
+      <option value="5">JIRESULTLAST24H</option>
+      <option value="6">JIRESULTLAST7DAYS</option>
+      <option value="7">JIRESULTLAST30DAYS</option>
+      <option value="8">JIRESULTLAST12MONTHS</option>
+    </param>
+    <param name="cats" type="text" default="" label="JICATS" description="JICATSDESCR" />
+    <param name="showorhidecats" type="radio" default="1" label="JICATSSHOW" description="JICATSSHOWDESCR">
+      <option value="0">JIIGNORE</option>
+      <option value="1">JISHOW</option>
+    </param>
+    <param name="dynamiccats" type="radio" default="0" label="JICATSADAPT" description="JICATSADAPTDESCR">
+      <option value="0">JINO</option>
+      <option value="1">JIYES</option>
+    </param>
+    <param description="" label="" default="JIGROUPDEFAULTVIEW" type="spacer" name="@spacer" />
+    <param name="img_per_row" type="text" default="2" label="JICOUNTCOL" description="JICOUNTCOLDESC"/>
+    <param name="piclink" type="radio" default="0" label="JIPICLINK" description="JIPICLINKDESCR">
+      <option value="0">JIDETAILVIEW</option>
+      <option value="1">JICATVIEW</option>
+    </param>
+    <param name="openinbox" type="list" default="0" label="JIOPENINBOX" description="JIOPENINBOXDESCR">
+      <option value="0">JINO</option>
+      <option value="5">JITHICKBOX</option>
+      <option value="6">JISLIMBOX</option>
+    </param>
+    <param name="show_empty_message" type="radio" default="1" label="JINOPICMSG" description="JINOPICMSGDESCR">
+      <option value="0">JINO</option>
+      <option value="1">JIYES</option>
+    </param>
+    <param name="image_position" type="list" default="1" label="JIPOSPIC" description="JIPOSPICDESCR">
+      <option value="0">JIPOSPICNO</option>
+      <option value="1">JIPOSPICABOVE</option>
+      <option value="2">JIPOSPICLEFT</option>
+      <option value="3">JIPOSPICRIGHT</option>
+      <option value="4">JIPOSPICBELOW</option>
+    </param>
+    <param name="crop_img" type="radio" default="0" label="JICROPIMG" description="JICROPIMGDESCR">
+      <option value="0">JINO</option>
+      <option value="1">JIYES</option>
+    </param>
+    <param name="crop_sizewidth" type="text" default="50" label="JICROPSIZEWIDTH" description="JICROPSIZEWIDTHDESCR" />
+    <param name="crop_sizeheight" type="text" default="100" label="JICROPSIZEHEIGHT" description="JICROPSIZEHEIGHTDESCR" />
+    <param name="auto_resize" type="radio" default="0" label="JIAUTRES" description="JIAUTRESDESC">
+      <option value="0">JINO</option>
+      <option value="1">JIYES</option>
+    </param>
+    <param name="auto_resize_max" type="text" default="100" label="JIAUTRESMAX" description="JIAUTRESMAXDESC" />
+    <param name="imgwidth" type="text" default="" label="JIPICWIDTH" description="JIPIWIDTHDESCR" />
+    <param name="imgheight" type="text" default="" label="JIPICHEIGHT" description="JIPICHEIGHTDESCR" />
+    <param name="showtext" type="radio" default="1" label="JITXTSHOW" description="JITXTSHOWDESCR">
+      <option value="0">JINO</option>
+      <option value="1">JIYES</option>
+    </param>
+    <param name="showtitle" type="radio" default="1" label="JITITLESHOW" description="JITITLESHOWDESCR">
+      <option value="0">JINO</option>
+      <option value="1">JIYES</option>
+    </param>
+    <param name="strtitlewrap" type="text" default="0" label="JIBREAKTITLE" description="JIBREAKTITLESHOW" />
+    <param name="showdescription" type="radio" default="1" label="JIPICDESCR" description="JIPICDESCRSHOW">
+      <option value="0">JINO</option>
+      <option value="1">JIYES</option>
+    </param>
+    <param name="strdescount" type="text" default="0" label="JITXTLENGTH" description="JITXTLENGTHDESCR" />
+    <param name="strdeswrap" type="text" default="0" label="JIBREAKTXT" description="JIBREAKTXTDESCR" />
+    <param name="showuser" type="radio" default="0" label="JIUSERSHOW" description="JIUSERSHOWDESCR">
+      <option value="0">JINO</option>
+      <option value="1">JIYES</option>
+    </param>
+    <param name="showcatg" type="radio" default="0" label="JICATSHOW" description="JICATSHOWDESCR">
+      <option value="0">JINO</option>
+      <option value="1">JIYES</option>
+    </param>
+    <param name="showhits" type="radio" default="0" label="JIHITS" description="JIHITSSHOW">
+      <option value="0">JINO</option>
+      <option value="1">JIYES</option>
+    </param>
+    <param name="showvotesum" type="radio" default="0" label="JIVOTESHOW" description="JIVOTESHOWDESCR">
+      <option value="0">JINO</option>
+      <option value="1">JIYES</option>
+    </param>
+    <param name="showvotes" type="radio" default="0" label="JIVOTECOUNTSHOW" description="JIVOTECOUNTSHOWDESCR">
+      <option value="0">JINO</option>
+      <option value="1">JIYES</option>
+    </param>
+    <param name="showimgdate" type="radio" default="0" label="JIPICDATESHOW" description="JIPICDATESHOWDESCR">
+      <option value="0">JINO</option>
+      <option value="1">JIYES</option>
+    </param>
+    <param name="showcmtdate" type="radio" default="0" label="JICOMMDATESHOW" description="JICOMMDATESHOWDESCR">
+      <option value="0">JINO</option>
+      <option value="1">JIYES</option>
+    </param>
+    <param name="showcmttext" type="radio" default="0" label="JICOMMTXTSHOW" description="JICOMMTXTSHOWDESCR">
+      <option value="0">JINO</option>
+      <option value="1">JIYES</option>
+    </param>
+    <param name="showcmtcount" type="radio" default="0" label="JICOMMCOUNTSHOW" description="JICOMMCOUNTSHOWDESCR">
+      <option value="0">JINO</option>
+      <option value="1">JIYES</option>
+    </param>
+    <param name="strcmtcount" type="text" default="0" label="JICOMMTXTLENGTH" description="JICOMMTXTLENGTHDESCR"/>
+    <param name="strcmtwrap" type="text" default="0" label="JICOMMBREAK" description="JICOMMBREAKDESCR" />
+    <param name="showcmtmore" type="radio" default="0" label="JICOMMLINK" description="JICOMMLINKDESCR">
+      <option value="0">JINO</option>
+      <option value="1">JIYES</option>
+    </param>
+    <param name="scrollthis" type="radio" default="0" label="JIPICSCROLL" description="JIPICSCROLLDESCR">
+      <option value="0">JINO</option>
+      <option value="1">JIYES</option>
+    </param>
+    <param name="scrolldirection" type="list" default="left" label="JIPICSCROLLDIR" description="JIPICSCROLLDIRDESCR">
+      <option value="left">JISCROLLLEFT</option>
+      <option value="right">JISCROLLRIGHT</option>
+      <option value="up">JISCROLLTOP</option>
+      <option value="down">JISCROLLBOTTOM</option>
+    </param>
+    <param name="scrollheight" type="text" default="250" label="JIPICSCROLLHEIGHT" description="JIPICSCROLLHEIGHTDESCR" />
+    <param name="scrollwidth" type="text" default="230" label="JIPICSCROLLWIDTH" description="JIPICSCROLLWIDTHDESCR" />
+    <param name="scrollamount" type="text" default="1" label="JIPICSCROLLAMOUNT" description="JIPICSCROLLAMOUNTDESCR" />
+    <param name="scrolldelay" type="text" default="10" label="JIPICSCROLLDELAY" description="JIPICSCROLLDELAYDESCR" />
+    <param name="scrollmouse" type="radio" default="1" label="JIPICSCROLLMOUSESTOP" description="JIPICSCROLLMOUSESTOPDESCR">
+      <option value="0">JINO</option>
+      <option value="1">JIYES</option>
+    </param>
+    <param name="dir_hor" type="list" default="left" label="JITABLEHORIZ" description="JITABLEHORIZDESCR">
+      <option value="left">JILEFT</option>
+      <option value="center">JIMIDDLE</option>
+      <option value="right">JIRIGHT</option>
+      <option value="justify">JIJUSTIFY</option>
+    </param>
+    <param name="dir_vert" type="list" default="top" label="JITABLEVERTIC" description="">
+      <option value="top">JIABOVE</option>
+      <option value="middle">JIMIDDLE</option>
+      <option value="bottom">JIBELOW</option>
+    </param>
+    <param name="sectiontableentry" type="radio" default="0" label="JISECTABLENTRY" description="JISECTABLENTRYDESCR">
+      <option value="0">JINO</option>
+      <option value="1">JIYES</option>
+    </param>
+    <param name="border" type="radio" default="0" label="JICSSBORDER" description="JICSSBORDERDESCR">
+      <option value="0">JINO</option>
+      <option value="1">JIYES</option>
+    </param>
+    <param name="borderwidth" type="text" default="2px" label="JICSSBRDWIDTH" description="JICSSBRDWIDTHDESCR" />
+    <param name="borderstyle" type="list" default="solid" label="JICSSBRDSTYLE" description="JICSSBRDSTYLEDESCR">
+      <option value="solid">solid</option>
+      <option value="dotted">dotted</option>
+      <option value="dashed">dashed</option>
+      <option value="double">double</option>
+      <option value="groove">groove</option>
+      <option value="ridge">ridge</option>
+      <option value="inset">inset</option>
+      <option value="outset">outset</option>
+    </param>
+    <param name="bordercolor" type="text" default="#000" label="JICSSBRDCOL" description="JICSSBRDCOLDESCR" />
+    <param name="borderpadding" type="text" default="2px" label="JICSSBRDPAD" description="JICSSBRDPADDESCR" />
+    <param description="" label="" default="JIGROUPSLIDESHOWVIEW" type="spacer" name="@spacer" />
+    <param name="width" type="text" default="430" label="JISLIDESHOWWIDTH" description="JISLIDESHOWWIDTDESC" />
+    <param name="height" type="text" default="300" label="JISLIDESHOWHEIGHT" description="JISLIDESHOWHEIGHTDESC" />
+    <param name="piclinkslideshow" type="radio" default="0" label="JIPICLINK" description="JIPICLINKSHOWDESCR">
+      <option value="0">JINO</option>
+      <option value="1">JIYES</option>
+    </param>
+    <param name="loadingDiv" type="radio" default="1" label="JISLIDESHOWPROGBAR" description="JISLIDESHOWPROGBARDESC">
+      <option value="0">JINO</option>
+      <option value="1">JIYES</option>
+    </param>
+    <param name="showCaption" type="radio" default="1" label="JISLIDESHOWCAP" description="JISLIDESHOWCAPDESC">
+      <option value="0">JINO</option>
+      <option value="1">JIYES</option>
+    </param>
+    <param name="showTitleCaption" type="radio" default="1" label="JISLIDESHOWTITLE" description="JISLIDESHOWTITLEDESC">
+      <option value="0">JINO</option>
+      <option value="1">JIYES</option>
+    </param>
+    <param name="heightCaption" type="text" default="45" label="JISLIDESHOWCAPHGHT" description="JISLIDESHOWCAPHGHTDESC" />
+    <param name="titleSize" type="text" default="13px" label="JISLIDESHOWTLSIZE" description="JISLIDESHOWTLSIZEDESC" />
+    <param name="titleColor" type="text" default="#fff" label="JISLIDESHOWTLCOL" description="JISLIDESHOWTLCOLDESC" />
+    <param name="descSize" type="text" default="11px" label="JISLIDESHOWDESSIZE" description="JISLIDESHOWDESSIZEDESC" />
+    <param name="descColor" type="text" default="#ccc" label="JISLIDESHOWDESCOL" description="JISLIDESHOWDESCOLDESC" />
+    <param name="imageResize" type="radio" default="1" label="JISLIDESHOWDYNRESIZE" description="JISLIDESHOWDYNRESIZEDESC">
+      <option value="0">JINO</option>
+      <option value="1">JIYES</option>
+    </param>
+    <param name="imageDuration" type="text" default="9000" label="JISLIDESHOWIMGDUR" description="JISLIDESHOWIMGDURDESC" />
+    <param name="transDuration" type="text" default="2000" label="JISLIDESHOWTRANSDUR" description="JISLIDESHOWTRANSDURDESC" />
+    <param name="transType" type="list" default="combo" label="JISLIDESHOWTRANSTYP" description="JISLIDESHOWTRANSTYPDESC">
+      <option value="fade">JISLIDESHOWTRANSFADE</option>
+      <option value="zoom">JISLIDESHOWTRANSZOOM</option>
+      <option value="pan">JISLIDESHOWTRANSPAN</option>
+      <option value="combo">JISLIDESHOWTRANSCMB</option>
+      <option value="push">JISLIDESHOWTRANSPSH</option>
+      <option value="wipe">JISLIDESHOWTRANSWIP</option>
+    </param>
+    <param name="pan" type="text" default="50" label="JISLIDESHOWPANPERC" description="JISLIDESHOWPANPERCDESC" />
+    <param name="zoom" type="text" default="50" label="JISLIDESHOWZOMPERC" description="JISLIDESHOWZOMPERCDESC" />
+    <param name="transition" type="list" default="Expo.easeOut" label="JISLIDESHOWTRANSTYP2" description="JISLIDESHOWTRANSTYP2DESC">
+      <option value="linear">linear</option>
+      <option value="Quad.easeOut">Quad.easeOut</option>
+      <option value="Quad.easeIn">Quad.easeIn</option>
+      <option value="Quad.easeInOut">Quad.easeInOut</option>
+      <option value="Cubic.easeOut">Cubic.easeOut</option>
+      <option value="Cubic.easeIn">Cubic.easeIn</option>
+      <option value="Cubic.easeInOut">Cubic.easeInOut</option>
+      <option value="Quart.easeOut">Quart.easeOut</option>
+      <option value="Quart.easeIn">Quart.easeIn</option>
+      <option value="Quart.easeInOut">Quart.easeInOut</option>
+      <option value="Quint.easeOut">Quint.easeOut</option>
+      <option value="Quint.easeIn">Quint.easeIn</option>
+      <option value="Quint.easeInOut">Quint.easeInOut</option>
+      <option value="Expo.easeOut">Expo.easeOut</option>
+      <option value="Expo.easeIn">Expo.easeIn</option>
+      <option value="Expo.easeInOut">Expo.easeInOut</option>
+      <option value="Circ.easeOut">Circ.easeOut</option>
+      <option value="Circ.easeIn">Circ.easeIn</option>
+      <option value="Circ.easeInOut">Circ.easeInOut</option>
+      <option value="Sine.easeOut">Sine.easeOut</option>
+      <option value="Sine.easeIn">Sine.easeIn</option>
+      <option value="Sine.easeInOut">Sine.easeInOut</option>
+      <option value="Back.easeOut">Back.easeOut</option>
+      <option value="Back.easeIn">Back.easeIn</option>
+      <option value="Back.easeInOut">Back.easeInOut</option>
+      <option value="Bounce.easeOut">Bounce.easeOut</option>
+      <option value="Bounce.easeIn">Bounce.easeIn</option>
+      <option value="Bounce.easeInOut">Bounce.easeInOut</option>
+      <option value="Elastic.easeOut">Elastic.easeOut</option>
+      <option value="Elastic.easeIn">Elastic.easeIn</option>
+      <option value="Elastic.easeInOut">Elastic.easeInOut</option>
+    </param>
+  </params>
+</install>

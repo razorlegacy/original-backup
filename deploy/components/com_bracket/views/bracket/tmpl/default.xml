@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="Bracket ID">
+		<message>
+			<![CDATA[STANDARD POLL LAYOUT DESC]]>
+		</message>
+	</layout>
+	<state>
+		<name>Bracket ID</name>
+		<description>Get Bracket ID to display</description>
+		<params>
+			<param name="cid" type="text" default="" label="Bracket ID to display" description="" size="10" />
+		</params>
+	</state>
+</metadata>

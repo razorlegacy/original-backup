@@ -1,0 +1,125 @@
+.websvc_hidden {
+	display: none;
+}
+
+
+.inputContainer{position:relative; float:left;}
+.formError {
+	position:absolute;
+	top:300px; left:300px;
+	padding-bottom:13px;
+	display:block;
+	z-index:5000;
+	cursor:pointer;
+}
+
+#debugMode{
+	background:#000;
+	position:fixed;
+	width:100%; height:200px;
+	top:0; left:0;
+	overflow:scroll;
+	opacity:0.8;
+	display:block;
+	padding:10px;
+	color:#fff;
+	font-size:14px;
+	z-index:100000;
+}
+
+.ajaxSubmit{ padding:20px; background:#55ea55;border:1px solid #999;display:none}
+.formError .formErrorContent {
+	width:100%; 
+	background:#ee0101;
+	color:#fff;
+	width:150px;
+	font-family:tahoma;
+	font-size:11px;
+	border:2px solid #ddd;
+	box-shadow: 0px 0px 6px #000;
+	-moz-box-shadow: 0px 0px 6px #000;
+	-webkit-box-shadow: 0px 0px 6px #000;
+	padding:4px 10px 4px 10px;
+	border-radius: 6px;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+}
+.greenPopup .formErrorContent {background:#33be40;}
+
+.blackPopup .formErrorContent {background:#393939;color:#FFF;}
+
+.formError .formErrorArrow{
+	width:15px;
+	margin:-2px 0 0 13px;
+	z-index:5001;
+}
+.formError .formErrorArrowBottom{top:0;margin:-6px;}
+
+.formError .formErrorArrow div{
+	border-left:2px solid #ddd;
+	border-right:2px solid #ddd;
+	box-shadow: 0px 2px 3px #444;
+	-moz-box-shadow: 0px 2px 3px #444;
+	-webkit-box-shadow: 0px 2px 3px #444;
+	font-size:0px; height:1px; background:#ee0101;margin:0 auto;line-height:0px; font-size:0px; display:block;
+}
+
+.formError .formErrorArrowBottom div{
+	box-shadow: none;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+}
+	
+.greenPopup .formErrorArrow div{background:#33be40;}
+.blackPopup .formErrorArrow div{background:#393939;color:#FFF;}
+
+.formError .formErrorArrow .line10{width:15px;border:none;} 
+.formError .formErrorArrow .line9{width:13px;border:none;} 
+.formError .formErrorArrow .line8{width:11px;} 
+.formError .formErrorArrow .line7{width:9px;} 
+.formError .formErrorArrow .line6{width:7px;} 
+.formError .formErrorArrow .line5{width:5px;} 
+.formError .formErrorArrow .line4{width:3px;} 
+.formError .formErrorArrow .line3{width:1px;
+	border-left:2px solid #ddd;
+	border-right:2px solid #ddd;
+	border-bottom:0px solid #ddd;} 
+.formError .formErrorArrow .line2{width:3px;border:none;background:#ddd;}
+.formError .formErrorArrow .line1{width:1px;border:none;background:#ddd;}
+
+/*
+    ColorBox Core Style
+    The following rules are the styles that are consistant between themes.
+    Avoid changing this area to maintain compatability with future versions of ColorBox.
+*/
+#colorbox, #cboxOverlay, #cboxWrapper{position:absolute; top:0; left:0; z-index:9999; overflow:hidden;}
+#cboxOverlay{position:fixed; width:100%; height:100%;}
+#cboxMiddleLeft, #cboxBottomLeft{clear:left;}
+#cboxContent{position:relative;}
+#cboxLoadedContent{overflow:auto;}
+#cboxLoadedContent iframe{display:block; width:100%; height:100%; border:0;}
+#cboxTitle{margin:0;}
+#cboxLoadingOverlay, #cboxLoadingGraphic{position:absolute; top:0; left:0; width:100%;}
+#cboxPrevious, #cboxNext, #cboxClose, #cboxSlideshow{cursor:pointer;}
+
+/* 
+    ColorBox example user style
+    The following rules are ordered and tabbed in a way that represents the
+    order/nesting of the generated HTML, so that the structure easier to understand.
+*/
+#cboxOverlay{background:#000;}
+
+#colorbox{}
+#cboxContent{margin-top:20px;}
+#cboxLoadedContent{background:#fff; padding:5px;}
+#cboxTitle{position:absolute; top:-20px; left:0; color:#ccc;}
+#cboxCurrent{position:absolute; top:-20px; right:0px; color:#ccc;}
+#cboxSlideshow{position:absolute; top:-20px; right:90px; color:#fff;}
+#cboxPrevious{position:absolute; top:50%; left:5px; margin-top:-32px; background:url(http://webservices.evolvemediacorp.com/websvc/images/controls.png) top left no-repeat; width:28px; height:65px; text-indent:-9999px;}
+#cboxPrevious.hover{background-position:bottom left;}
+#cboxNext{position:absolute; top:50%; right:5px; margin-top:-32px; background:url(http://webservices.evolvemediacorp.com/websvc/images/controls.png) top right no-repeat; width:28px; height:65px; text-indent:-9999px;}
+#cboxNext.hover{background-position:bottom right;}
+#cboxLoadingOverlay{background:#000;}
+#cboxLoadingGraphic{background:url(images/loading.gif) center center no-repeat;}
+#cboxClose{position:absolute; top:5px; right:5px; display:block; background:url(http://webservices.evolvemediacorp.com/websvc/images/controls.png) top center no-repeat; width:38px; height:19px; text-indent:-9999px;}
+#cboxClose.hover{background-position:bottom center;}

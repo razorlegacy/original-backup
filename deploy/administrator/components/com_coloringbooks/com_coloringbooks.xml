@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<!--<!DOCTYPE install SYSTEM "http://dev.joomla.org/xml/1.5/component-install.dtd">--> 
+<install type="component" version="1.5.0"> 
+            <!-- Component name --> 
+            <name>Greetings</name> 
+            
+            <!-- Optional  --> 
+            <creationDate>2011 03 14</creationDate> 
+            <author>Patrick Weygand</author> 
+            <authorEmail>patrick.weygand(at)gorillanation.com</authorEmail> 
+            <version>1.0</version> 
+            <description>Greetings component</description> 
+            <!-- Optional  -->
+            <!-- Install Database Section --> 
+            <install> 
+                        <sql> 
+                                   <file charset="utf8" driver="mysql">install.sql</file> 
+                        </sql> 
+            </install> 
+            
+            <!-- Uninstall Database Section --> 
+            <uninstall> 
+                        <sql> 
+                                   <file charset="utf8" driver="mysql">uninstall.sql</file> 
+                        </sql> 
+            </uninstall>
+            <!-- Custom Install Script to execute --> 
+            <installfile>install.php</installfile> 
+            
+            <!-- Custom Uninstall Script to execute --> 
+            <uninstallfile>uninstall.php</uninstallfile>
+            <!-- Files that go to the frontend --> 
+            <files folder="site"> 
+                        <filename>greetings.php</filename> 
+                        <filename>greetingsController.php</filename> 
+                        <filename>views/greetings/view.html.php</filename> 
+                        <filename>views/greetings/tmpl/default.php</filename> 
+                        <filename>models/greetings.php</filename> 
+            </files>
+ 
+            <!-- Files that go to the backend --> 
+            <administration> 
+                        <!-- Administration Menu Section --> 
+                        <menu>Coloring Books</menu>                
+                        <submenu> 
+                                   <menu task="display" layout="listlayout">List Books</menu> 
+                                   <menu link="option=com_greetings&amp;task=add">New</menu>                    
+                        </submenu> 
+                        
+                        <!-- Administration Main File Copy Section --> 
+                        <files folder="admin"> 
+                                   <filename>admin.greetings.php</filename> 
+                                   <filename>greetingsController.php</filename> 
+                                   <filename>models/greetings.php</filename> 
+                                   <filename>tables/greetings.php</filename> 
+                                   <filename>views/greetingform/view.php</filename> 
+                                   <filename>views/greetingform/tmpl/greetingformlayout.php</filename> 
+                                   <filename>views/list/view.php</filename> 
+                                   <filename>views/list/tmpl/listlayout.php</filename> 
+                                   <filename>install.sql</filename>                              
+                                   <filename>uninstall.sql</filename> 
+                                   <filename>install.php</filename>                            
+                                   <filename>uninstall.php</filename>  
+                        </files> 
+            </administration>
+</install>

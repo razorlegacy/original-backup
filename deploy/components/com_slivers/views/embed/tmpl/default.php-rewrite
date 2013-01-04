@@ -1,0 +1,891 @@
+<?php /* vim: set filetype=javascript: */ defined('_JEXEC') or die('Restricted access'); ?>
+var ao_sliver = function (spec, my) {
+	my = my || {};
+
+	// mini-interface to the cookies
+	my.storage = {
+		store: function (name, value, days) {
+			var expires;
+			if (days) {
+				var date = new Date();
+				date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+				expires = "; expires=" + date.toGMTString();
+			} else {
+				expires = "";
+			}
+			my.document['coo' + 'kie'] = name + "=" + value + expires + "; path=/";
+		},
+		read: function (name) {
+			name = name || 'sliver_open';
+			var nameEQ = name + "=";
+			var ca = my.document['coo' + 'kie'].split(';');
+			var i;
+			for (i = 0; i < ca.length; i++) {
+				var c = ca[i];
+				while (c.charAt(0) === ' ') {
+					c = c.substring(1, c.length);
+				}
+				if (c.indexOf(nameEQ) === 0) {
+					return c.substring(nameEQ.length, c.length);
+				}
+			}
+			return false;
+		}
+	};
+
+	my.report = function (action, state) {
+		var ao_testing = false;
+		if (!ao_testing) {
+			return { send: function () {} };
+		}
+		var dbs = my.body.style;
+		var report = {
+			url: window.location.toString(),
+			ua: navigator.userAgent,
+			/*browser: navigator.appName,
+			browser_version: navigator.appVersion,
+			vendor: navigator.vendor,
+			vendorSub: navigator.vendorSub,
+			product: navigator.product,
+			productSub: navigator.productSub,*/
+			action: action,
+			state: state,
+			cssText: dbs.cssText,
+			send: function () {
+				var reqlist = [],
+					i;
+				for (i in this) {
+					if (this.hasOwnProperty(i) && i !== 'send') {
+						reqlist.push(encodeURIComponent(i) + '=' + encodeURIComponent(this[i]));
+					}
+				}
+				var reqstring = reqlist.join('&');
+				//var host = 'localhost';
+				var url = window.location.protocol + '//' + window.location.hostname + '/joomla/components/com_slivers/cssprops.php';
+
+				var makeRequest = function (url, params) {
+					var httpRequest;
+					if (window.XMLHttpRequest) { // Mozilla, Safari, ...
+						httpRequest = new XMLHttpRequest();
+					} else if (window.ActiveXObject) { // IE
+						try {
+							httpRequest = new ActiveXObject("Msxml2.XMLHTTP");
+						} catch (e) {
+							try {
+								httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
+							} catch (ev) {}
+						}
+					}
+
+					if (!httpRequest) {
+						return false;
+					}
+					httpRequest.onreadystatechange = function () {};
+					httpRequest.open('POST', url);
+					httpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+					httpRequest.send(params);
+				};
+
+				makeRequest(url, reqstring);
+			}
+		};
+		report.currentstyle = Boolean(my.document.documentElement.currentStyle);
+		report.getComputedStyle = Boolean(my.document.defaultView && my.document.defaultView.getComputedStyle); 
+		// Computed vals
+		// TODO: replace with direct methods
+		report.hi = my.getBGPos(my.body, 'background-position');	
+		report.hi_y = my.getBGPos(my.body, 'background-position-y');	
+
+		report.camel = my.getBGPos(my.body, 'backgroundPosition');	
+		report.camel_y = my.getBGPos(my.body, 'backgroundPositionY');
+
+		// Inline vals
+		report.i_hi = dbs['background-position'];
+		report.i_hi_y = dbs['background-position-y'];
+		report.i_camel = dbs.backgroundPosition;
+		report.i_camel_y = dbs.backgroundPositionY;
+
+
+		return report;
+	};
+
+	/** elem is a DOM element that you want to adjust the vertical background position on
+	* delta is an integer value in pixels that you would like to adjust the background by
+	* NOTE: This is adjusted immediately. For animations this is meant to be called at each successive 
+	* step of the animation.
+	*/
+	my.adjustBGYPosition = function (delta, elem) {
+		elem = elem || my.body;
+		var bg_position = my.getBGPos();
+		if (bg_position.y !== null) {
+			elem.style.backgroundPosition = bg_position.x + ' ' + (delta + bg_position.y) + "px";
+		}
+
+	};
+
+	my.getCompProp = (function () {
+
+		var ao_rupper = /([A-Z]|^ms)/g,
+			ao_rnumpx = /^-?\d+(?:px)?$/i,
+			ao_rnum = /^-?\d/,
+			ao_rpct = /%$/,
+			px,
+			getComputedStyle,
+			currentStyle;
+
+		/**
+		 * Return position in pixels
+		 */
+		px = function (elem, ret) {
+			var left,
+				rsLeft = elem.runtimeStyle && elem.runtimeStyle[name],
+				style = elem.style;
+			// A bit of logic for normalizing single or double value background properties
+			var retY = ret;
+			var retArry = ret.split(' ', 2);
+			if (retArry.length > 1) {
+				retY = retArry[1];
+			} else {
+				retY = retArry[0];
+			}
+
+			// if not 0, a pixel property, percentage, but still a number, try to get a pixel value out.
+			// From the awesome hack by Dean Edwards
+			// http://erik.eae.net/archives/2007/07/27/18.54.15/#comment-102291
+			if (!ao_rnumpx.test(retY) && ao_rnum.test(retY) && !ao_rpct.test(retY)) {
+				// Remember the original values
+				left = style.left;
+
+				// Put in the new values to get a computed value out
+				if (rsLeft) {
+					elem.runtimeStyle.left = elem.currentStyle.left;
+				}
+				style.left = name === "fontSize" ? "1em" : (retY || 0);
+				retY = style.pixelLeft + "px";
+
+				// Revert the changed values
+				style.left = left;
+				if (rsLeft) {
+					elem.runtimeStyle.left = rsLeft;
+				}
+				//my own little bit of logic - not sure if its a correct assumption
+			} else if (retY === 'top' || retY === '0%') {
+				retY = '0px';
+			}
+
+			// Whatever it came in as it's got to go out as
+			if (retArry.length > 1) {
+				retArry[1] = retY;
+				ret = retArry.join(' ');
+			} else {
+				ret = retY;
+			}
+			return ret;
+		};
+
+		// get the computed style the W3C way
+		if (my.document.defaultView && my.document.defaultView.getComputedStyle) {
+			getComputedStyle = function (elem, name) {
+				var ret, defaultView, computedStyle;
+
+				name = name.replace(ao_rupper, "-$1").toLowerCase();
+
+				if (!(defaultView = elem.ownerDocument.defaultView)) {
+					return undefined;
+				}
+
+				if ((computedStyle = defaultView.getComputedStyle(elem, null))) {
+					ret = computedStyle.getPropertyValue(name);
+				}
+
+				if (name === 'background-position' || name === 'background-position-y') {
+					ret = px(elem, ret, name);
+				}
+
+				return ret;
+			};
+		}
+
+		// Get the computed style the IE < 9 way
+		if (my.document.documentElement.currentStyle) {
+			currentStyle = function (elem, name) {
+				var ret = elem.currentStyle && elem.currentStyle[name];
+				ret = px(elem, ret);
+
+				return ret === "" ? "auto" : ret;
+			};
+		}
+
+		// If we can use the W3C way, do so otherwise fall back to IE
+		var curCSS = getComputedStyle || currentStyle;
+		return curCSS;
+	})();
+
+	my.setElementHeight = function (el, height) {
+		var preWrapperHeight = my.getCompProp(my.sliverWrapper, 'height');
+		el.style.height = height + 'px';
+		var postWrapperHeight = my.getCompProp(my.sliverWrapper, 'height');
+		var delta = postWrapperHeight - preWrapperHeight;
+		if (delta) {
+			my.adjustBGYPosition(delta);
+		}
+	};
+
+	my.animation = {};
+	my.animation.animate = function (el, from, to, animation, duration, resolution) {
+		//TODO: this could be simplified and more stringent.
+		if ('string' === typeof animation) {
+			animation = my.animation.ease[animation];
+		}
+		animation = animation || my.animation.ease.easeOutQuad;
+		// throw exception if not function?
+
+		duration = duration || 400;
+		resolution = resolution || 25;
+		var difference = to - from,
+			t = 0,
+			step,
+			anim;
+
+		t = 0;
+		step = function () {
+			var height = animation(null, t, from, difference, duration);
+			my.setElementHeight(el, height);
+			t++;
+			if (t >= duration) {
+				window.clearInterval(anim);
+			}
+		};
+		anim = window.setInterval(step, resolution);
+		return this;
+	};
+
+	/**
+	 * Get the background Position of a dom element in pixels as an integer.
+	 * Only the Y position is converted.
+	 * @param {DOMElement} [el=document.body] If not specified the element is assumed to be document.body
+	 */
+	my.getBGPos = function (el) {
+	
+		if (!el) {
+			el = my.body;
+		}
+
+		var pixelvalueregex = /^(?:(-?\d+)px|0%)$/;
+		
+		/*
+		 * First try background-position-y.
+		 * It's a MS property which if set in IE9 does not
+		 * also set the second property of background position.
+		 * Making it, oddly enough, this the more reliable way of 
+		 * retrieving the true value.
+		 */
+		var bg_position = {x: null, y: null};
+		bg_position.x = my.getCompProp(el, 'background-position-x');
+		bg_position.y = my.getCompProp(el, 'background-position-y');
+
+		// Fallback to the correct way of retrieving bg position
+		if (bg_position.x === '' && bg_position.y === '') {
+			// Not sure if its safe to call split here w/o checking curCSS returned properly.
+			var bg_position_list = my.getCompProp(el, 'background-position').split(' ', 2);
+			bg_position.x = bg_position_list[0];
+			bg_position.y = bg_position_list[1];
+		}
+
+		var pixelvalue = bg_position.y.match(pixelvalueregex);
+		if (pixelvalue !== null) {
+			bg_position.y = parseInt(pixelvalue[1], 10);
+		}
+
+		return bg_position;
+	};
+
+	/**
+	 * Call insert when you are ready to create the sliver
+	 */
+	var insert = function () {
+		var slivercss,
+			sliverWrapper,
+			initial_height,
+			iHTML,
+			i,
+			button,
+			tmp_img;
+
+		 // Returns a style tag for the sliver
+		slivercss = function (currentActionbarURL) {
+			var aoCSS = [
+				'<style type="text/css">',
+
+		//		'body { margin-top: 0; }',
+
+				'#ao_sliver_header {',
+				'overflow:hidden;',
+				'position:relative;',
+				'width:100%;',
+				'margin:0px auto;',
+				'padding:0;',
+				'}',
+
+				'#ao_sliver_header a {',
+				'text-decoration:none;',
+				'margin:0;',
+				'border:0;',
+				'}',
+
+				'#ao_wrapper {',
+				//'height:100%;',
+				'position:relative;',
+				//'width:100%;',
+				'overflow:visible;',
+				'}',
+				'#ao_sliver_header a img {',
+				'vertical-align:text-bottom;',
+				'}',
+
+				'#ao_sliver_actionbar {',
+				'background: ' + spec.actionbar.color + ' url(' + currentActionbarURL + ') no-repeat center top;',
+				//'height: ' + spec.actionbar.height + 'px;',
+				'position:absolute;',
+				'bottom: 0px;',
+				'width:100%;',
+				'left:0px;',
+				'z-index: 20000;',
+				'}',
+
+				'#ao_sliver_header .ao_sliver_button{ position: absolute; cursor: pointer; }',
+				'#ao_sliver_rollover_container { width: 1000px; margin: 0 auto; position: relative; }'
+			];
+
+			if (spec.abdisappear) {
+				aoCSS.push('#ao_wrapper { z-index: 100; height: ' + (spec.starts_opened ? '100%' : 0) + '; overflow: hidden;}',
+					'#ao_sliver_actionbar { z-index: 99; top: 0; bottom: auto; }');
+			}
+			
+			aoCSS.push(
+				'</' + 'style>'
+			);
+
+			return aoCSS.join('');
+		};
+
+		// Is the Body accessible yet?
+		// Lets make it so we can break out of an infinite loop if for some
+		// odd reason the body is never present.
+		if (!my.body.length) {
+			return;
+		}
+
+		iHTML = [
+			'<div id="ao_wrapper"></div><div id="ao_sliver_actionbar"><div id="ao_sliver_rollover_container">'
+		];
+
+		// Create buttons
+		for (i = 0, button; button = spec.buttons[i]; i++) {
+			if (button.area === 'actionbar') {
+				var href = '';
+				if (button.action === 'link' || button.action === 'dfplink') {
+					href = 'href="' + button.url + '" ';
+				}
+
+				var buttonStyleAttrib = ' style="left:' + button.x_offset + 'px;top:' + button.y_offset + 'px;width:' + button.width + 'px;height:' + button.height + 'px;"';
+
+				//consider making anchor tag when link for maximum compatibility.
+				iHTML.push('<div id="' + button.name + '_' + button.id + '" ' + href + 'class="ao_sliver_button" ' + buttonStyleAttrib + '></div>');
+			} else {
+				// This is where I'll put the html sliver buttons code
+				console.log('here');
+			}
+		}
+
+		//close rollover container and ao_sliver_actionbar
+		iHTML.push('</div></div>');
+
+		// put content in ao_sliver_header
+		sliverWrapper.innerHTML = iHTML.join('') + slivercss(spec.actionbar.current_background);
+
+		my.sliverDOM = my.document.getElementById('ao_wrapper');
+		my.abDOM = my.document.getElementById('ao_sliver_actionbar');
+		my.buttonContainerDOM = my.document.getElementById('ao_sliver_rollover_container');
+
+		// Setup the initial sliver and actionbar heights
+		initial_height = spec.starts_opened ? spec.sliver_height_open : spec.sliver_height_closed;
+		my.setElementHeight(my.sliverDOM, initial_height);
+		my.setElementHeight(my.abDOM, spec.ab_height_open);
+
+		// attaching onclick/rollover actions for buttons
+		for (i = 0, button = undefined; button = spec.buttons[i]; i++) {
+			if (button.area === 'actionbar') {
+				var dom_button = my.document.getElementById(button.name + '_' + button.id);
+				dom_button[my.events[button.on]] = my.actions[button.action];
+			}
+		}
+
+		/* Guess the width of the action bar based on its image
+		 * ao_sliver_rollover_container is poorly named it is the container for 
+		 * buttons, thats it.
+		 */
+		tmp_img = my.document.createElement('img');
+		tmp_img.onload = function () {
+			var ab_width = tmp_img.width || tmp_img.naturalWidth;
+			tmp_img = undefined;
+			my.buttonContainerDOM.style.width = ab_width + 'px';
+		};
+
+		//Set background image for actionbar on a temp image in order to gather its dimensions
+		tmp_img.setAttribute('src', spec.actionbar.current_background);
+
+		//stop polling
+		//Do we still need polling if we don't load until the DOM is ready? Was that the purpose of polling?
+		window.clearInterval(my.shPollVH);
+	};
+
+	my.insert = insert;
+
+	my.isReady = false;
+	var init = function () {
+		var prepReadyEvent = function () {
+			var doScrollCheck = function () {
+				if ( my.isReady ) {
+					return;
+				}
+
+				try {
+					// If IE is used, use the trick by Diego Perini
+					// http://javascript.nwbox.com/IEContentLoaded/
+					my.document.documentElement.doScroll("left");
+				} catch (e) {
+					setTimeout(doScrollCheck, 1);
+					return;
+				}
+
+				// and execute any waiting functions
+				my.ready();
+			};
+
+			if (my.document.addEventListener) {
+				my.DOMContentLoaded = function () {
+					my.document.removeEventListener("DOMContentLoaded", my.DOMContentLoaded, false);
+					my.ready();
+				};
+
+			} else if (my.document.attachEvent) {
+				my.DOMContentLoaded = function () {
+					// Make sure body exists, at least, in case IE gets a little overzealous (ticket #5443).
+					if (my.document.readyState === "complete") {
+						my.document.detachEvent("onreadystatechange", my.DOMContentLoaded);
+						my.ready();
+					}
+				};
+			}
+
+			if (my.document.addEventListener) {
+				// Use the handy event callback
+				my.document.addEventListener("DOMContentLoaded", my.DOMContentLoaded, false);
+
+				// A fallback to window.onload, that will always work
+				window.addEventListener("load", my.ready, false);
+
+			// If IE event model is used
+			} else if (my.document.attachEvent) {
+				// ensure firing before onload,
+				// maybe late but safe also for iframes
+				my.document.attachEvent("onreadystatechange", my.DOMContentLoaded);
+
+				// A fallback to window.onload, that will always work
+				window.attachEvent("onload", my.ready);
+
+				// If IE and not a frame
+				// continually check to see if the document is ready
+				var toplevel = false;
+
+				try {
+					toplevel = window.frameElement === null;
+				} catch (e) {}
+
+				if (my.document.documentElement.doScroll && toplevel) {
+					doScrollCheck();
+				}
+			}
+
+			my.ready = function () {
+				if (my.isReady === true) {
+					return;
+				}
+				my.isReady = true;
+				if (!my.shPollVH) {
+					my.shPollVH = window.setInterval(my.insert, 1);
+				}
+			};
+
+		return this;
+		};
+
+		var prefetchResources = function () {
+			var actionbar = my.document.createElement('img'),
+				sliver = my.document.createElement('img');
+
+			actionbar.src(spec.actionbar.current_background);
+			sliver.src(spec.sliver.current_background);
+			return this;
+		};
+
+		/**
+		 * OK so the intention here is to hide away some of the logic that goes into calculating 
+		 * the height of the sliver. The flaw however is that it ties some of the intention
+		 * to the implementation.
+		 */
+		var interpretConfig = function () {
+			spec.showHeader = my.storage.read() !== 1;
+			// If the sliver left previously open or this is the first visit
+			spec.starts_opened = spec.showHeader && spec.autoOpen;
+			spec.sliver_height_open = spec.sliver.height;
+			spec.ab_height_open = spec.actionbar.height;
+			// The total height of the sliver when its open
+			spec.sliver_container_height_open = !spec.abdisappear ? spec.sliver_height_open + spec.ab_height_open : spec.sliver_height_open;
+
+			spec.ab_height_closed = spec.actionbar.height;
+			spec.sliver_height_closed = 0;
+			spec.sliver_container_height_closed = spec.ab_height_open;
+		//initial_height = spec.starts_opened ? spec.sliver_height_open : spec.sliver_height_closed;
+
+			var getCurBg = function (images) {
+				var i, img, curbg;
+				for (i = 0; i < images.length; i++) {
+					img = images[i];
+					if (img.date !== "") {
+						var now = new Date();
+						var relDate = new Date(img.date);
+
+						if (now > relDate) {
+							curbg = img.src;
+						}
+					}
+				}
+				return curbg;
+			};
+			spec.sliver.current_background = getCurBg(spec.sliver.backgrounds);
+			spec.actionbar.current_background = getCurBg(spec.actionbar.backgrounds);
+			
+			//This needs to be called after document ready?
+			my.document = document;
+			//This needs to be called after body ready
+			my.body = my.document.getElementsByTagName('body')[0];
+			//This needs to be called after sliver is inserted
+			my.sliverWrapper = my.document.getElementById('ao_sliver_header');
+
+			// This way none of the internal functions have to deal with a dfp link differently than a regular link.
+			var i, button;
+			for (i = 0; button = spec.buttons[i]; i++) {
+				if (button.action === 'dfplink') {
+					button.url = spec.clickTag;
+				}
+			}
+			return this;
+		};
+
+		this.interpretConfig().prepReadyEvent().prefetchResources();
+	};
+
+	// I believe this is what is called when a link is clicked
+	var clickout = function (e, eventname) {
+		var target = e.target || e.srcElement;
+		var win = window.open(target.getAttribute('href'), '_blank');
+		win.focus();
+		my.googleTrack(eventname, spec.tracking.prefix);
+	};
+
+	//Action map right now used by buttons to specify an action that should be taken when a button is "pressed"
+	my.actions = {
+		open: function (event, eventname) {
+			my.animation.animate(my.sliver, my.getCompProp(my.sliver, 'height'), spec.sliver_height_open);
+			my.storage.store('sliver_open', 0);
+			my.video.play();
+			my.analyitics.googleTrack(eventname, spec.prefix);
+		},
+		close: function (event, eventname) {
+			my.animation.animate(my.sliver, my.getCompProp(my.sliver, 'height'), spec.sliver_height_closed);
+			my.storage.store('sliver_open', 1);
+			my.video.pause();
+			my.analyitics.googleTrack(eventname, spec.prefix);
+		},
+		link: clickout,
+		dfplink: clickout
+	};	
+
+	my.events = {
+		'rollover': 'onmouseover',
+		'click': 'onclick'
+	};
+	
+/*
+ *
+ * TERMS OF USE - EASING EQUATIONS
+ * 
+ * Open source under the BSD License. 
+ * 
+ * Copyright Â© 2001 Robert Penner
+ * All rights reserved.
+ * 
+ * Redistribution and use in source and binary forms, with or without modification, 
+ * are permitted provided that the following conditions are met:
+ * 
+ * Redistributions of source code must retain the above copyright notice, this list of 
+ * conditions and the following disclaimer.
+ * Redistributions in binary form must reproduce the above copyright notice, this list 
+ * of conditions and the following disclaimer in the documentation and/or other materials 
+ * provided with the distribution.
+ * 
+ * Neither the name of the author nor the names of contributors may be used to endorse 
+ * or promote products derived from this software without specific prior written permission.
+ * 
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY 
+ * EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+ *  COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+ *  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
+ *  GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED 
+ * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED 
+ * OF THE POSSIBILITY OF SUCH DAMAGE. 
+ *
+ */
+// t: current time, b: beginning value, c: change In value (end - begin), d: duration
+	my.animation.ease = {
+		def: 'easeOutQuad',
+		swing: function (x, t, b, c, d) {
+			return this.easeOutQuad(x, t, b, c, d);
+		},
+		easeInQuad: function (x, t, b, c, d) {
+			return c*(t/=d)*t + b;
+		},
+		easeOutQuad: function (x, t, b, c, d) {
+			return -c *(t/=d)*(t-2) + b;
+		},
+		easeInOutQuad: function (x, t, b, c, d) {
+			if ((t/=d/2) < 1) return c/2*t*t + b;
+			return -c/2 * ((--t)*(t-2) - 1) + b;
+		},
+		easeInCubic: function (x, t, b, c, d) {
+			return c*(t/=d)*t*t + b;
+		},
+		easeOutCubic: function (x, t, b, c, d) {
+			return c*((t=t/d-1)*t*t + 1) + b;
+		},
+		easeInOutCubic: function (x, t, b, c, d) {
+			if ((t/=d/2) < 1) return c/2*t*t*t + b;
+			return c/2*((t-=2)*t*t + 2) + b;
+		},
+		easeInQuart: function (x, t, b, c, d) {
+			return c*(t/=d)*t*t*t + b;
+		},
+		easeOutQuart: function (x, t, b, c, d) {
+			return -c * ((t=t/d-1)*t*t*t - 1) + b;
+		},
+		easeInOutQuart: function (x, t, b, c, d) {
+			if ((t/=d/2) < 1) return c/2*t*t*t*t + b;
+			return -c/2 * ((t-=2)*t*t*t - 2) + b;
+		},
+		easeInQuint: function (x, t, b, c, d) {
+			return c*(t/=d)*t*t*t*t + b;
+		},
+		easeOutQuint: function (x, t, b, c, d) {
+			return c*((t=t/d-1)*t*t*t*t + 1) + b;
+		},
+		easeInOutQuint: function (x, t, b, c, d) {
+			if ((t/=d/2) < 1) return c/2*t*t*t*t*t + b;
+			return c/2*((t-=2)*t*t*t*t + 2) + b;
+		},
+		easeInSine: function (x, t, b, c, d) {
+			return -c * Math.cos(t/d * (Math.PI/2)) + c + b;
+		},
+		easeOutSine: function (x, t, b, c, d) {
+			return c * Math.sin(t/d * (Math.PI/2)) + b;
+		},
+		easeInOutSine: function (x, t, b, c, d) {
+			return -c/2 * (Math.cos(Math.PI*t/d) - 1) + b;
+		},
+		easeInExpo: function (x, t, b, c, d) {
+			return (t==0) ? b : c * Math.pow(2, 10 * (t/d - 1)) + b;
+		},
+		easeOutExpo: function (x, t, b, c, d) {
+			return (t==d) ? b+c : c * (-Math.pow(2, -10 * t/d) + 1) + b;
+		},
+		easeInOutExpo: function (x, t, b, c, d) {
+			if (t==0) return b;
+			if (t==d) return b+c;
+			if ((t/=d/2) < 1) return c/2 * Math.pow(2, 10 * (t - 1)) + b;
+			return c/2 * (-Math.pow(2, -10 * --t) + 2) + b;
+		},
+		easeInCirc: function (x, t, b, c, d) {
+			return -c * (Math.sqrt(1 - (t/=d)*t) - 1) + b;
+		},
+		easeOutCirc: function (x, t, b, c, d) {
+			return c * Math.sqrt(1 - (t=t/d-1)*t) + b;
+		},
+		easeInOutCirc: function (x, t, b, c, d) {
+			if ((t/=d/2) < 1) return -c/2 * (Math.sqrt(1 - t*t) - 1) + b;
+			return c/2 * (Math.sqrt(1 - (t-=2)*t) + 1) + b;
+		},
+		easeInElastic: function (x, t, b, c, d) {
+			var s=1.70158;var p=0;var a=c;
+			if (t==0) return b;  if ((t/=d)==1) return b+c;  if (!p) p=d*.3;
+			if (a < Math.abs(c)) { a=c; var s=p/4; }
+			else var s = p/(2*Math.PI) * Math.asin (c/a);
+			return -(a*Math.pow(2,10*(t-=1)) * Math.sin( (t*d-s)*(2*Math.PI)/p )) + b;
+		},
+		easeOutElastic: function (x, t, b, c, d) {
+			var s=1.70158;var p=0;var a=c;
+			if (t==0) return b;  if ((t/=d)==1) return b+c;  if (!p) p=d*.3;
+			if (a < Math.abs(c)) { a=c; var s=p/4; }
+			else var s = p/(2*Math.PI) * Math.asin (c/a);
+			return a*Math.pow(2,-10*t) * Math.sin( (t*d-s)*(2*Math.PI)/p ) + c + b;
+		},
+		easeInOutElastic: function (x, t, b, c, d) {
+			var s=1.70158;var p=0;var a=c;
+			if (t==0) return b;  if ((t/=d/2)==2) return b+c;  if (!p) p=d*(.3*1.5);
+			if (a < Math.abs(c)) { a=c; var s=p/4; }
+			else var s = p/(2*Math.PI) * Math.asin (c/a);
+			if (t < 1) return -.5*(a*Math.pow(2,10*(t-=1)) * Math.sin( (t*d-s)*(2*Math.PI)/p )) + b;
+			return a*Math.pow(2,-10*(t-=1)) * Math.sin( (t*d-s)*(2*Math.PI)/p )*.5 + c + b;
+		},
+		easeInBack: function (x, t, b, c, d, s) {
+			if (s == undefined) s = 1.70158;
+			return c*(t/=d)*t*((s+1)*t - s) + b;
+		},
+		easeOutBack: function (x, t, b, c, d, s) {
+			if (s == undefined) s = 1.70158;
+			return c*((t=t/d-1)*t*((s+1)*t + s) + 1) + b;
+		},
+		easeInOutBack: function (x, t, b, c, d, s) {
+			if (s == undefined) s = 1.70158; 
+			if ((t/=d/2) < 1) return c/2*(t*t*(((s*=(1.525))+1)*t - s)) + b;
+			return c/2*((t-=2)*t*(((s*=(1.525))+1)*t + s) + 2) + b;
+		},
+		easeInBounce: function (x, t, b, c, d) {
+			return c - jQuery.easing.easeOutBounce (x, d-t, 0, c, d) + b;
+		},
+		easeOutBounce: function (x, t, b, c, d) {
+			if ((t/=d) < (1/2.75)) {
+				return c*(7.5625*t*t) + b;
+			} else if (t < (2/2.75)) {
+				return c*(7.5625*(t-=(1.5/2.75))*t + .75) + b;
+			} else if (t < (2.5/2.75)) {
+				return c*(7.5625*(t-=(2.25/2.75))*t + .9375) + b;
+			} else {
+				return c*(7.5625*(t-=(2.625/2.75))*t + .984375) + b;
+			}
+		},
+		easeInOutBounce: function (x, t, b, c, d) {
+			if (t < d/2) return jQuery.easing.easeInBounce (x, t*2, 0, c, d) * .5 + b;
+			return jQuery.easing.easeOutBounce (x, t*2-d, 0, c, d) * .5 + c*.5 + b;
+		}
+	};
+
+
+	return {init: init};
+};
+
+// Closure for protecting sliver config and instance
+// Consider this the MAIN function
+(function(){
+
+	// PHP writes out the CMS configuration values here
+	// PHP shouldn't really be touching any other part of the file
+	<?php
+		// I hate typing out echo htmlspecialchars for each variable...
+		function h($content) {
+			echo htmlspecialchars($content,ENT_QUOTES,'UTF-8');
+		}
+	?>
+	var config = {
+		tweenBG: <?php echo $this->sliver->tweenBG ? 'true': 'false'; ?>,
+		abdisappear: <?php echo $this->sliver->abdisappear ? 'true': 'false';?>,
+		prefix: "<?php h($this->sliver->prefix); ?>",
+		autoOpen: <?php echo $this->sliver->autoOpen? 'true': 'false'; ?>,
+		urls: {
+			target: '<?php h($this->ct); ?>'
+		},
+		tracking: {
+			account: 'UA-12310597-3',
+			prefix: "<?php h($this->sliver->prefix); ?>",
+		},
+		buttons: [<?php
+			$first = true;
+			foreach ($this->buttons as $button){
+				if (!$first) echo ',';
+				else $first = false;
+				?>{
+					name: "<?php h($button->name); ?>",
+					id: "<?php h($button->id); ?>",
+					area: "<?php h($button->area); ?>",
+					action: "<?php h($button->action); ?>",
+					on: "<?php h($button->on); ?>",
+					url: "<?php h($button->url); ?>",
+					x_offset: "<?php h($button->x_offset); ?>",
+					y_offset: "<?php h($button->y_offset); ?>",
+					width: "<?php h($button->width); ?>",
+					height: "<?php h($button->height); ?>"
+				}<?php
+			} ?>],
+		sliver: {
+			height: <?php echo $this->sliver->sliver_height; ?>,
+			color: "<?php echo $this->sliver->sliver_color; ?>",
+			preloadColor: "<?php echo $this->sliver->sliver_preloadColor;",
+			backgrounds: [<?php
+				$first = true;
+				foreach ($this->backgrounds as $background) {
+					if(!$first) echo ',';
+					else $first=false;
+					?>{
+						date: "<?php h($background->starts); ?>",
+						src: "<?php h($background->flash_uri); ?>",
+						height: <?php h($background->flash_height); ?>,
+						width: <?php h($background->flash_width); ?>,
+						action: "ao_headerClick"
+					}
+				}
+			]
+		?>},
+		actionbar: {
+			height: <?php echo $this->sliver->actionbar_height; ?>,
+			color: "<?php echo $this->sliver->actionbar_color; ?>",
+			image: [<?php
+				$first = true; 
+				foreach ($this->backgrounds as $image){
+					if(!$first) echo ',';
+					else $first=false; ?>
+					{
+						date: "<?php echo $image->starts;?>",
+						src: "<?php echo $image->actionbar_uri;?>"
+					}<?php
+				} ?>
+			]
+		},
+		videos: [<?php
+		$first = true;
+		foreach ($this->videos as $video) {
+			if(!$first) echo ',';
+			else $first = false;
+			?>{date: <?php h($video->starts); ?>,
+				height: <?php h($video->height); ?>,
+				width: <?php h($video->width); ?>,
+				autoPlay: <?php $video->autoPlay? 'true': 'false'; ?>,
+				autoPlayOn: <?php h($video->autoPlayOn); ?>,
+				startMuted: <?php $video->startMuted? 'true': 'false'; ?>,
+				unmuteOnRollover: <?php $video->unmuteOnRollover? 'true': 'false'; ?>,
+				volume: <?php h($video->volume); ?>,
+				controls: <?php h($video->controls_uri); ?>,
+				posX: <?php h($video->posX); ?>,
+				posY: <?php h($video->posY); ?>,
+				source: <?php h($video->source_uri); ?>,
+				thumbnail: <?php h($video->thumbnail_uri); 
+			?> }<?php
+		} ?>]
+	};
+
+	var aSliver = ao_sliver(config);
+	aSliver.init();
+})();
+/*jslint devel: true, browser: true, sloppy: true, vars: true, plusplus: true, maxerr: 800, indent: 4 */
+/*global ActiveXObject: false */

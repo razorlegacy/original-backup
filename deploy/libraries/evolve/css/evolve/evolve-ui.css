@@ -1,0 +1,592 @@
+/***** GLOBAL *****/
+a {
+	outline: none;
+}
+
+a.button:hover {
+	cursor: pointer;
+}
+
+h1, h2, h3, h4, h5 {
+	margin: 0;
+}
+
+#toolbar-box,
+#element-box .t,
+#element-box .b {
+	display: none;
+}
+
+#content-box .padding,
+#element-box div.m {
+	padding: 0 !important;
+}
+
+#element-box .m {
+	border: 0 none;
+}
+
+/*
+.ui-tooltip-content {
+	border: 0 none;
+}
+*/
+
+.ui-tabs .ui-tabs-panel,
+.ui-tabs .ui-tabs-nav {
+	padding: 0 !important;
+	margin: 0 !important;
+}
+
+/***** GENERAL *****/
+.evolve-inline {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.evolve-hidden {
+	display: none;
+}
+
+.evolve-invisible {
+	visibility: hidden;
+}
+
+.evolve-bold {
+	font-weight: bold;
+}
+
+.evolve-buttons {
+    width: 32px;
+    height: 32px;
+}
+
+.evolve-buttons:hover,
+.evolve-buttons-active {
+    cursor: pointer;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 1);
+}
+
+.evolve-buttons:active {
+    box-shadow: inset 0 0 4px rgba(0, 0, 0, .7);
+}
+
+.evolve-buttons-label,
+.evolve-buttons-title {
+	font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica;
+	font-size: 12px;
+	font-weight: bold;
+	/* text-shadow: 1px 2px 2px rgba(0, 0, 0, .8); */
+	letter-spacing: .5px;
+	color: #005A8C;
+}
+
+.evolve-buttons-title {
+	position: absolute;
+	bottom: -17px;
+	left: -34px;
+	width: 100px;
+	text-align: center;
+}
+
+.evolve-absolute {
+    position: absolute !important;
+}
+
+.evolve-relative {
+    position: relative !important;
+}
+
+.evolve-disable-list-style {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.evolve-list-inline li {
+	display: inline;
+}
+
+/***** COLORS *****/
+.evolve-bg-primary {
+	background-color: #fff !important;
+}
+
+.evolve-bg-secondary {
+	background-color: #F5F5F5 !important;
+}
+
+.evolve-bg-tertiary {
+	background-color: #dfdfdf !important;
+}
+
+.evolve-border {
+	border-radius: 5px;
+	border: 1px solid #a0a0a0 !important;
+}
+
+.evolve-border-dashed {
+	border-radius: 5px;
+	border: 1px dashed #a0a0a0;
+}
+
+form table.adminlist thead th,
+.evolve-ui-label {
+	color: #005A8C;
+}
+
+/***** EFFECTS *****/
+.evolve-shadow {
+	box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+.evolve-shadow-inner {
+	box-shadow: inset 0 0 4px rgba(0, 0, 0, .7);
+}
+
+.evolve-shadow-inner-hover {
+	box-shadow: inset 0 0 2px rgba(0, 0, 0, .3);
+}
+
+/***** IOS EFFECTS *****/
+
+.evolve-ios-shake {
+	-webkit-animation: jiggle 0.2s infinite;
+    -moz-animation-duration: 0.2s;
+    -moz-animation-name: jiggle;
+    -moz-animation-iteration-count: infinite;
+    -webkit-transform: rotate(-3deg);
+    -moz-transform: rotate(-3deg);
+}
+
+@-moz-keyframes jiggle {
+    0% {
+        -moz-transform: rotate(-3deg);
+	}
+	50% {
+  	  -moz-transform: rotate(3deg);
+	}
+}
+
+@-webkit-keyframes jiggle {
+    0% {
+        -webkit-transform: rotate(-3deg);
+	}
+	50% {
+		-webkit-transform: rotate(3deg);
+	}
+}
+
+.evolve-ios-folder {
+	-webkit-transform: 	scale(1.5) translateZ(0);
+	-moz-transform: 	scale(1.5) translateZ(0);
+	-o-transform: 		scale(1.5) translateZ(0);
+	transform:			scale(1.5) translateZ(0);
+	opacity: .7;
+}
+
+.evolve-ios-label {
+	font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica;
+	font-size: 12px;
+	font-weight: bold;
+	text-shadow: 1px 2px 2px rgba(0, 0, 0, .8);
+	letter-spacing: .5px;
+	color: #fff;
+}
+/***** ELEMENTS *****/
+.evolve-button {
+	border-radius: 5px !important;
+	float: none !important;
+}
+
+.evolve-scrollable {
+	overflow: auto;
+	outline: none;
+}
+
+/***** CALENDAR *****/
+.evolve-calendar {
+	font-size: 1em;
+	margin: 5px 0;
+}
+
+.evolve-calendar .ui-datepicker-group {
+	display: inline-block;
+	vertical-align: bottom;
+}
+
+.evolve-calendar .ui-datepicker-group-middle {
+	background-color: #dfdfdf;
+}
+
+.evolve-calendar .ui-datepicker-group {
+	margin: 3px;
+	text-align: center;
+}
+
+.evolve-calendar .ui-datepicker-unselectable {
+	opacity: .3;
+}
+
+.evolve-calendar .ui-datepicker-prev,
+.evolve-calendar .ui-datepicker-next {
+	cursor: pointer;
+}
+
+/***** ContextMenu *****/
+.evolve-contextMenu .ui-tooltip-content {
+	border: 0 none;
+	padding: 0;
+}
+
+.evolve-contextMenu ul {
+	padding: 0;
+	margin: 0;
+	border-radius: 5px;
+	overflow: hidden;
+}
+
+.evolve-contextMenu li {
+	height: 22px;
+	border-bottom: 1px solid #dfdfdf;
+}
+
+.evolve-contextMenu .evolve-ui-button {
+	padding: 2px 0;
+	margin: 0;
+	width: 100%;
+	border: 0 none;
+	border-radius: 0px;
+}
+
+.evolve-contextMenu .evolve-ui-button:hover {
+	background-color: #dfdfdf !important;
+}
+
+
+/***** GROWL *****/
+#evolve-growl {
+	position: absolute;
+	right: 30px;
+}
+
+.evolve-growl {
+	width: 200px;
+}
+
+.evolve-growl .ui-tooltip-titlebar,
+.evolve-growl .ui-tooltip-content {
+	border: 0 none;
+}
+
+.evolve-growl .ui-tooltip-titlebar {
+	background-color: #0066a0;
+	color: #f9f7f8;
+}
+
+.evolve-growl .ui-tooltip-close {
+	background-color: #024d77;
+	border: 1px solid #a5a3a4;
+}
+
+.evolve-growl .ui-tooltip-content {
+	background-color: #fff;
+	min-height: 25px;
+	line-height: 25px;
+	font-weight: bold;
+}
+
+/***** NOTIFICATION *****/
+.evolve-notification-default {
+	background-color: #55b647;
+}
+
+.evolve-notification-warning {
+	background-color: #fdcd35;
+}
+
+.evolve-notification-alert {
+	background-color: #f15b49;
+}
+
+.evolve-notification {
+	width: 200px;
+	color: #fff;
+	border-top-left-radius: 10px;
+	padding: 2px 1px 1px 2px;
+}
+
+.evolve-notification .ui-tooltip-titlebar {
+	background-color: #383938;
+	margin-left: 15px;
+	border-top-left-radius: 4px;
+	overflow: visible;
+	
+	padding: 0 5px;
+	height: 15px;
+	border-bottom: 1px solid #fff;
+}
+
+.evolve-notification .ui-tooltip-titlebar:before {
+	position: absolute;
+    bottom: -2px;
+    width: 15px;
+    height: 20px;
+    content: " ";
+    left: -15px;
+    
+    border-bottom-right-radius: 20px;
+    border-width: 0 1px 1px 0;
+    box-shadow: 5px 5px 0 #383938;
+}
+
+
+.evolve-notification .ui-tooltip-titlebar:after {
+	border-bottom-left-radius: 7px;
+    border-width: 0 0 1px 1px;
+}
+
+
+.evolve-notification .ui-tooltip-content{
+	background-color: #383938;
+	border-top-left-radius: 4px !important;
+	min-height: 20px;
+}
+
+/***** FORM *****/
+.evolve-form label,
+.evolve-form input {
+    display: inline-block;
+    width: 49%;
+}
+
+.evolve-form label {
+	font-weight: bold;
+    font-size: 1.1em;
+}
+
+.evolve-form input {
+    background: none;
+    border: 0 none;
+}
+
+.evolve-form input:focus {
+    background: #fff;
+}
+
+.evolve-form input.evolve-miniColors {
+	width: 50px;
+}
+
+.evolve-buttons-confirm {
+	position: absolute;
+	right: 5px;
+	bottom: 5px;
+}
+
+.evolve-buttons-delete {
+	position: absolute;
+	left: 5px;
+	bottom: 5px;
+}
+
+.evolve-buttons-file {
+	filter: alpha(opacity=0);
+	cursor: pointer;
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-size: 5000px;
+	opacity: 0;
+	height: 100%;
+}
+
+/***** CONFIG *****/
+.evolve-config-group {
+	border-top: 1px solid #dfdfdf;
+	margin-top: 5px;
+	padding-top: 5px;
+}
+
+.evolve-config-group li {
+	text-indent: 5px;
+}
+
+.evolve-config li {
+	padding: 4px 0;
+}
+
+/***** BUTTONS *****/
+.evolve-buttons-upload,
+.evolve-buttons-uploaded {
+	width: 32px;
+	height: 32px;
+}
+
+.evolve-buttons-upload {
+	background: transparent url(/libraries/evolve/images/evolve/evolve-ui-buttons-upload.png) no-repeat 0 0;
+}
+
+.evolve-buttons-uploaded {
+	background: transparent url(/libraries/evolve/images/evolve/evolve-ui-buttons-uploaded.png) no-repeat 0 0;
+}
+
+/***** DIALOG *****/
+.evolve-dialog {
+	width: 300px;
+	height: 150px;
+}
+
+.evolve-dialog .ui-tooltip-titlebar {
+	border: 0 none;
+}
+
+#ui-tooltip-evolve-dialog-content {
+	position: relative;
+	border: 0px none;
+	height: 75%;
+}
+
+.evolve-dialog .evolve-ui-button {
+	width: 30%;
+	position: absolute;
+	bottom: 0px;
+}
+
+#evolve-dialog-confirm {
+	right: 0;
+}
+
+#evolve-dialog-cancel {
+	right: 35%;
+}
+
+/***** RESIZABLE *****/
+.ui-resizable-se {
+	background: transparent url(/libraries/evolve/images/evolve/evolve-ui-resize.png) no-repeat !important;
+	cursor: pointer;
+	opacity: .3;
+}
+
+.ui-resizable-se:hover {
+	background-position: top right !important;
+	opacity: 1;
+}
+
+/***** SORTABLE *****/
+.evolve-sortable {
+}
+
+/***** TABLESORTER *****/
+form table.adminlist thead th {
+	background: none;
+}
+
+.evolve-tablesorter-header {
+	background: transparent url(/libraries/evolve/images/tablesorter/bg.gif) no-repeat right center !important;
+	cursor: pointer;
+}
+
+.evolve-tablesorter-headerSortUp {
+	background-image: url(/libraries/evolve/images/tablesorter/asc.gif) !important;
+}
+
+.evolve-tablesorter-headerSortDown {
+	background-image: url(/libraries/evolve/images/tablesorter/desc.gif) !important;
+}
+
+/***** TOOLTIP *****/
+.evolve-tooltip {
+	z-index: 20000 !important;
+}
+
+.evolve-tooltip .ui-tooltip-content {
+	border: 0 none !important;
+	max-width: 48px;
+	max-height: 48px;
+	overflow: hidden;
+}
+
+/***** TOOLTIP - VALIDATION *****/
+.evolve-tooltip-validate {
+	color: #fff;
+	font-weight: bold;
+	z-index: 20000 !important;
+}
+
+.evolve-tooltip-validate .ui-tooltip-content {
+	background-color: #0066a0;
+	border: 1px solid #a5a3a4;
+	border-radius: 5px;
+}
+
+/***** TOOLBAR *****/
+#evolve-toolbar {
+	margin: 5px auto;
+	width: 99%;
+	height: 36px;
+	color: #005A8C;
+	/* text-align: right; */
+}
+
+#evolve-toolbar-title,
+#evolve-toolbar-buttons {
+	width: 49%;
+}
+
+#evolve-toolbar-title {
+	height: 32px;
+	margin: 0 0 0 10px;
+	text-indent: 40px;
+	font-weight: bold;
+	font-size: 2em;
+	line-height: 32px;
+}
+
+#evolve-toolbar-buttons {
+	text-align: right;
+	float: right;
+}
+
+/***** LISTING *****/
+#evolve-create-input {
+	margin: 10px 0 0 50px;
+	width: 80%;
+	text-align: center;
+	height: 35px;
+	font-size: 1.8em;
+}
+
+#evolve-create-icon {
+	background: transparent url(/libraries/evolve/images/evolve/evolve-ui-add.png) no-repeat 0 0;
+	width: 32px;
+	height: 32px;
+	margin: 5px;
+}
+
+#evolve-create-icon .evolve-buttons-title {
+	color: #000;
+	width: 100px;
+}
+
+#evolve-create-button {
+	float: right;
+	margin: 15px 0 0;
+	width: 90px;
+}
+
+/***** PUBLISH *****/
+.evolve-publish-status {
+	width: 16px;
+	height: 16px;
+	text-indent: -5000em;
+	cursor: pointer;
+}
+
+.evolve-unpublished {
+	background: transparent url(/libraries/evolve/images/evolve/evolve-ui-redLight.png) no-repeat 0 0;
+}
+
+.evolve-published {
+	background: transparent url(/libraries/evolve/images/evolve/evolve-ui-greenLight.png) no-repeat 0 0;
+}

@@ -1,0 +1,1 @@
+phpdoc -d ~/Sites/webservices.evolvemediacorp.com/deploy/administrator/components/com_sweepstakes/,~/Sites/webservices.evolvemediacorp.com/components/com_sweepstakes -t ~/Sites/sweepstake_webservice/SweepstakesAPI

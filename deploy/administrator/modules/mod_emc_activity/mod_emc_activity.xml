@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install type="module" version="1.0.0">
+	<name>Activity</name>
+	<author>Evolve Media Corp Origin</author>
+	<creationDate>08.2012</creationDate>
+	<copyright></copyright>
+	<license></license>
+	<authorEmail></authorEmail>
+	<authorUrl></authorUrl>
+	<version>1.0.0</version>
+	<description>This module shows recent Origin activity</description>
+	<files>
+		<filename module="mod_emc_activity">mod_emc_activity.php</filename>
+	</files>
+	<params>
+		<param name="cache" type="list" default="0" label="Caching" description="Select whether to cache the content of this module">
+			<option value="0">Never</option>
+	  	</param>
+	</params>
+</install>

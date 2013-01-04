@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install type="module" version="1.5" method="upgrade">
+	<name>Popeye Module</name>
+	<author>Double Helix</author>
+	<creationDate>6.14.10</creationDate>
+	<copyright>This module is released under the GNU/GPL License</copyright>
+	<authorEmail>si-tech@gorillanation.com</authorEmail>
+	<authorUrl></authorUrl>
+	<version>1.0</version>
+	<description>Displays JoomGallery images with Popeye JQuery</description>
+	<files>
+		<filename module="mod_popeye">mod_popeye.php</filename>
+	</files>
+	<params>
+		<param name="category" type="sql" query="select cid,name from #__joomgallery_catg;" key_field="cid" value_field="name" label="Tags Look Up" description="JoomGallery Album listing" rows="8" cols="40" />
+	</params>
+</install>

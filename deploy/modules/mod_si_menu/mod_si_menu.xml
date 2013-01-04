@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install type="module" version="1.5.0">
+	<name>AO Menu Generator</name>
+	<author></author>
+	<creationDate></creationDate>
+	<copyright>Copyright (C) 2010 AtomicOnline. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail></authorEmail>
+	<authorUrl>www.joomla.org</authorUrl>
+	<version>1.0</version>
+	<description>This module generates a menu from an AtomicOnline property site</description>
+	<files>
+		<filename module="mod_si_menu">mod_si_menu.php</filename>
+		<filename>index.html</filename>
+		<filename>tmpl/craveonline.php</filename>
+		<filename>tmpl/superherohype.php</filename>
+	</files>
+	<params>
+		<param name="menu" type="list" default="" label="Select Menu" description="">
+			<option value="craveonline">CraveOnline</option>
+			<option value="gamerevolution">GameRevolution</option>
+			<option value="superherohype">SuperHeroHype</option>
+		</param>
+		<param name="cache" type="radio" default="1" label="Enable Cache" description="Select whether to cache the content of this module">
+		    <option value="0">No</option>
+		    <option value="1">Yes</option>
+	    </param>
+	</params>
+</install>

@@ -1,0 +1,1211 @@
+#element-box .t,
+#element-box .b {
+	display: none;
+}
+
+#element-box .m {
+	border: 0 none;
+}
+
+#file_uploadQueue,
+.uploadifyQueue {
+	display: none !important;
+}
+
+#cboxLoadedContent {
+	background: none !important;
+}
+
+#cboxClose {
+	border-radius: 5px;
+}
+
+.jspDrag {
+	background-color: #000;
+	opacity: .5 !important;
+}
+
+#toolbar-box .t,
+#toolbar-box .b {
+	display: none;
+}
+
+#toolbar-box .m {
+	border: 1px solid #CCCCCC !important;
+	border-radius: 5px;
+}
+
+.m .header {
+	background: none !important;
+	padding: 0 !important;
+}
+
+.m #toolbar a.toolbar {
+	padding: 0px 5px !important;
+}
+
+td.button {
+	margin: 0 5px !important;
+	background: none !important;
+	border: 0 none !important;
+	font: inherit !important;
+}
+
+.adminlist {
+	width: 100%;
+}
+
+/***** GENERAL *****/
+a {
+	outline: none;
+}
+
+a.button:hover {
+	cursor: pointer;
+}
+
+h1, h2, h3, h4, h5 {
+	margin: 0;
+}
+
+.list-inline {
+	margin: 0;
+	padding: 0;
+}
+
+.inline,
+.list-inline li {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.disable-list-style {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.orochi-hidden {
+	display: none;
+}
+
+.orochi-invisible {
+	visibility: hidden;
+}
+
+.orochi-shadow {
+	box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+.orochi-shadow-inner {
+	box-shadow: inset 0 0 4px rgba(0, 0, 0, .7);
+}
+
+.orochi-shadow-inner-hover {
+	box-shadow: inset 0 0 2px rgba(0, 0, 0, .3);
+}
+
+.orochi-form label {
+	font-weight: bold;
+	font-size: 8pt;
+	width: 35%;
+}
+
+.orochi-form li {
+	padding: 3px 10px;
+	border-bottom: 1px solid #dfdfdf;
+}
+
+.orochi-form li:last-child {
+	border-bottom: 0 none;
+}
+
+.orochi-form input[type="text"],
+.orochi-form textarea {
+	border: 0 none;
+	background: none;
+	width: 58%;
+}
+
+.orochi-form input[type="text"]:focus,
+.orochi-form textarea:focus {
+	background-color: #fff;
+}
+
+.orochi-pointer {
+	cursor: pointer;
+}
+
+.orochi-preview {
+	width: 180px;
+}
+
+.orochi-notched-tabs {
+	position: absolute;
+	top: -1px;
+	border-top: 0 none !important;
+	border-top-left-radius: 0 !important;
+	border-top-right-radius: 0 !important;
+	overflow: hidden;
+	height: 40px;
+	z-index: 550;
+}
+
+.orochi-notched-tabs li {
+	border: 1px solid #a0a0a0;
+	border-bottom: 0 none;
+	padding: 3px 5px 5px;
+	margin: 0 0 0 -1px;
+	background: #F1EDEC !important;
+}
+
+.orochi-notched-tabs li:last-child {
+	border-right: 0 none;
+}
+
+.workspace_tab_add:hover,
+.orochi-notched-tabs li:hover {
+	box-shadow: inset 0 0 2px rgba(0, 0, 0, .3);
+}
+
+.orochi-notched-tabs li.activeSlide,
+.orochi-notched-tabs li.ui-state-active {
+	margin-top: 6px;
+	background: #DCD2CE !important;
+}
+
+
+
+
+
+
+
+#image_upload,
+#image_upload_bg {
+	width: 69px;
+	height: 19px;
+	background:transparent url(../images/btn_upload.png) no-repeat;
+	color : transparent;
+	border: none;
+}
+
+
+
+.orochi_submit_buttons {
+	text-align: right;
+}
+
+#orochi_forms_config .orochi_submit_buttons {
+	position: absolute;
+	bottom: 0;
+	right: 5px;
+}
+
+.orochi-button {
+	border-radius: 5px !important;
+	float: none !important;
+}
+
+.orochi-title {
+	text-indent: 5px;
+	margin: 0 0 5px 0;
+}
+
+.orochi-uploadify {
+	height: 26px;
+}
+
+.orochi-scrollable {
+	overflow: auto;
+	outline: none;
+}
+
+.orochi-confirm-message {
+	text-align: center;
+	font-weight: bold;
+	font-style: italic;
+	color: green;
+	margin: 5px 0 0 0;
+}
+
+
+/***** COLORS *****/
+.orochi-border {
+	border-radius: 3px;
+	border: 1px solid #BBB;
+}
+
+.orochi-border-dashed {
+	border-radius: 5px;
+	border: 1px dashed #a0a0a0;
+}
+
+.orochi-bg-primary {
+	background-color: #fff !important;
+}
+
+.orochi-bg-secondary {
+	background-color: #F1EDEC !important;
+}
+
+.orochi-bg-tertiary {
+	background-color: #FFF !important;
+}
+
+.orochi-bg-outline {
+	background-color: rgba(245, 245, 245, .5) !important;
+}
+
+.orochi-bg-outline:hover {
+	background-color: rgba(245, 245, 245, 1) !important;
+}
+
+/***** ICONS *****/
+.icons_config,
+.icons_type,
+.icons_type_small {
+	display: block;
+	text-indent: -5000em;
+}
+
+.icons_config {
+	background: transparent url(../images/icons_config.png) no-repeat 0 0;
+	width: 32px;
+	height: 32px;
+}
+
+.icons_type {
+	background: transparent url(../images/icons_type.png) no-repeat 0 0;
+	width: 32px;
+	height: 32px;
+}
+
+.icons_type_small {
+	background: transparent url(../images/icons_type_small.png) no-repeat 0 0;
+	width: 24px;
+	height: 24px;
+}
+
+.ui-icon,
+.icon_ui {
+	background: transparent url(/libraries/evolve/assets/images/icons_ui.png) no-repeat 0 0;
+	width: 16px;
+	height: 16px;
+	text-indent: -5000em;
+	z-index: 200;
+	display: block;
+}
+
+.icon_ui:hover {
+	cursor: pointer;
+}
+
+.icon_delete {
+	background-position: -176px -96px;
+}
+
+.icon_edit {
+	background-position: -64px -112px;
+}
+
+.icon_move_ew:hover,
+.icon_move_ns:hover,
+.workspace_group_handle:hover {
+	cursor: move;
+}
+
+.ui-resizable-se {
+	background-position: -80px -224px;
+}
+/*
+
+.workspace_group_config li {
+	cursor: pointer;
+	margin: 6px 0 0 0;
+}
+*/
+
+/*
+.workspace_group_config .icon_ui {
+	margin: 4px;
+}
+*/
+
+/***** TOOLBAR *****/
+#evolve-toolbar-title {
+	background: transparent url(../images/icon-toolbar.png) no-repeat 0 0;
+}
+
+
+/***** LAYOUT *****/
+#orochi {
+	width: 99%;
+	margin: 0 auto;
+	position: relative;
+	padding: 0;
+}
+
+.orochi-half {
+	width: 650px !important;
+}
+
+#orochi_forms {
+	width: 300px;
+	margin: 0 5px 0 0;
+}
+
+#orochi_workspace {
+	width: 650px;
+}
+
+.orochi-workspace-half {
+	width: 325px !important;
+}
+
+.orochi_workspace_wrapper {
+	margin: 0 0 0 10px;
+	position: relative;
+}
+
+.orochi_workspace_wrapper a.button {
+	margin: 2px 0 6px 0 !important;
+}
+
+/***** LIST *****/
+#orochi_list_create {
+	height: 60px;
+	margin: 10px 0 0 0;
+}
+
+
+div#orochi_list a.button {
+	margin: 0 5px;
+	padding: 0;
+	border-radius: 5px;
+}
+
+div#orochi_list td {
+	background: none !important;
+}
+
+.orochi_list_preview {
+	position: relative;
+	height: 47px;
+}
+
+.orochi_list_preview input[type="text"] {
+	width: 530px;
+	height: 16px;
+}
+
+.orochi_list_preview_250,
+.orochi_list_preview_600 {
+	position: absolute;
+	
+}
+
+.orochi_list_preview_250 {
+	top: 0px;
+}
+
+.orochi_list_preview_600 {
+	bottom: 0px;
+}
+
+a.syndi_list_embed {
+	position: absolute;
+	left: 75px;
+	top: 10px;
+	width: 135px;
+}
+
+a.syndi_list_embed .evolve-ui-icon {
+	display: none;
+}
+
+a.syndi_list_embed .evolve-ui-label {
+	padding: 2px 5px !important;
+}
+
+#syndi_list_embed_modal {
+	width: 300px;
+	height: 300px;
+}
+
+#syndi_list_embed_code {
+	width: 100%;
+	height: 200px;
+}
+
+/*
+.orochi_list_item {
+	line-height: 50px;
+	height: 50px;
+}
+
+.orochi_list_item>div {
+	border: 1px solid #dfdfdf;
+}
+
+.orochi_list_title {
+	width: 200px;
+	padding: 0 10px;
+	border-left: 0 none !important;
+}
+
+.orochi_list_manager {
+	width: 100px;
+	text-align: center;
+	
+}
+
+*/
+
+/***** FROMS *****/
+.workspace_tab_add {
+	position: absolute;
+	top: -1px;
+	right: -1px;
+	border-top-left-radius: 0;
+	border-bottom-right-radius: 0;
+	height: 39px;
+}
+
+.workspace_tab_add a {
+	margin-top: 7px !important;
+}
+
+.orochi-form input[type="text"].colorPicker,
+.orochi-form input[name="pagination_bg_hex"] {
+	width: 17%;
+}
+
+#orochiConfig {
+	padding: 50px 0 0 0;
+}
+
+#orochi_forms_config {
+	position: relative;
+	width: 100%;
+	height: 600px;
+}
+
+#orochi_config_pager {
+	left: 10%;
+	border-radius: 0;
+}
+
+#orochiSetup_css {
+	width: 700px;
+	height: 400px;
+}
+
+.orochi_type_buttons {
+	text-align: center;
+}
+
+.orochi_type_buttons a.button {
+	width: 85px;
+}
+
+#orochi_config_colors li {
+	position: relative;
+}
+
+label.orochi-preview-message {
+	position: absolute;
+	text-align: right;
+	right: 5px;
+	top: 10px;
+	font-style: italic;
+	font-size: 7pt;
+	width: 38%;
+}
+
+.orochi-slider-value {
+	width: 70px !important;
+	text-align: right;
+}
+
+.orochi-slider-opacity {
+	width: 75px;
+	height: 8px !important;
+}
+
+.orochi-slider-opacity .ui-slider-handle {
+	background: #fff;
+	border: 1px solid #a0a0a0;
+	border-radius: 5px;
+}
+
+/***** MODAL - CONFIRM *****/
+#orochi_forms_confirm {
+	width: 250px;
+	height: 100px;
+	padding: 10px;
+}
+
+/*
+#orochi_forms_confirm form {
+	height: 90px;
+	padding: 5px;
+}
+*/
+
+#orochi_forms_confirm #forms_confirm_message {
+	height: 70px;
+	font-size: 10pt;
+	font-weight: bold;
+}
+
+
+/***** MODAL - MENU *****/
+#orochi_forms_menu {
+	width: 385px;
+	height: 165px;
+}
+
+/***** MODAL - CONTENT *****/
+#orochi_forms_edit {
+	width: 815px;
+	height: 420px;
+	overflow: hidden;
+}
+
+#orochi_forms_content {
+	width: 500px;
+	height: 350px;
+	position: relative;
+	padding: 50px 0 0;
+}
+
+#orochi_type_pager {
+	left: 15%;
+	border-radius: 0;
+}
+
+#orochi_forms_groups {
+	width: 300px;
+	margin: 0 0 0 7px;
+}
+
+/*
+#orochi_forms_groups_list {
+	margin: 0 0 5px 0;
+	padding: 5px;
+	height: 50px;
+}
+*/
+
+#orochi_forms_groups_content,
+#placeholder_content_list {
+	height: 400px;
+}
+
+#placeholder_content_list {
+	background: transparent url(../images/placeholder_content_list.png) no-repeat 0 0;
+	width: 298px;
+	border-radius: 5px;
+}
+
+.orochi_group_item {
+	position: relative;
+	height: 32px;
+	padding: 3px 5px;
+}
+
+.orochi_group_item_edit,
+.orochi_group_item_handle,
+.orochi_group_item_config{
+	position: absolute;
+}
+
+.orochi_group_item_edit {
+	top: 8px;
+}
+
+.orochi_group_item_handle {
+	left: 35px;
+	width: 220px;
+	height: 90%;
+	cursor: move;
+}
+
+.orochi_group_item_config {
+	right: 0;
+	top: 0;
+}
+
+.orochi_group_item_delete_confirm {
+	right: 20px;
+}
+
+#orochi_forms_content .orochi-uploadify .orochi-uploadify-input {
+	width: 100px;
+	display: block;
+	margin: 0 auto;
+}
+
+.orochi-uploadify-placeholder {
+	width: 85px;
+	height: 125px;
+	display: block;
+	margin: 5px auto;
+	overflow: hidden;
+}
+
+.orochi-placeholder-image-thumbnail {
+	width: 300px;
+	height: 169px;
+}
+
+.orochi-uploadify-placeholder-text {
+	font-weight: bold;
+	text-align: center;
+	margin: 5px 0;
+}
+
+textarea#article_content,
+textarea#embed {
+	height: 200px;
+}
+
+#orochi_content_form_article .orochi-uploadify {
+	width: 110px;
+}
+
+#orochi_content_form_article .orochi-content-form {
+	width: 380px;
+}
+
+#orochi_content_form_image .orochi-uploadify {
+	width: 310px;
+}
+
+#orochi_content_form_image .orochi-content-form {
+	width: 180px;
+	height: 200px;
+}
+
+#orochi_video_form textarea#embed {
+	height: 130px;
+}
+
+/***** WORKSPACE *****/
+/*
+#orochi_workspace .workspace_group_config {
+	opacity: .4;
+}
+
+#orochi_workspace .orochi_workspace_group:hover .workspace_group_config {
+	opacity: 1;
+}
+*/
+
+.orochi_trafficking {
+	margin: 8px 5px;
+	width: 285px;
+}
+
+#orochi_workspace_250,
+#orochi_workspace_600 {
+	width: 300px;
+	font-size: 1.4em;
+}
+
+#orochi_workspace_250 {
+	height: 250px;
+}
+
+#orochi_workspace_250 .emcOrochi_group.orochi-pointer {
+	cursor: default;
+}
+
+#orochi_workspace_600 {
+	height: 600px;
+	overflow: hidden;
+}
+
+/*
+#workspace_unit_wrapper_250,
+#workspace_unit_wrapper_600 {
+	position: relative;
+}
+*/
+
+.orochi_workspace_header {
+	height: 50px;
+}
+
+.orochi_workspace_menu {
+	width: 100%;
+	height: 31px;
+	line-height: 31px;
+	text-align: center;
+	font-size: .8em;
+}
+
+.orochi_workspace_menu li {
+	position: relative;
+}
+
+.orochi_workspace_menu .icon_ui {
+	background-color: rgba(255,255,255, 1);
+	border-radius: 5px;
+	position: absolute;
+	top: 0;
+}
+
+.unit_menu_item .icon_ui {
+	visibility: hidden;
+}
+
+.unit_menu_item.ui-state-hover .icon_ui {
+	visibility: visible;
+}
+
+.orochi_workspace_menu .icon_delete {
+	right: 0;
+}
+
+.orochi_workspace_menu .menu_handle {
+	bottom: 0;
+	top: auto;
+}
+
+.orochi_workspace_page {
+	height: 100%;
+}
+
+.workspace_group_add {
+	opacity: .5;
+}
+
+.workspace_group_add:hover {
+	opacity: 1;
+}
+
+.orochi_workspace_group {
+	position: relative;
+	/* margin: 5px; */
+	/* background-color: rgba(245, 245, 245, .7); */
+}
+
+.orochi_placeholder {
+	background: rgba(245, 245, 245, .9) url(../images/placeholder_group.png) no-repeat 0 -169px;
+	height: 169px;
+	display: block;
+	/* margin: 5px; */
+	text-indent: -5000em;
+}
+
+.orochi_placeholder_empty {
+	background-position: 0 0;
+	/* background-color: transparent; */
+}
+
+.orochi_placeholder,
+.orochi_placeholder_filler {
+	background-color: rgba(245, 245, 245, .9);
+	width: 100%;
+}
+
+.orochi_placeholder_filler {
+	height: 100%;
+}
+
+.workspace_group_config {
+	position: absolute;
+	right: 3px;
+	width: 25px;
+	/* height: 100%; */
+	z-index: 600;
+}
+
+.workspace_group_config a.button {
+	border-radius: 5px !important;
+}
+
+#orochi_workspace_250 .workspace_group_600,
+.orochi_workspace_group_linked .workspace_group_delete {
+	display: none;
+}
+
+#orochi_workspace_250 .workspace_group_size {
+	display: none;
+}
+
+.workspace_group_size {
+	position: absolute;
+	bottom: 2px;
+	left: 2px;
+	opacity: .4;
+	font-size: .7em;
+}
+
+/*
+.workspace_group_linked {
+	visibility: hidden;
+}
+
+.orochi_workspace_group_linked .workspace_group_linked {
+	visibility: visible;
+}
+*/
+
+.ui-tabs .ui-tabs-nav li a, .ui-tabs.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-selected a { cursor: pointer; }
+.ui-tabs .ui-tabs-hide { display: none !important; }
+
+
+.ui-widget-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: #fff; opacity: .9;}
+
+/* .jspContainer{overflow:hidden;position:relative}.jspPane{position:absolute}.jspVerticalBar{position:absolute;top:0;right:0;width:7px;height:80%;}.jspVerticalBar *,.jspHorizontalBar *{margin:0;padding:0}.jspCap{display:none}.jspHorizontalBar .jspCap{float:left}.jspTrack{position:relative}.jspDrag{position:relative;top:0;left:0;cursor:pointer;border-radius:7px;opacity:.4}.jspVerticalBar .jspArrow:focus{outline:none}.jspCorner{background:#eeeef4;float:left;height:80%}* html .jspCorner{margin:0 -3px 0 0}.jspDrag {background-color: #000} */
+
+.adminlist .button.on,
+#orochi .button.on,
+#colorbox .button.on {
+	border-color: transparent;
+	box-shadow: none;
+}
+
+.adminlist .button,
+#orochi .button,
+#colorbox .button {
+	background: 0 none;
+	border-radius: 0;
+	padding: 3px;
+}
+
+#orochi .button span.icon,
+#colorbox .button span.icon {
+	margin: 0;
+}
+
+#orochi a.button {
+	margin: 2px;
+}
+
+.orochi-uploadify-preview a.button {
+	margin: 0 2px !important;
+}
+
+.ui-resizable { position: relative;}
+.ui-resizable-handle { position: absolute;font-size: 0.1px;z-index: 99999; display: block; }
+.ui-resizable-disabled .ui-resizable-handle, .ui-resizable-autohide .ui-resizable-handle { display: none; }
+.ui-resizable-n { cursor: n-resize; height: 7px; width: 100%; top: -5px; left: 0; }
+.ui-resizable-s { cursor: s-resize; height: 7px; width: 100%; bottom: -5px; left: 0; }
+.ui-resizable-e { cursor: e-resize; width: 7px; right: -5px; top: 0; height: 100%; }
+.ui-resizable-w { cursor: w-resize; width: 7px; left: -5px; top: 0; height: 100%; }
+.ui-resizable-se { cursor: se-resize; width: 12px; height: 12px; right: 1px; bottom: 1px; }
+.ui-resizable-sw { cursor: sw-resize; width: 9px; height: 9px; left: -5px; bottom: -5px; }
+.ui-resizable-nw { cursor: nw-resize; width: 9px; height: 9px; left: -5px; top: -5px; }
+.ui-resizable-ne { cursor: ne-resize; width: 9px; height: 9px; right: -5px; top: -5px;}
+.ui-resizable-helper {border-style: dashed;}
+
+.ui-slider { position: relative; text-align: left; }
+.ui-slider .ui-slider-handle { position: absolute; z-index: 2; width: 1.2em; height: 1.2em; cursor: pointer; }
+.ui-slider .ui-slider-range { position: absolute; z-index: 1; font-size: .7em; display: block; border: 0; background-position: 0 0; }
+
+.ui-slider-horizontal { height: .8em; }
+.ui-slider-horizontal .ui-slider-handle { top: -.3em; margin-left: -.6em; }
+.ui-slider-horizontal .ui-slider-range { top: 0; height: 100%; }
+.ui-slider-horizontal .ui-slider-range-min { left: 0; }
+.ui-slider-horizontal .ui-slider-range-max { right: 0; }
+
+.ui-slider-vertical { width: .8em; height: 100px; }
+.ui-slider-vertical .ui-slider-handle { left: -.3em; margin-left: 0; margin-bottom: -.6em; }
+.ui-slider-vertical .ui-slider-range { left: 0; width: 100%; }
+.ui-slider-vertical .ui-slider-range-min { bottom: 0; }
+.ui-slider-vertical .ui-slider-range-max { top: 0; }
+
+/* TipTip CSS - Version 1.2 */
+
+#tiptip_holder {
+display: none;
+position: absolute;
+top: 0;
+left: 0;
+z-index: 99999;
+}
+
+#tiptip_holder.tip_top {
+padding-bottom: 5px;
+}
+
+#tiptip_holder.tip_bottom {
+padding-top: 5px;
+}
+
+#tiptip_holder.tip_right {
+padding-left: 5px;
+}
+
+#tiptip_holder.tip_left {
+padding-right: 5px;
+}
+
+#tiptip_content {
+font-size: 11px;
+color: #fff;
+text-shadow: 0 0 2px #000;
+padding: 4px 8px;
+border: 1px solid rgba(255,255,255,0.25);
+background-color: rgb(25,25,25);
+background-color: rgba(25,25,25,0.92);
+background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(transparent), to(#000));
+border-radius: 3px;
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+box-shadow: 0 0 3px #555;
+-webkit-box-shadow: 0 0 3px #555;
+-moz-box-shadow: 0 0 3px #555;
+}
+
+#tiptip_arrow, #tiptip_arrow_inner {
+position: absolute;
+border-color: transparent;
+border-style: solid;
+border-width: 6px;
+height: 0;
+width: 0;
+}
+
+#tiptip_holder.tip_top #tiptip_arrow {
+border-top-color: #fff;
+border-top-color: rgba(255,255,255,0.35);
+}
+
+#tiptip_holder.tip_bottom #tiptip_arrow {
+border-bottom-color: #fff;
+border-bottom-color: rgba(255,255,255,0.35);
+}
+
+#tiptip_holder.tip_right #tiptip_arrow {
+border-right-color: #fff;
+border-right-color: rgba(255,255,255,0.35);
+}
+
+#tiptip_holder.tip_left #tiptip_arrow {
+border-left-color: #fff;
+border-left-color: rgba(255,255,255,0.35);
+}
+
+#tiptip_holder.tip_top #tiptip_arrow_inner {
+margin-top: -7px;
+margin-left: -6px;
+border-top-color: rgb(25,25,25);
+border-top-color: rgba(25,25,25,0.92);
+}
+
+#tiptip_holder.tip_bottom #tiptip_arrow_inner {
+margin-top: -5px;
+margin-left: -6px;
+border-bottom-color: rgb(25,25,25);
+border-bottom-color: rgba(25,25,25,0.92);
+}
+
+#tiptip_holder.tip_right #tiptip_arrow_inner {
+margin-top: -6px;
+margin-left: -5px;
+border-right-color: rgb(25,25,25);
+border-right-color: rgba(25,25,25,0.92);
+}
+
+#tiptip_holder.tip_left #tiptip_arrow_inner {
+margin-top: -6px;
+margin-left: -7px;
+border-left-color: rgb(25,25,25);
+border-left-color: rgba(25,25,25,0.92);
+}
+
+/* Webkit Hacks */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+#tiptip_content {
+padding: 4px 8px 5px 8px;
+background-color: rgba(45,45,45,0.88);
+}
+#tiptip_holder.tip_bottom #tiptip_arrow_inner {
+border-bottom-color: rgba(45,45,45,0.88);
+}
+#tiptip_holder.tip_top #tiptip_arrow_inner {
+border-top-color: rgba(20,20,20,0.92);
+}
+}
+
+/* Alternative theme for TipTip */
+#tiptip_holder.alt.tip_top #tiptip_arrow_inner {
+border-top-color: #444444;
+}
+
+#tiptip_holder.alt.tip_bottom #tiptip_arrow_inner {
+border-bottom-color: #444444;
+}
+
+#tiptip_holder.alt.tip_right #tiptip_arrow_inner {
+border-right-color: #444444;
+}
+
+#tiptip_holder.alt.tip_left #tiptip_arrow_inner {
+border-left-color: #444444;
+}
+
+#tiptip_holder.alt #tiptip_content {
+background-color: #444444; border: 1px solid White; border-radius: 3px; box-shadow: 0 0 3px #555555; color: #FFFFFF; font-size: 11px; padding: 4px 8px; text-shadow: 0 0 1px Black;
+}
+
+
+/* Origin tweaks */
+
+#evolve-create-button{
+	cursor: pointer;
+	display: block;
+	background: #B8190B url('/libraries/evolve/images/evolve/_white/_regular/add.png') no-repeat 3px 3px;
+	width: 160px;
+	height: 26px;
+	position: absolute;
+	right: 12px;
+	top: 0;
+	color: #FFF;
+	text-indent: 26px;
+	font-weight: bold;
+	padding: 3px;
+	margin: 12px 0;
+}
+
+#evolve-create-button:hover{
+	background-color: #981509;
+}
+
+#orochi_list_create {
+	background: #EAE4E2 !important;
+	box-shadow: none;
+	border-radius: 0;
+	border: 1px solid #BBB !important;
+	height: 56px;
+}
+
+#evolve-create-icon{
+	margin: 12px;
+	background: transparent url('/libraries/evolve/images/evolve/_black/_circle/add.png') 3px 3px no-repeat;
+}
+
+#evolve-create-icon label{
+	display: none;
+}
+
+#evolve-create-input{
+	background: #EAE4E2;
+	width: 730px;
+	margin: 11px 0 0 60px;
+	height: 28px;
+	border: 1px solid #EAE4E2;
+	font: normal 17pt/20pt sans-serif;
+	color: #313437;
+}
+
+#evolve-create-input:focus{
+	background: #FFF;
+	border-color: #BBB;
+	outline: none;
+}
+
+.evolve-ui-button{
+	background: none !important;
+	color: #FFF;
+	border: 0;
+	margin: 0;
+}
+
+#orochi #orochi_list_create .evolve-ui-icon3{
+	display: none;
+}
+
+#orochi .evolve-ui-label{
+	color: #FFF;
+	text-shadow: none;
+	font: bold 12pt/16pt sans-serif;
+	width: 136px;
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 26px;
+	padding: 6px 0px 0px 30px;
+}
+
+#orochi_list {
+	width: 100%;
+	margin: 10px 0 0 0;
+	overflow: hidden;
+	border-radius: 0;
+	box-shadow: none;
+}
+
+#orochi_list thead{
+	background: #e3dbd8;
+}
+
+#orochi_list td { 
+	color: #111213; 
+	font-size: 10pt; 
+}
+
+#orochi_list thead tr { height: 30px; }
+
+#orochi_list th { color: #292B2E; }
+
+#orochi_list tr { height: 60px; }
+
+#orochi_list td a {	color: #e8200e; }
+
+#orochi .orochi_list_preview_250 .label,
+#orochi .orochi_list_preview_600 .label,
+#orochi .syndi_list_embed .label {
+	padding: 1px 3px;
+	height: 15px;
+	color: #111213;
+	text-shadow: none;
+}
+
+#orochi .orochi_list_preview_250 a,
+#orochi .orochi_list_preview_600 a,
+#orochi .syndi_list_embed {
+	background: #d5c9c4 !important;
+}
+
+#orochi .orochi_list_preview_250 a:hover,
+#orochi .orochi_list_preview_600 a:hover,
+#orochi .syndi_list_embed:hover {
+	background-color: #B8190B !important;
+	
+}
+
+#orochi .orochi_list_preview_250 a:hover .label,
+#orochi .orochi_list_preview_600 a:hover .label,
+#orochi .syndi_list_embed a:hover.label {
+	color: #FFF;
+}
+
+.adminlist .button span.icon{
+	display: none;
+}
+
+.orochi_workspace_menu li a {
+	font-size: 8pt;
+}
+
+.workspace_tab_add {
+	background: #f1edec !important;
+}
+
+.workspace_tab_add:hover {
+	background: #e3dbd8 !important;
+}
+
+.workspace_tab_add .icon{
+	margin-right: 3px;
+}
+
+.emcOrochi_group_pager a{
+	font-size: 8pt;
+}

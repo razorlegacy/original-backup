@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE install PUBLIC "-//Joomla! 1.5//DTD template 1.0//EN" "http://www.joomla.org/xml/dtd/1.5/template-install.dtd">
+<install type="template" version="1.5.0" client="administrator">
+	<name>Origin - Azure</name>
+	<creationDate>06/05/12</creationDate>
+	<author>Evolve Media Corp</author>
+	<authorEmail>si-tech@gorillanation.com</authorEmail>
+	<authorUrl>http://www.evolvemediacorp.com</authorUrl>
+	<copyright>Copyright Evolve Media Corp</copyright>
+	<license>GNU/GPL</license>
+	<version>1.0.0</version>
+	<description>Evolve Origin Template</description>
+	<files>
+		<filename>cpanel.php</filename>
+		<filename>css/index.html</filename>
+		<filename>css/azure.css</filename>
+		<filename>helper.php</filename>
+		<filename>index.html</filename>
+		<filename>index.php</filename>
+		<filename>js/azure.js</filename>
+		<filename>js/index.html</filename>
+		<filename>login.php</filename>
+		<filename>params.ini</filename>
+		<filename>template_thumbnail.png</filename>
+		
+		<folder>assets</folder>
+		<folder>html</folder>
+		<folder>images</folder>
+		
+	</files>
+	<languages>
+		<language tag="en-GB">en-GB.tpl_azure.ini</language>
+	</languages>
+	<administration>
+		<languages folder="admin">
+			<language tag="en-GB">en-GB.tpl_azure.ini</language>
+		</languages>
+	</administration>
+	<positions>
+		<position>home_activity</position>
+	</positions>
+	<params addpath="/administrator/templates/origin">
+	</params>
+</install>

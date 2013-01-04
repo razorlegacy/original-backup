@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install type="module" version="1.5.0">
+	<name>Twitter Module</name>
+	<author></author>
+	<creationDate></creationDate>
+	<copyright>Copyright (C) 2010 AtomicOnline. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail></authorEmail>
+	<authorUrl>www.joomla.org</authorUrl>
+	<version>1.0</version>
+	<description>Generates a Twitter feed</description>
+	<files>
+		<filename module="mod_twitter">mod_twitter.php</filename>
+		<filename>index.html</filename>
+	</files>
+	<params>
+		<param name="username" type="text" default="" label="Twitter Username" description="" />
+		<param name="tweets" type="text" default="5" label="How many Tweets to display" description=""/>
+		<param name="cache" type="radio" default="1" label="Enable Cache" description="Select whether to cache the content of this module">
+		    <option value="0">No</option>
+		    <option value="1">Yes</option>
+	    </param>
+	</params>
+	<params group="advanced">
+		<param name="marquee" type="radio" default="0" label="Scrolling Marquee" description="">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="marquee_hover" type="radio" default="0" label="Stop marquee on mouseover" description="">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="direction" type="text" default="left" label="Direction" description=""/>
+		<param name="speed"	type="text" default="25" label="Speed (lower is faster)" description=""/>
+		<param name="container" type="text" default="" label="Addt. Container DIV class" description=""/>
+		<param name="wrap" type="text" default="" label="Addt. Wrap DIV class" description=""/>
+	</params>	
+</install>

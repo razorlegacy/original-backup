@@ -1,0 +1,13 @@
+/* MiniFrontpage CSS*/
+
+.minifp td { padding-right:5px;
+}
+.minifp td p {
+	margin-top:3px;
+}
+
+.minifp td img {
+	border:none;
+	margin-left:0.5em;
+	margin-right:0.5em;
+}

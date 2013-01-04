@@ -1,0 +1,151 @@
+div.module div div div div.carouselContainer{
+  width:590px;
+  padding: 0 0 25px 5px;
+  overflow: hidden;
+  position: relative;
+}
+
+#movieInfo{
+  text-align:center;
+  width:100%;  
+  font-weight: bold;
+  font-size: 12px;
+  color: #FFCC00;  
+  position: absolute;
+}
+
+div.item_container a img{
+  border: none;  
+}
+
+div.carouselContainer div.scrollable div.item_container {
+  height: 150px;
+  border: none;
+  background-color: #3B3B3B;
+}
+
+/* 
+	root element for the scrollable. 
+	when scrolling occurs this element stays still. 
+*/
+div.scrollable {
+	
+	/* required settings */
+	position:relative;
+	overflow:hidden;	 	
+	width: 490px;	
+	height:175px;	
+	
+	/* custom decorations */
+	padding:10px 0;	
+	/*border:1px outset #ccc;*/
+	background-color:#efefef;				
+}
+
+/* 
+	root element for scrollable items. Must be absolutely positioned
+	and it should have a super large width to accomodate scrollable items.
+	it's enough that you set width and height for the root element and
+	not for this element.
+*/
+div.scrollable div.items {	
+	/* this cannot be too large */
+	width:20000em;	
+	position:absolute;
+	clear:both;		
+	
+	/* decoration */
+	margin-left:10px;
+}
+
+a{
+outline: none;
+}
+
+/* single scrollable item */
+div.scrollable div.items div {
+	float:left;
+	
+	/* custom decoration */
+	text-align:center;
+	width:110px;
+	padding:10px 0px;
+	font-size:30px;
+	font-family: 'bitstream vera sans';
+	border:1px outset #ccc;
+	background-color: #ddd;
+	margin-right: 10px;	
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+}
+
+/* active item */
+div.scrollable div.items div.active {
+	border:1px inset #ccc;		
+	background-color:#fff;
+}
+
+/* this makes it possible to add next button beside scrollable */
+div.scrollable {
+	float:left;		
+}
+
+/* prev, next, prevPage and nextPage buttons */
+a.prev, a.next, a.prevPage, a.nextPage {
+	display:block;
+	width:30px;
+	height:30px;
+	background:url(left.png) no-repeat;
+	float:left;
+	margin:70px 10px;
+	cursor:pointer;
+}
+
+/* mouseover state */
+a.prev:hover, a.next:hover, a.prevPage:hover, a.nextPage:hover {
+	background-position:0px -30px;
+}
+
+/* disabled navigational button */
+a.disabled {
+	visibility:hidden;
+}
+
+/* next button uses another background image */
+a.next, a.nextPage {
+	background-image:url(right.png);
+	clear:right;	
+}
+
+
+
+/*********** navigator ***********/
+
+
+/* position and dimensions of the navigator */
+div.cnavi {	
+	width:100%;
+	height:20px;
+	text-align: center;
+}
+
+/* items inside navigator */
+div.cnavi a {
+	width:8px;
+	height:8px;
+	overflow:hidden;	
+	margin:3px;
+	background:url(navigator.png) 0 0 no-repeat;     
+	cursor:pointer;	
+	display: inline-block;
+}
+
+/* mouseover state */
+div.cnavi a:hover {
+	background-position:0 -8px;      
+}
+
+/* active state (current page state) */
+div.cnavi a.active {
+	background-position:0 -16px;     
+} 	

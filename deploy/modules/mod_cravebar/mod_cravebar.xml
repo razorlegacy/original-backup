@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install type="module" version="1.5.0">
+	<name>Cravebar Generator</name>
+	<author></author>
+	<creationDate></creationDate>
+	<copyright>Copyright (C) 2010 AtomicOnline. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail></authorEmail>
+	<authorUrl>www.joomla.org</authorUrl>
+	<version>1.0</version>
+	<description>This module generates the CraveOnline Cravebar</description>
+	<files>
+		<filename module="mod_cravebar">mod_cravebar.php</filename>
+		<filename>index.html</filename>
+	</files>
+	<params>
+		<param name="cache" type="radio" default="1" label="Enable Cache" description="Select whether to cache the content of this module">
+		    <option value="0">No</option>
+		    <option value="1">Yes</option>
+	    </param>
+		<param name="site" type="text" default="" label="Site Name" description="" />
+		<param name="url" type="text" default="" label="Site URL http://" description="" />
+		<param name="channel" type="list" default="" label="Select Channel" description="">
+			<option value="filmtv">Film/TV</option>
+			<option value="music">Music</option>
+			<option value="gaming">Gaming</option>
+			<option value="comics">Comics</option>
+			<option value="sports">Sports</option>
+			<option value="lifestyle">Lifestyle</option>
+			<option value="humor">Humor</option>
+			<option value="videos">Videos</option>
+		</param>
+		<param name="width" type="text" default="100" label="Bar Width (percentage)" description="" />
+		<param name="formColor" type="text" default="000000" label="Form Color (hex) #" description="" />
+		<param name="fb" type="text" default="" label="Facebook Share URL http://" description="" />
+		<param name="twt" type="text" default="http://" label="Twitter Share URL" description="" />
+		<param name="rss" type="text" default="http://" label="RSS URL" description="" />
+	</params>
+</install>

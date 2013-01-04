@@ -1,0 +1,571 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class SweepstakesModelSweeps</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class SweepstakesModelSweeps</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+		<p class="notes">
+			Located in <a class="field" href="_administrator---components---com_sweepstakes---models---sweeps.php.html">/administrator/components/com_sweepstakes/models/sweeps.php</a> (line <span class="field">7</span>)
+		</p>
+		
+				
+		<pre>JModel
+   |
+   --SweepstakesModelSweeps</pre>
+	
+			</div>
+</div>
+
+
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+																																<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$_pagination" title="details" class="var-name">$_pagination</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$_total" title="details" class="var-name">$_total</a>
+				</div>
+											</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																																																																												
+												<div class="method-definition">
+											<span class="method-result">SweepstakesModelSweeps</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#deleteSweepstake" title="details" class="method-name">deleteSweepstake</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$arrayIDs</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getFields" title="details" class="method-name">getFields</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$sid</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#getNewSweepstake" title="details" class="method-name">getNewSweepstake</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#getPagination" title="details" class="method-name">getPagination</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$sid</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">??</span>
+										<a href="#getSweeps" title="details" class="method-name">getSweeps</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">object Object</span>
+										<a href="#getSweepstake" title="details" class="method-name">getSweepstake</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$id</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">int</span>
+										<a href="#getTotal" title="details" class="method-name">getTotal</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$sid</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#publishSweepstake" title="details" class="method-name">publishSweepstake</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$arrayIDs</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$status</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#saveSweepstake" title="details" class="method-name">saveSweepstake</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$sweepstake</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#_buildQuery" title="details" class="method-name">_buildQuery</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$sid</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#_getList" title="details" class="method-name">&amp;_getList</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$query</span>, [<span class="var-type">int</span>&nbsp;<span class="var-name">$limitstart</span> = <span class="var-default">0</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$limit</span> = <span class="var-default">0</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">int</span>
+										<a href="#_getListCount" title="details" class="method-name">_getListCount</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$query</span>)
+									</div>
+								</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="var$_pagination" id="$_pagination"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$_pagination</span>
+			 = <span class="var-default"> null</span>			(line <span class="line-number">10</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+		
+		
+
+</div>
+<a name="var$_total" id="$_total"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$_total</span>
+			 = <span class="var-default"> null</span>			(line <span class="line-number">9</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+		
+		
+
+</div>
+						
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">12</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">SweepstakesModelSweeps</span>
+		<span class="method-name">
+			__construct
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methoddeleteSweepstake" id="deleteSweepstake"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">deleteSweepstake</span> (line <span class="line-number">191</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sweepstake batch delete</p>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			deleteSweepstake
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$arrayIDs</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$arrayIDs</span><span class="var-description">: array of sweepstake IDs</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetFields" id="getFields"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getFields</span> (line <span class="line-number">149</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Retreives fields from a sweepstake ID</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Unserialized array of fields</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getFields
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$sid</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$sid</span><span class="var-description">: sweepstake ID</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetNewSweepstake" id="getNewSweepstake"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getNewSweepstake</span> (line <span class="line-number">216</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">???</p>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			getNewSweepstake
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetPagination" id="getPagination"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getPagination</span> (line <span class="line-number">87</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Pagination: Creates pagination footer - Only one called directly</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Pagination footer</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			getPagination
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$sid</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$sid</span><span class="var-description">: Sweepstakes ID</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetSweeps" id="getSweeps"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getSweeps</span> (line <span class="line-number">100</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets a list of all sweepstakes with support for sorting</p>
+	
+	<div class="method-signature">
+		<span class="method-result">??</span>
+		<span class="method-name">
+			getSweeps
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetSweepstake" id="getSweepstake"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getSweepstake</span> (line <span class="line-number">129</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Loads one sweepstake</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> of sweepstake columns</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">object Object</span>
+		<span class="method-name">
+			getSweepstake
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$id</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$id</span><span class="var-description">: sweepstake ID</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetTotal" id="getTotal"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getTotal</span> (line <span class="line-number">73</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Pagination: Gets total rows from a sweepstake ID</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Total row count</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">int</span>
+		<span class="method-name">
+			getTotal
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$sid</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$sid</span><span class="var-description">: Sweepstake ID</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodpublishSweepstake" id="publishSweepstake"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">publishSweepstake</span> (line <span class="line-number">204</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">UNUSED: Publish sweepstake (change flag)</p>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			publishSweepstake
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$arrayIDs</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$status</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$arrayIDs</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$status</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsaveSweepstake" id="saveSweepstake"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">saveSweepstake</span> (line <span class="line-number">168</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Saves sweepstake (backend)</p>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			saveSweepstake
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$sweepstake</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$sweepstake</span><span class="var-description">: sweepstake ID (provided by Joomla)</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method_buildQuery" id="_buildQuery"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">_buildQuery</span> (line <span class="line-number">39</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Base function for MySQL queries</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Returns a query string</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			_buildQuery
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$sid</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$sid</span><span class="var-description">: Sweepstake ID</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method_getList" id="_getList"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">_getList</span> (line <span class="line-number">62</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Pagination: Helper for MySQL query with limits</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Query result stored in object</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			&amp;_getList
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$query</span>, [<span class="var-type">int</span>&nbsp;<span class="var-name">$limitstart</span> = <span class="var-default">0</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$limit</span> = <span class="var-default">0</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$query</span><span class="var-description">: Query string</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$limitstart</span><span class="var-description">: Limit starting value</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$limit</span><span class="var-description">: Limit ending point</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method_getListCount" id="_getListCount"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">_getListCount</span> (line <span class="line-number">49</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Pagination: returns row count</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Row count</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">int</span>
+		<span class="method-name">
+			_getListCount
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$query</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$query</span><span class="var-description">: Query string</span>			</li>
+				</ul>
+		
+			
+	</div>
+						
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Tue, 20 Jul 2010 15:28:16 -0700 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install type="module" version="1.5.0">
+	<name>Springboard Video List</name>
+	<author>Springboard</author>
+	<creationDate>May 2009</creationDate>
+	<copyright>Copyright (C) 2009 Open Source Matters. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail>admin@joomla.org</authorEmail>
+	<authorUrl>www.joomla.org</authorUrl>
+	<version>1.5.0</version>
+	<description>This module allows the displaying of a syndicated feed from springboard videos</description>
+	<files>
+		<filename module="mod_feed">mod_springboard_videos.php</filename>
+	</files>
+	<params>
+		<param name="moduleclass_sfx" type="text" default="" label="Module Class Suffix" description="PARAMMODULECLASSSUFFIX" />
+		<param name="@spacer" type="spacer" default="" label="" description="" />
+		<param name="cms_domain" type="text" size="40" default="http://cms.springboard.gorillanation.com" label="Springboard CMS Domain" description="Domain to the Springboard CMS where XML feeds can be retrieved" />
+		<param name="site_id" type="text" size="10" default="" label="Site ID" description="Enter the Springboard Site ID" />
+		<param name="data_source" type="radio" default="channel" label="Data Source" description="Select Data Source">
+			<option value="channel_list">Channel List</option>
+			<option value="channel">Channel ID</option>
+			<option value="playlist">Playlist ID</option>
+		</param>
+		<param name="channel_id" type="text" size="10" default="" label="Channel ID" description="Enter the Springboard Channel ID" />
+		<param name="playlist_id" type="text" size="10" default="" label="Playlist ID" description="Enter the Springboard Playlist ID (No support for pagination and number of items)" />
+		<param name="relative_path" type="text" size="50" default="" label="Relative Path" description="Enter the relative path to the video player page" />
+		<param name="rssrtl" type="radio" default="0" label="RTL Feed" description="Display feed in RTL direction">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="rsstitle" type="radio" default="1" label="Feed Title" description="Display news feed title">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="rssdesc" type="radio" default="1" label="Feed Description" description="Show the description text for the whole Feed">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="rssimage" type="radio" default="1" label="Feed Image" description="Show the image associated with the whole Feed">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="rssitems" type="text" default="10" label="Items Per Page" description="Enter number of RSS items to display" />
+		<param name="rsspages" type="text" default="10" label="Max Pages Per Display" description="Enter max number of pages per display" />
+		<param name="rssitemdesc" type="radio" default="1" label="Item Description" description="PARAMITEMDESC">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="rssitemimage" type="radio" default="1" label="Item Image" description="PARAMITEMIMAGE">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="rssitemnumvideos" type="radio" default="0" label="Feed Num Videos" description="Show the number of videos associated with a Channel List Feed">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>		
+		<param name="word_count" type="text" size="6" default="0" label="Word Count" description="PARAMWORDCOUNT" />
+		<param name="pagination" type="radio" default="1" label="Pagination" description="PARAMPAGINATION">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="view_more" type="menuitem" label="View More Link" description="Select menu where View More links to" />
+	</params>
+	<params group="advanced">
+		<param name="cache" type="list" default="0" label="Caching" description="Select whether to cache the content of this module">
+			<option value="1">Use global</option>
+			<option value="0">No caching</option>
+		</param>
+		<param name="cache_time" type="text" default="15" label="Cache Time" description="The time in seconds before the module is re-cached." />
+	</params>
+</install>

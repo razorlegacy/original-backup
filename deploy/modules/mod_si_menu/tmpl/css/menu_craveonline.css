@@ -1,0 +1,143 @@
+#nav_top {
+	height: 36px;
+	margin-bottom: 5px;
+}
+
+ul#nav {
+	background: #DCDCDC url(/modules/mod_si_menu/tmpl/css/craveonline/bg_header.gif) repeat-x left top;
+	width: 994px;
+	height: 36px;
+	padding: 0;
+	margin: 0 auto 5px;
+}
+
+ul#nav li a {
+	text-transform: uppercase;
+	color: #fff;
+	text-decoration: none;
+}
+
+ul#nav li a.toplink {
+	font-weight: bold;
+	font-size: 1em;
+	text-align: center;
+	line-height: 35px;
+	background: black url(/modules/mod_si_menu/tmpl/css/craveonline/bg_nav.gif) no-repeat right top;
+}
+
+ul#nav a.sublink {
+	font-size: .7em;
+	text-align: left;
+	text-indent: 1em;
+	line-height: 2em;
+}
+
+#nav,
+#nav ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+#nav a {
+	display: block;
+}
+
+#nav li {
+	float: left;
+}
+
+#nav li ul {
+	background: #000;
+	position: absolute;
+	left: -999em;
+	margin-left: 10px;
+}
+
+#nav li:hover ul {
+	left: auto;
+}
+
+#nav li.sub a {
+	display: block;
+}
+
+li.nav_entertainment a {
+	width: 172px;
+}
+
+li.nav_lifestyle a {
+	width: 120px;
+}
+
+li.nav_gaming a {
+	width: 97px;
+}
+
+li.nav_sports a {
+	width: 99px;
+}
+
+li.nav_videos a {
+	width: 92px;
+}
+
+#nav .nav_entertainment ul {
+	margin-left: 0;
+	width: 172px;
+}
+
+#nav a.about {
+	color: white;
+	font-size: 9px;
+	font-weight: bold;
+	line-height: 35px;
+	text-transform: uppercase;
+	padding-left: 10px;
+}
+
+#nav a:hover.about {
+	color:#cf0708;
+}
+
+#search input.text,
+#search input.button {
+	float: left;
+	font-weight: bold;
+	border: 0px none;
+}
+
+#search input.text {
+	background: url(/modules/mod_si_menu/tmpl/css/craveonline/bg_search.gif) no-repeat 0 0;
+	font-size: .9em;
+	height: 21px;
+	padding: 2px 2px 2px 5px;
+}
+
+#search input.button {
+	background: url(/modules/mod_si_menu/tmpl/css/craveonline/button_search.gif) no-repeat right top;
+	color: #fff;
+	font-size: .85em;
+	height: 25px;
+	line-height: 25px;
+	margin: 0;
+	overflow-y: hidden;
+	padding: 0 5px;
+	text-transform: uppercase;
+}
+
+#search input:hover.button {
+	background-position:right center;
+}
+
+#search input:active.button {
+	background-position:right bottom;
+	margin:-1px 0 0;
+}
+
+#search {
+	padding: 0 0 0 30px;
+	height: 25px;
+	position: relative;
+	top: 5px;
+}

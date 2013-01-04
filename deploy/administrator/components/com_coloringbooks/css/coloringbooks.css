@@ -1,0 +1,83 @@
+#leftpanel,
+#rightpanel {
+	display: inline-block;
+	width: 49%;
+	vertical-align: top;
+}
+#adminForm input[type="submit"] {float: right;}
+.add #file_upload{display:none;}
+#imagelist li .delete {vertical-align:top;float:right;}
+#adminForm input[type="text"],#adminForm select {width:202px;}
+
+.overlay,.embed_code {
+	/* must be initially hidden */
+	display:none;
+
+	/* place overlay on top of other elements */
+	z-index:10000;
+
+
+	/* styling */
+	background-color:#333;
+
+	width:800px;
+	min-height:100px;
+	border:1px solid #666;
+
+	/* CSS3 styling for latest browsers */
+	box-shadow: 0 0 90px #000;
+	-moz-box-shadow:0 0 90px 5px #000;
+	-webkit-box-shadow: 0 0 90px #000;
+	word-wrap: break-word;
+	padding: 10px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+}
+.overlay{
+	width:auto;
+	height: auto;
+	min-width: 100px;
+	max-height: 85%;
+	max-width: 90%;
+}
+.overlaywrapper {
+	max-height: 700px;
+	max-width: 1000px;
+	overflow: auto;
+	width: auto;
+	height: auto;
+}
+
+#previewFrame{
+	border-style: none;
+}
+
+/* close button positioned on upper right corner */
+.overlay .close, .embed_code .close {
+	background-image:url(/administrator/components/com_coloringbooks/images/close.png);
+	position:absolute;
+	right:-15px;
+	top:-15px;
+	cursor:pointer;
+	height:35px;
+	width:35px;
+}
+
+.embed_code .caption{
+	margin: 3px;
+	text-shadow: 1px 1px 10px #fff;
+	font-size: 1.5em;
+	color: white;
+}
+.embed_code .code{
+	background-color: white;
+	border: 1px inset lightgray;
+	margin: 3px;
+	width: 98%;
+	padding: 3px;
+	-moz-box-shadow: inset 3px 2px 16px 2px #000000;
+	-webkit-box-shadow: inset 3px 2px 16px 2px #000000;
+	box-shadow: inset 3px 2px 16px 2px #000000;
+	min-height: 50px;
+	height: auto;
+}

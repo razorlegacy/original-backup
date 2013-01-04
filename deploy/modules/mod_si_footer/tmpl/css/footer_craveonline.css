@@ -1,0 +1,16 @@
+/**Footer**/
+#co_footer {
+	margin: 0 15px;
+	padding: 10px 0;
+}
+
+#co_footer p.logo {
+	width: 112px;
+	height: 52px;
+	text-indent: -5000em;
+}
+
+#co_footer .copyright {
+	width: 600px;
+	margin: 5px 0 0 5px;
+}

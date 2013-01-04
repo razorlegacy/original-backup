@@ -1,0 +1,20 @@
+[
+	{
+		"id": "horizon",
+		"label": "Horizon Spec Sheet",
+		"pdf": "templates/azure/data/[Origin] Horizon.pdf",
+		"thumbnail": "templates/azure/images/_specsheet/horizon.jpg"
+	},
+	{
+		"id": "meridian",
+		"label": "Meridian Spec Sheet",
+		"pdf": "templates/azure/data/[Origin] Meridian.pdf",
+		"thumbnail": "templates/azure/images/_specsheet/ascend.jpg"
+	},
+	{
+		"id": "nova",
+		"label": "Nova Spec Sheet",
+		"pdf": "templates/azure/data/[Origin] Nova.pdf",
+		"thumbnail": "templates/azure/images/_specsheet/nova.jpg"
+	}
+]

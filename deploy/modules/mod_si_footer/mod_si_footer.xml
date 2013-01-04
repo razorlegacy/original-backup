@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install type="module" version="1.5.0">
+	<name>AO Footer Generator</name>
+	<author></author>
+	<creationDate></creationDate>
+	<copyright>Copyright (C) 2010 AtomicOnline. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail></authorEmail>
+	<authorUrl>www.joomla.org</authorUrl>
+	<version>1.0</version>
+	<description>This module generates a footer from an AtomicOnline property site</description>
+	<files>
+		<filename module="mod_si_footer">mod_si_footer.php</filename>
+		<filename>index.html</filename>
+		<filename>tmpl/craveonline.php</filename>
+		<filename>tmpl/gamerevolution.php</filename>
+	</files>
+	<params>
+		<param name="cache" type="radio" default="1" label="Enable Cache" description="Select whether to cache the content of this module">
+		    <option value="0">No</option>
+		    <option value="1">Yes</option>
+	    </param>
+		<param name="footer" type="list" default="" label="Select Menu" description="">
+			<option value="craveonline">CraveOnline</option>
+			<option value="gamerevolution">GameRevolution</option>
+		</param>
+		<param name="craveRU" type="radio" default="0" label="Use Crave Rollup script" description="">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+<!--
+		<param name="tracking" type="textarea" default="" rows="10" cols="40" label="Additional Tracking" description=""/>
+		<param name="randTracking" type="text" default="" label="ORD replacement" description="Case sensitive string to swap with random number"/>
+-->
+	</params>
+</install>

@@ -1,0 +1,34 @@
+[
+	{
+		"value": "ascend",
+		"name": "Anchor (beta)",
+		"description": "The unit appears attached to the bottom of the page. Upon initiation, the unit expands upwards to reveal client messaging, overlapping the site.",
+		"img": "/components/com_emc_origin/assets/images/storyboard/large/ascend.png",
+		"thumbnail": "/components/com_emc_origin/assets/images/storyboard/thumbnail/ascend.png",
+		"position": "top"
+	},
+	{
+		"value": "horizon",
+		"name": "Sliver",
+		"description": "The unit appears at the top of the page above site content. Upon initiation, the unit expands vertically to reveal client messaging, pushing down the site.",
+		"img": "/components/com_emc_origin/assets/images/storyboard/large/horizon.png",
+		"thumbnail": "/components/com_emc_origin/assets/images/storyboard/thumbnail/horizon.png",
+		"position": "bottom"
+	},
+	{
+		"value": "meridian",
+		"name": "Interstitial (beta)",
+		"description": "The unit appears upon page load or when an user clicks on a link. Upon initiation, the unit lightboxes over the site to reveal client messaging.",
+		"img": "/components/com_emc_origin/assets/images/storyboard/large/meridian.png",
+		"thumbnail": "/components/com_emc_origin/assets/images/storyboard/thumbnail/meridian.png",
+		"position": "bottom"
+	},
+	{
+		"value": "nova",
+		"name": "Overlay (beta)",
+		"description": "This unit appears within the site's content. Upon initiation, the unit lightboxes to a larger unit to reveal client messaging.",
+		"img": "/components/com_emc_origin/assets/images/storyboard/large/nova.png",
+		"thumbnail": "/components/com_emc_origin/assets/images/storyboard/thumbnail/nova.png",
+		"position": "bottom"
+	}
+]

@@ -1,0 +1,49 @@
+html,
+body {
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+a,
+a img {
+	outline: none;
+	border: 0 none;
+}
+
+.content {
+	position: relative;
+	margin: 0 auto;
+	width: 970px;
+	height: 100%;
+}
+
+.content>* {
+	position: absolute;
+}
+
+.trigger {
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+}
+
+
+/***** HORIZON *****/
+#emcHorizon #default,
+#emcHorizon #expand {
+	position: absolute;
+	width: 100%;
+}
+
+#emcHorizon #default {
+	z-index: 1;
+	height: 50px;
+}
+
+body#emcHorizon #expand {
+	z-index: 0;
+	height: 250px;
+}
+

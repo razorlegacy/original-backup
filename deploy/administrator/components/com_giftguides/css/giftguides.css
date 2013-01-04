@@ -1,0 +1,532 @@
+.giftguide_product,
+.gg_product label,
+.gg_product span,
+.gg_product input,
+.gg_product_image,
+.gg_product_data,
+.gg_category_left,
+.gg_category_right,
+label,
+input,
+.product_drag,
+.gg_product_wrapper {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.giftguide_product fieldset {
+	width: 200px;
+}
+
+.gg_category_left,
+.gg_category_right {
+	width: 50%;
+}
+
+body legend {
+	font-size: 1.2em;
+}
+
+a {
+	outline: none;
+}
+
+.gg_empty {
+	opacity: .3;
+}
+
+#categoryForm .default,
+#productForm .default,
+.gg_category_meta .default,
+.form_helper_default {
+	color: gray !important;
+	font-style: italic !important;
+}
+
+label {
+	width: 100px;
+	font-weight: bold;
+}
+
+textarea {
+	width: 300px;
+}
+
+ul {
+	padding: 0 5px;
+}
+
+ul li {
+	list-style: none;
+	margin: 5px 0;
+}
+
+.placeholder {
+	color: gray;
+	font-style: italic;
+}
+
+
+/***** Meta *****/
+#giftguide_create input {
+	width: 300px;
+}
+
+#giftguide_create #giftguide_meta input {
+	width: 70px;
+}
+
+
+/***** Category *****/
+#categoryForm {
+	margin: 10px 0;
+	position: relative;
+}
+
+#category_submit {
+	margin: 0 5px;
+}
+
+.gg_category {
+	position: relative;
+}
+
+.gg_category .controls {
+	position: absolute;
+	bottom: 5px;
+}
+
+#category_edit {
+	right: 5px;
+}
+
+#category_delete {
+	left: 5px;
+}
+
+/***** Product Common *****/
+.gg_product {
+	list-style: none;
+	color: #707070;
+	font-size: .9em;
+}
+
+.gg_product .list {
+	margin: 5px 0;
+}
+
+.gg_product label {
+	width: 100px;
+	font-weight: bold;
+	color: #000;
+}
+
+
+/***** Add Product *****/
+.gg_product_add .gg_product_wrapper {
+	margin-bottom: 20px;
+}
+
+.gg_category_meta {
+	position: relative;
+	font-size: .9em;
+}
+
+.gg_category_meta input[type="text"] {
+	width: 300px;
+}
+
+/*
+.gg_category_meta #category_name {
+	display: block;
+}
+*/
+
+.gg_category_meta #category_name_edit {
+	margin: 5px 0;
+}
+
+.gg_category_meta #category_name_delete {
+	margin: 5px;
+}
+
+#productForm {
+	position: relative;
+	padding-bottom: 20px;
+}
+
+.gg_product_add .gg_product_image img {
+	width: 150px;
+	height: 150px;
+}
+
+.gg_product_add .gg_product_image {
+	width: 150px;
+	height: 190px;
+	position: relative;
+}
+
+.gg_product_add .gg_product_image object {
+	position: absolute;
+	bottom: 5px;
+	left: 15px;
+}
+
+.gg_product_data {
+	margin-left: 10px;
+}
+
+.title input {
+	width: 150px;
+}
+
+.price input {
+	width: 150px;
+}
+
+.url input {
+	width: 300px;
+}
+
+#productForm .button_left {
+	position: absolute;
+	left: 5px;
+	bottom: 5px;
+}
+
+#productForm .button_right {
+	position: absolute;
+	right: 5px;
+	bottom: 5px;
+}
+
+/***** Product List *****/
+.gg_product_view .feature_select {
+	text-align: center;
+	font-size: .9em;
+}
+
+.gg_product_view .feature_select label {
+	margin: 0 5px;
+}
+
+.gg_product_view .description label small {
+	color: red;
+}
+
+.gg_product_view .description span {
+	width: 300px;
+}
+
+.gg_product_view .gg_product_wrapper {
+	margin: 10px 15px;
+	border-bottom: 1px dotted #000;
+	position: relative;
+	padding-bottom: 20px;
+	width: 90%;
+}
+
+.gg_product_view .controls {
+	position: absolute;
+	bottom: 5px;
+	font-size: .9em;
+}
+
+.gg_product_view a.controls {
+	opacity: .5;
+	font-weight: bold;
+}
+
+.gg_product_view a:hover.controls {
+	opacity: 1;
+}
+
+#product_edit {
+	right: 5px;
+}
+
+#product_delete {
+	left: 5px;
+}
+
+.gg_product_view .gg_product_image img,
+#gg_product_preview,
+#gg_product_preview img {
+	width: 100px;
+}
+
+.product_drag {
+	opacity: .15;
+	background: gray;
+	width: 10px;
+	height: 135px;
+}
+
+.product_drag:hover {
+	opacity: .4;
+}
+
+
+/***** jQuery Quick Confirm *****/
+/*********************/
+/* Can't touch this! */
+/*********************/
+
+.fast_confirm {
+	position: absolute;
+	
+	/* Position off-screen, show only when everything is ready */
+	top: -500px;
+	left: -500px;
+}
+/* IE6 */
+.fast_confirm {
+    _border-left-color: pink;
+    _border-bottom-color: pink;
+    _border-right-color: pink;
+    _filter: chroma(color=pink);
+}
+
+
+/*******************************/
+/* You can configure from here */
+/*******************************/
+
+/* BOX */
+
+.fast_confirm {
+	background-color: #fff;
+	font-size: 14px;
+	text-align: center;
+	padding: 6px;
+	
+	border: 1px solid #aaa;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+	
+	-moz-box-shadow: 0 0 4px #000;
+	-webkit-box-shadow: 0 0 4px #000;
+	box-shadow: 0 0 4px #000;
+}
+
+
+/* ARROWS */
+
+/* Top arrow */
+.fast_confirm .fast_confirm_top.fast_confirm_arrow {
+	position: absolute;
+	top: -10px;
+	
+	border-color: transparent transparent #fff;
+	border-style: solid;
+	border-width: 0 10px 10px;
+	height: 0;
+	width: 0;
+}
+.fast_confirm .fast_confirm_top.fast_confirm_arrow_border {
+	position: absolute;
+	top: -12px;
+	
+	border-color: transparent transparent #aaa;
+	border-style: solid;
+	border-width: 0 12px 12px;
+	height: 0;
+	width: 0;
+}
+
+/* Right arrow */
+.fast_confirm .fast_confirm_right.fast_confirm_arrow {
+	position: absolute;
+	right: -10px;
+	
+	border-color: transparent transparent transparent #fff;
+	border-style: solid;
+	border-width: 10px 0 10px 10px;
+	height: 0;
+	width: 0;
+}
+.fast_confirm .fast_confirm_right.fast_confirm_arrow_border {
+	position: absolute;
+	right: -12px;
+	
+	border-color: transparent transparent transparent #aaa;
+	border-style: solid;
+	border-width: 12px 0 12px 12px;
+	height: 0;
+	width: 0;
+}
+
+/* Bottom arrow */
+.fast_confirm .fast_confirm_bottom.fast_confirm_arrow {
+	position: absolute;
+	bottom: -10px;
+	
+	border-color: #fff transparent transparent;
+	border-style: solid;
+	border-width: 10px 10px 0 10px;
+	height: 0;
+	width: 0;
+}
+.fast_confirm .fast_confirm_bottom.fast_confirm_arrow_border {
+	position: absolute;
+	bottom: -12px;
+	
+	border-color: #aaa transparent transparent;
+	border-style: solid;
+	border-width: 12px 12px 0 12px;
+	height: 0;
+	width: 0;
+}
+
+/* Left arrow */
+.fast_confirm .fast_confirm_left.fast_confirm_arrow {
+	position: absolute;
+	left: -10px;
+	
+	border-color: transparent #fff transparent transparent;
+	border-style: solid;
+	border-width: 10px 10px 10px 0;
+	height: 0;
+	width: 0;
+}
+.fast_confirm .fast_confirm_left.fast_confirm_arrow_border {
+	position: absolute;
+	left: -12px;
+	
+	border-color: transparent #aaa transparent transparent;
+	border-style: solid;
+	border-width: 12px 12px 12px 0;
+	height: 0;
+	width: 0;
+}
+
+
+/* BUTTONS */
+
+.fast_confirm button {
+	margin: 10px;
+	padding: 5px 10px;
+    
+    font-weight: bold;
+    
+    color: #fff;
+    
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+/* Proceed button */
+.fast_confirm button.fast_confirm_proceed {
+    border: 1px solid #128123;
+    
+    color: #fff;
+    
+    text-shadow: 0 -1px 0 hsla(120,100%,0%,.5);
+    
+    background: #00aa00;
+    background: -webkit-gradient( linear, left top, left bottom, color-stop(.2, #00aa00), color-stop(1, #006600) );
+    background: -moz-linear-gradient( center top, #00aa00 20%, #006600 100% );
+    
+    -webkit-box-shadow:
+		inset 0 1px 1px hsla(0,100%,100%,.4),
+		inset 0 -1px 0 hsla(0,100%,100%,.3),
+		0 2px 0 hsla(120,77%,26%,1),
+		0 4px 2px hsla(122,100%,0%,.5);
+    
+    -moz-box-shadow:
+		inset 0 1px 1px hsla(0,100%,100%,.4),
+		inset 0 -1px 0 hsla(0,100%,100%,.3),
+		0 2px 0 hsla(120,77%,26%,1),
+		0 4px 2px hsla(122,100%,0%,.5);
+    
+    box-shadow:
+		inset 0 1px 1px hsla(0,100%,100%,.4),
+		inset 0 -1px 0 hsla(0,100%,100%,.3),
+		0 2px 0 hsla(122,77%,26%,1),
+		0 4px 2px hsla(122,100%,0%,.5);
+}
+.fast_confirm button.fast_confirm_proceed:hover {
+	background: -webkit-gradient( linear, left top, left bottom, color-stop(.2, #00dd00), color-stop(1, #00aa00) );
+    background: -moz-linear-gradient( center top, #00dd00 20%, #00aa00 100% );
+}
+
+/* Cancel button */
+.fast_confirm button.fast_confirm_cancel {
+    border: 1px solid #128123;
+    
+    color: #fff;
+    
+    text-shadow: 0 -1px 0 hsla(0,100%,0%,.5);
+    
+    background: #ff2222;
+    background: -webkit-gradient( linear, left top, left bottom, color-stop(.2, #ff2222), color-stop(1, #aa0000) );
+    background: -moz-linear-gradient( center top, #ff2222 20%, #aa0000 100% );
+    
+    -webkit-box-shadow:
+		inset 0 1px 1px hsla(0,100%,100%,.4),
+		inset 0 -1px 0 hsla(0,100%,100%,.3),
+		0 2px 0 hsla(0,77%,26%,1),
+		0 4px 2px hsla(2,100%,0%,.5);
+    
+    -moz-box-shadow:
+		inset 0 1px 1px hsla(0,100%,100%,.4),
+		inset 0 -1px 0 hsla(0,100%,100%,.3),
+		0 2px 0 hsla(0,77%,26%,1),
+		0 4px 2px hsla(2,100%,0%,.5);
+    
+    box-shadow:
+		inset 0 1px 1px hsla(0,100%,100%,.4),
+		inset 0 -1px 0 hsla(0,100%,100%,.3),
+		0 2px 0 hsla(0,77%,26%,1),
+		0 4px 2px hsla(2,100%,0%,.5);
+}
+.fast_confirm button.fast_confirm_cancel:hover {
+	background: -webkit-gradient( linear, left top, left bottom, color-stop(.2, #ff6666), color-stop(1, #ff2222) );
+    background: -moz-linear-gradient( center top, #ff6666 20%, #ff2222 100% );
+}
+
+.tooltip {
+	background-color: #000;
+	border: 1px solid #fff;
+	padding: 5px 5px;
+	display: none;
+	color: #fff;
+	font-size: 1.1em;
+	font-weight: bold;
+	margin-left: 15px;
+
+	/* outline radius for mozilla/firefox only */
+	-moz-box-shadow: 0 0 10px #000;
+	-webkit-box-shadow: 0 0 10px #000;
+}
+
+
+/* Origin tweaks */
+
+#azure-toolbar .toolbar .button{
+	cursor: pointer;
+	display: inline-block;
+	background: #E3DBD8 url('/libraries/evolve/images/evolve/_white/_regular/add.png') no-repeat 3px 3px;
+	width: 150px;
+	height: 26px;
+	color: #FFF;
+	text-indent: 26px;
+	font-weight: bold;
+	padding: 3px;
+	margin: 12px 0;
+	line-height: 26px;
+	color: #FFF !important;
+	border: 1px solid #b19b93;
+}
+
+#azure-toolbar .toolbar .button a:link{
+	width: 150px;
+	height: 26px;
+	background: none;
+	line-height: 26px;
+	margin: 0;
+	padding: 0;
+	color: #FFF !important;
+}

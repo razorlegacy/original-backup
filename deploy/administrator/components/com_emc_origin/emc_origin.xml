@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="1.7.0" method="upgrade">
+	<name>com_emc_origin</name>
+	<creationDate>01/13/12</creationDate>
+	<author>Evolve Media Corp</author>
+	<authorEmail>si-tech@gorillanation.com</authorEmail>
+	<!--  The version string is recorded in the components table -->
+	<version>0.0.1</version>
+	<!-- The description is optional and defaults to the name -->
+	<description>Origin Component - Evolve Media Corp</description>
+	
+	<install>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+		</sql>
+	</install>
+	<uninstall>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+		</sql>
+	</uninstall>
+	<update>
+		<schemas>
+			<schemapath type="mysql">sql/updates/</schemapath>
+		</schemas>
+	</update>
+	
+	<administration>
+		<menu img="components/com_emc_origin/assets/images/origin-menu-icon.png">Origin</menu>
+	</administration>
+
+</extension>

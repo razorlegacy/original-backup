@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install type="module" version="1.5.0">
+	<name>Springboard Video Player</name>
+	<author>Tony Wu</author>
+	<creationDate>May 2009</creationDate>
+	<copyright>Copyright (C) 2009 AtomicOnline. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail>tony.wu@atomiconline.com</authorEmail>
+	<authorUrl>www.joomla.org</authorUrl>
+	<version>1.5.0</version>
+	<description>This module allows the displaying of a Springboard video</description>
+	<files>
+		<filename module="mod_springboard_video">mod_springboard_video.php</filename>
+	</files>
+	<params>
+                <param name="moduleclass_sfx" type="text" default="" label="Module Class Suffix" description="PARAMMODULECLASSSUFFIX" />
+		<param name="@spacer" type="spacer" default="" label="" description="" />
+		<param name="cms_domain" type="text" size="40" default="cms.springboard.gorillanation.com" label="Springboard CMS Domain" description="Domain to the Springboard CMS where XML feeds can be retrieved" />	
+		<param name="site_id" type="text" size="10" default="" label="Site ID" description="Enter the Springboard Site ID" />
+		<param name="player_id" type="text" default="" label="Player ID" description="Springboard player ID to use" />
+		<param name="player_width" type="text" size="10" default="410" label="Width" description="Enter the Springboard Video Player Width" />
+		<param name="player_height" type="text" size="10" default="330" label="Height" description="Enter the Springboard Video Player Height" />
+		<param name="autostart" type="radio" default="0" label="Autostart" description="Should the player automatically start?">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+	</params>
+	<params group="advanced">
+		<param name="cache" type="list" default="0" label="Caching" description="Select whether to cache the content of this module">
+			<option value="1">Use global</option>
+			<option value="0">No caching</option>
+		</param>
+		<param name="cache_time" type="text" default="15" label="Cache Time" description="The time in seconds before the module is re-cached." />
+	</params>
+</install>

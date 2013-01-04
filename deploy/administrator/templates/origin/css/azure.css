@@ -1,0 +1,43 @@
+html,
+body,
+#azure-login-wrapper {
+	height: 100%
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+#azure-login-wrapper {
+	position: relative;
+	height: 100%;
+}
+
+#azure-login-box {
+	position: absolute;
+	text-align: center;
+	top: 50%;
+	left: 50%;
+	margin-top: -100px;
+	margin-left: -200px;
+	
+	background-color: #bec0c2;
+	
+	width: 400px;
+	height: 200px;
+}
+
+#azure-login-box #form-login-lang {
+	display: none;
+}
+
+#azure-login-box .button_holder {
+	background-color: #fff;
+	cursor: pointer;
+	width: 100px;
+	height: 30px;
+	position: absolute;
+	bottom: 5px;
+	right: 5px;
+}

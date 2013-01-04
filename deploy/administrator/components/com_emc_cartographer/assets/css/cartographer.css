@@ -1,0 +1,598 @@
+/* #header-box, */
+#toolbar-box,
+#element-box .t,
+#element-box .b {
+	display: none;
+}
+
+#content-box .padding,
+#element-box div.m {
+	padding: 0 !important;
+}
+
+#element-box .m {
+	border: 0 none;
+}
+
+/*
+.ui-tooltip-content {
+	border: 0 none;
+}
+*/
+
+.ui-tabs .ui-tabs-panel,
+.ui-tabs .ui-tabs-nav {
+	padding: 0 !important;
+	margin: 0 !important;
+}
+
+
+/***** LAYOUT *****/
+#cartographer_wrapper {
+	font-family: Helvetica, sans-serif;
+	width: 980px;
+	margin: 0 auto;
+}
+
+#cartographer_list {
+	margin: 10px 0;
+}
+
+#cartographer_dashboard {
+	position: relative;
+	width: 100%;
+	height: 55px;
+}
+
+#dashboard_config div {
+	margin: 0 1px;
+}
+
+#cartographer_workspace {
+	width: 980px;
+	min-height: 450px;
+	/* overflow: hidden; */
+	z-index: 1000;
+	position: relative;
+}
+
+.cartographer_list_preview_image {
+	width: 200px;
+}
+
+/*
+.cartographer_list_preview input[type="text"] {
+	height: 16px;
+	width: 250px;
+}
+*/
+
+/***** CREATE *****/
+#cartographer_list_create {
+	height: 60px;
+	margin: 10px 0 0 0;
+}
+
+#cartographer_create_icon {
+	background: transparent url(../images/icon-add.png) no-repeat 0 0;
+	width: 32px;
+	height: 32px;
+	margin: 5px;
+}
+
+#cartographer_create_icon .evolve-buttons-title {
+	width: 100px;
+	color: #000;
+}
+
+#cartographer_create_input {
+	margin: 10px 0 0 50px;
+	width: 80%;
+	text-align: center;
+	height: 35px;
+	font-size: 1.8em;
+}
+
+#cartographer_create_button {
+	width: 90px;
+	margin: 15px 0 0 0;
+	float: right;
+}
+
+/***** LIST *****/
+#cartographer_list th.header {
+	cursor: pointer;
+}
+
+#cartographer_list table.adminlist tbody tr td {
+	background: none;
+	border: 0 none;
+}
+
+
+/***** DASHBOARD *****/
+#cartographer_toolbar_title,
+#cartographer_toolbar_buttons {
+	width: 49%;
+}
+
+#cartographer_toolbar_title {
+	background: transparent url(../images/icon-toolbar.png) no-repeat 0 0;
+	height: 32px;
+	margin: 0 0 0 10px;
+	text-indent: 40px;
+	font-weight: bold;
+	font-size: 2em;
+	line-height: 32px;
+}
+
+#cartographer_toolbar_buttons {
+	text-align: right;
+	float: right;
+}
+
+#dashboard_upload_title {
+	left: 0px !important;
+	top: -20px !important;
+	bottom:auto;
+	width: 140px;
+}
+
+#cartographer_styles .evolve-buttons-title {
+	width: 185px;
+	left: -75px;
+}
+
+#cartographer_add_marker .evolve-buttons-title {
+	width: 110px;
+	left: -39px;
+}
+
+#cartographer_groups .evolve-buttons-title {
+	width: 110px;
+}
+
+#cartographer_settings .evolve-buttons-title {
+	width: 120px;
+	right: -5px;
+	left: auto;
+}
+
+#cartographer_styles {
+	background: transparent url(../images/dashboard-styles.png) no-repeat 0 0;
+	left: 26%;
+}
+
+#cartographer_add_marker {
+	background: transparent url(../images/dashboard-marker.png) no-repeat 0 0;
+	left: 51%;
+}
+
+#cartographer_groups {
+	background: transparent url(../images/dashboard-group.png) no-repeat 0 0;
+	left: 73%;
+}
+
+#cartographer_settings {
+	background: transparent url(../images/dashboard-settings.png) no-repeat 0 0;
+	right: 0;
+}
+
+#cartographer_help {
+	background: transparent url(../images/dashboard-help.png) no-repeat 0 0;
+	right: 0;
+	top: 70px;
+}
+
+/***** OPTIONS *****/
+a.miniColors-trigger {
+	display: none;
+}
+
+#save_style_form {
+	margin-top: 15px;
+}
+
+#popup_marker,
+#popup_marker_edit,
+#popup_group,
+#popup_styles {
+	width: 300px;
+	height: 475px;
+}
+
+#popup_styles h2,
+#popup_marker h2,
+#popup_group h2,
+#popup_settings h2 {
+	text-align: center;
+}
+
+#popup_styles #marker_upload {
+	height: 55px;
+	width: 100%;
+}
+
+.marker_upload_preview {
+	width: 32px;
+	height: 32px;
+}
+
+#popup_styles #marker_upload_default,
+#popup_styles #marker_upload_hover,
+#popup_marker_icons #marker_upload_default,
+#popup_marker_icons #marker_upload_hover {
+	height: 35px;
+}
+
+#marker_upload_default {
+	left: 70px;
+}
+
+#marker_upload_hover {
+	left: 190px;
+}
+
+#marker_upload_hover .evolve-buttons-title {
+	width: 120px;
+	left: -44px;
+}
+
+.cartographer_options .ui-tooltip-content {
+	border: 0 none;
+}
+
+#cartographer_tooltip_preview {
+	width: 90%;
+	height: 100px;
+	border-radius: 5px;	
+	margin: 5px auto;
+	padding: 5px;
+	font-size: 1.1em;
+}
+
+#popup_settings {
+	width: 200px;
+	height: 125px;
+}
+/*
+
+#cartographer_setup_css {
+	width: 500px;
+	height: 500px;
+}
+*/
+
+/***** POPUP *****/
+#popup_options_wrapper {
+	top: 50px;
+	left: 10px;
+	z-index: 2000;
+}
+
+#popup_options {
+	width: 250px;
+	height: 450px;
+	padding: 5px;
+	z-index: 900;
+}
+
+/***** POPUP-MARKER *****/
+.cartographer_add_marker {
+	/* height: 400px; */
+}
+
+.cartographer_add_marker .ui-tooltip-content {
+	border: 0px none;
+}
+
+
+#popup_marker_icons {
+	width: 100%;
+	top: 350px;
+}
+
+#marker_title {
+	width: 100%;
+}
+
+#popup_marker_content {
+	top: 30px;
+}
+
+#popup_marker_link {
+	margin-top: 5px;
+	font-style: italic;
+}
+
+#tooltip_size_custom {
+	right: 40px;
+	top: 20px;
+}
+
+#tooltip_size_custom ul {
+	width: 100px;
+	text-align: right;
+}
+
+#tooltip_size_custom input[type="text"] {
+	width: 25px;
+	text-align: right;
+}
+
+/***** POPUP GROUP *****/
+#cartographer_group_create {
+	text-align: right;
+}
+
+#cartographer_group_list {
+	text-align: center;
+	margin: 5px 0;
+}
+
+#cartographer_group_list li {
+	background: transparent url(../images/workspace-background.png) repeat;
+	overflow: hidden;
+	width: 90px;
+	height: 90px;
+	margin: 2px;
+	text-align: center;
+	opacity: .6;
+}
+
+#cartographer_group_list .evolve-buttons-active {
+	opacity: 1;
+}
+
+.cartographer_group_thumbnail {
+	height: 90px;
+}
+
+.cartographer_group_delete {
+	top: 0;
+	right: 0;
+}
+
+.cartographer_group_delete a,
+.cartographer_group_delete a span {
+	margin: 0 !important;
+}
+
+.cartographer_group_delete a .evolve-ui-label {
+	display: none;
+}
+
+#cartographer_group_list :not(.evolve-buttons-active) .cartographer_group_delete {
+	display: none;
+}
+
+/***** WORKSPACE *****/
+#workspace_markers {
+	z-index: 1000;
+	width: 980px;
+	height: 450px;
+}
+
+#workspace_background {
+	z-index: 950;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+}
+
+/*
+.workspace_background_tile {
+	background: transparent url(../images/workspace-background.png) repeat 0 0;
+}
+*/
+
+#workspace_instructions {
+	background: transparent url(../images/workspace-background.png) repeat;
+	/* background: transparent url(../images/helper-workspace.png) no-repeat 0 0; */
+	width: 100%;
+	height: 100%;
+	display: block;
+	z-index: 900;
+}
+
+#workspace_bg_upload {
+	top: -55px;
+	left: 0;
+	overflow: hidden;
+}
+
+/***** LAYERS *****/
+#cartographer_layers {
+	margin: 20px 0 0 0;
+}
+
+#cartographer_add_layer {
+	background: transparent url(../images/dashboard-layers.png) no-repeat 0 0;
+}
+
+.cartographer_layers_icon {
+	margin: 5px 0;
+}
+
+/***** MARKER *****/
+.emcCartographer_tooltip .ui-tooltip-titlebar {
+	padding: 0;
+	border: 0 none;
+}
+
+.marker_buttons {
+	height: 20px;
+}
+
+.marker_delete,
+.marker_edit {
+	width: 18px;
+	height: 18px;
+	display: block;
+	cursor: pointer;
+	text-indent: -5000em;
+}
+
+.marker_delete:hover,
+.marker_edit:hover {
+	background-position: 0 bottom;
+}
+
+.marker_delete {
+	background: transparent url(../images/marker-delete.png) no-repeat 0 0;
+	left: 0;
+}
+
+.marker_edit {
+	background: transparent url(../images/marker-edit.png) no-repeat 0 0;
+	right: 0;
+}
+
+.marker_title {
+	left: 25px;
+	font-size: 1.2em;
+}
+
+/***** PREVIEW *****/
+#ui-tooltip-cartographer_preview {
+	max-width: 1920px;
+	max-height: 1080px;
+}
+
+#ui-tooltip-cartographer_preview-content {
+	padding: 0;
+	border: 0 none;
+}
+
+
+/* Origin tweaks */
+
+#cartographer_create_button{
+	cursor: pointer;
+	display: block;
+	background: #B8190B url('/libraries/evolve/images/evolve/_white/_regular/add.png') no-repeat 3px 3px;
+	width: 160px;
+	height: 26px;
+	position: absolute;
+	right: 12px;
+	top: 0;
+	color: #FFF;
+	text-indent: 26px;
+	font-weight: bold;
+	padding: 3px;
+	margin: 12px 0;
+}
+
+#cartographer_create_button:hover{
+	background-color: #981509;
+}
+
+#cartographer_list_create {
+	background: #EAE4E2 !important;
+	box-shadow: none;
+	border-radius: 0;
+	border: 1px solid #BBB !important;
+	height: 56px;
+	position: relative;
+}
+
+#cartographer_create_icon{
+	margin: 12px;
+	background: transparent url('/libraries/evolve/images/evolve/_black/_circle/add.png') 3px 3px no-repeat;
+}
+
+#cartographer_create_icon label{
+	display: none;
+}
+
+#cartographer_create_input{
+	background: #EAE4E2;
+	width: 730px;
+	margin: 12px 0 0 60px;
+	height: 28px;
+	border: 1px solid #EAE4E2;
+	font: normal 17pt/20pt sans-serif;
+	color: #313437;
+}
+
+#cartographer_create_input:focus{
+	background: #FFF;
+	border-color: #BBB;
+	outline: none;
+}
+
+.evolve-ui-button{
+	background: none !important;
+	color: #FFF;
+	border: 0;
+	margin: 0;
+}
+
+#cartographer_wrapper #cartographer_list_create .evolve-ui-icon3{
+	display: none;
+}
+
+#cartographer_wrapper .evolve-ui-label{
+	color: #FFF;
+	text-shadow: none;
+	font: bold 12pt/16pt sans-serif;
+	width: 136px;
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 26px;
+	padding: 6px 0px 0px 30px;
+}
+
+#cartographer_list {
+	width: 100%;
+	margin: 10px 0 0 0;
+	overflow: hidden;
+	border-radius: 0;
+	box-shadow: none;
+	background: #FFF !important;
+}
+
+#cartographer_list thead{
+	background: #e3dbd8;
+}
+
+#cartographer_list td { 
+	color: #111213; 
+	font-size: 10pt; 
+}
+
+#cartographer_list thead tr { height: 30px; }
+
+#cartographer_list th { color: #292B2E; }
+
+#cartographer_list tr { height: 60px; }
+
+#cartographer_list td a {	color: #e8200e; }
+
+.evolve-bg-secondary {
+	background-color: #F1EDEC !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

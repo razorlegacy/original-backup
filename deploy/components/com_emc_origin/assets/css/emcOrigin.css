@@ -1,0 +1,316 @@
+html,
+body {
+	font-family: 'Segoe UI', Arial, sans-serif;
+	margin: 0;
+	width: 100%;
+	height: 100%;
+}
+
+a,
+a img {
+	outline: none;
+	border: 0 none;
+}
+
+#wrapper a.link {
+	text-indent: -5000em;
+}
+
+#wrapper {
+	margin: 0 auto;
+	position: relative;
+}
+
+#default,
+#expand,
+#mobile {
+	background-repeat: no-repeat;
+	background-position: center top;
+}
+
+.schedule {
+	position: relative;
+}
+
+.content {
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 5000;
+	overflow:hidden;
+	text-align: center;
+}
+
+.link,
+.trigger,
+.remove {
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+	display: block;
+	background-color: #fff;
+	opacity: 0;
+	filter: alpha(opacity=0);
+}
+
+div.content-image {
+	text-align: left;
+}
+
+.image {
+	position: absolute;
+}
+
+.imageDefault {
+	opacity: 1;
+}
+
+.imageHover {
+	opacity: 0;
+}
+
+.imageHoverWrapper:hover .imageDefault {
+	opacity: 0;
+}
+
+.imageHoverWrapper:hover .imageHover {
+	opacity: 1;
+}
+
+.emcOrigin_sbPlayer_nova,
+.emcOrigin_sbPlayer_horizon {
+	position: relative;
+	text-align: left;
+}
+
+[id*="scroll_left"]:hover,
+[id*="scroll_right"]:hover {
+	color: #ffffff !important;
+}
+
+[id^="sbTeaserBottom_"],
+[id^="sbTeaserPlaceholder_"],
+[id^="sbTeaserItemWrapper_"] {
+	background: none !important;
+	border: 0px !important;
+	filter: none !important;
+}
+
+[id^="list_widget_bottom_"],
+[id^="sbTeaserContent_"] {
+	display: none !important;
+}
+
+[id^="loading_"] {
+	text-align: center !important;
+	font-size: 1.4em !important;
+}
+
+.emcOrigin_sbPlayer_nova [id^="sbTeaserPlaceholder_"] {
+	float: none !important;
+	margin: 10px 0 0 25px !important;
+}
+
+.emcOrigin_sbPlayer_nova [id^="sbTeaserItem_"] {
+	margin: 0 5px;
+}
+
+.emcOrigin_sbPlayer_nova [id*="scroll_left"],
+.emcOrigin_sbPlayer_nova [id*="scroll_right"] {
+	position:absolute;
+	bottom: 55px;
+}
+
+.emcOrigin_sbPlayer_nova [id*="scroll_right"] {
+	right: 0;
+}
+
+.emcOrigin_sbPlayer_horizon [id^="sbTeaser_"] {
+	background:transparent !important;
+	position: absolute;
+	top: 5px;
+	left: 400px;
+}
+
+.emcOrigin_sbPlayer_horizon [id^="sbTeaserBottom_"] {
+	position: absolute !important;
+	float: none !important;
+	top: 200px;
+	left: 20px;
+}
+
+#overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 100;
+}
+
+/***** ASCEND *****/
+#emcAscend {
+	position: relative;
+}
+
+#emcAscend #container {
+	position: relative;
+	width: 950px;
+	height: 550px;
+	margin: 0 auto;
+}
+
+#emcAscend #default,
+#emcAscend #expand {
+	width: inherit;
+	left: 50%;
+	margin-left: -475px;
+}
+
+#emcAscend #default {
+	height: 90px;
+	position: fixed;
+	bottom: 0;
+	z-index: 500;
+}
+
+#emcAscend #expand {
+	height: 460px;
+	position: absolute;
+	top: 90px;
+	z-index: 450;
+}
+
+#emcAscend #overlay {
+	opacity: .3;
+	background-color: #000;
+}
+
+/***** HORIZON *****/
+
+body#emcHorizon {
+	position: relative;
+}
+
+#emcHorizon #default,
+#emcHorizon #expand {
+	position: absolute;
+	background-position: top center;
+}
+
+#emcHorizon #default {
+	z-index: 500;
+}
+
+#emcHorizon #expand {
+	z-index: 450;
+}
+
+#emcHorizon #container {
+	position: relative;
+}
+
+#emcHorizon #default,
+#emcHorizon #expand,
+#emcHorizon #container {
+	width: 100%;
+}
+
+#emcHorizon #wrapper {
+	width: 950px;
+	min-width: 950px;
+}
+
+#emcHorizon #default #wrapper {
+	height: 50px;
+}
+
+#emcHorizon #expand #wrapper {
+	height: 250px;
+}
+
+/***** MERIDIAN *****/
+body#emcMeridian {
+	position: relative;
+	height: 100%;
+}
+
+#emcMeridian #default,
+#emcMeridian #mobile {
+	position: absolute;
+	z-index: 1000;
+	top: 50%;
+	left: 50%;
+}
+
+#emcMeridian #default {
+	width: 950px;
+	height: 650px;
+	margin: -325px 0 0 -475px;
+}
+
+#emcMeridian #mobile #wrapper,
+#emcMeridian #mobile .schedule,
+#emcMeridian #mobile .content {
+	width: 100% !important;
+	height: 100% !important;
+	top: 0 !important;
+	left: 0 !important;
+}
+
+#emcMeridian div#mobile {
+	background-size: contain;
+}
+
+body#emcMeridian #overlay {
+	cursor: pointer;
+}
+
+body#emcMeridian #overlay .trigger {
+	z-index: 470;
+	position: absolute;
+}
+
+body#emcMeridian #overlay-close {
+	font-size: 3em;
+	position: absolute;
+	top: 25px;
+	right: 25px;
+	color: #fff;
+	z-index: 460;
+	line-height: 10px;
+}
+
+body#emcMeridian #overlay-bg {
+	background-color: #000;
+	opacity: .75;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: 450;
+}
+
+/***** NOVA *****/
+body#emcNova #default #wrapper {
+	width: 300px;
+	height: 250px;
+}
+
+body#emcNova #expand #wrapper {
+	width: 1000px;
+	min-width: 1000px;
+}
+
+body#emcNova #expand {
+	width: 1500px;
+	height: 760px;
+	position: absolute;
+	left: 50%;
+	margin: 0 0 0 -750px;
+	z-index: 1000;
+}
+
+#emcNova #overlay {
+	background-color: #000;
+	opacity: .8;
+}

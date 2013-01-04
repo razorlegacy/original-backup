@@ -1,0 +1,22 @@
+[
+	{
+		"title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+		"blurb": "Pellentesque sagittis est et dui adipiscing sollicitudin. Sed eu sem placerat nisi feugiat feugiat. Ut condimentum dictum libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis sem dolor. Sed mollis suscipit malesuada. Fusce lacus ligula, volutpat vitae varius a, congue ut orci. Phasellus elit dui, sodales nec faucibus ut, pharetra laoreet odio. Integer libero orci, porta ut lacinia eget, dapibus ac augue. Nam feugiat pretium lorem feugiat scelerisque.",
+		"thumbnail": "/components/com_emc_origin/assets/images/preview-stock-1.jpg"
+	},
+	{
+		"title": "Morbi urna magna et rhoncus",
+		"blurb": "Aliquam volutpat lorem at mauris facilisis consequat. Nam sit amet vulputate nunc. Suspendisse eu est lectus, non tempor odio. Duis sed adipiscing metus. Sed eu dui erat. In aliquet, lectus in faucibus dapibus, diam lacus ultricies lectus, et imperdiet libero sapien.",
+		"thumbnail": "/components/com_emc_origin/assets/images/preview-stock-2.jpg"
+	},
+	{
+		"title": "Suspendisse leo orci accumsan",
+		"blurb": "Praesent eu ligula libero, nec venenatis mi. Duis vitae elit justo. Praesent porta tincidunt tincidunt. Praesent nec lacus ligula.",
+		"thumbnail": "/components/com_emc_origin/assets/images/preview-stock-3.jpg"
+	},
+	{
+		"title": "Phasellus elit dui",
+		"blurb": "Aliquam volutpat lorem at mauris facilisis consequat. Nam sit amet vulputate nunc. Suspendisse eu est lectus, non tempor odio. Duis sed adipiscing metus.",
+		"thumbnail": "/components/com_emc_origin/assets/images/preview-stock-4.jpg"
+	}
+]

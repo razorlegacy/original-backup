@@ -1,0 +1,20 @@
+#videoPositioner, .button_positioner {
+/*	background:transparent;
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000050,endColorstr=#99000050);
+	zoom: 1;
+	z-index: 3;*/
+	background-color:white;
+	filter: alpha(opacity = 50);
+	zoom:1;
+}
+.scheduledImage .images .flash img:hover,
+.scheduledImage .images .actionbar img:hover {
+	border-color:transparent;
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000050,endColorstr=#99000050);
+	zoom: 1;
+}
+#element-box .scheduledImage .close.readytodelete,
+#element-box .video .close.readytodelete,
+#buttonUpdate .close.readytodelete {
+	background-image:url("/administrator/components/com_slivers/images/icojoy/shadow/standart/png/24x24/001_02-rotated.png");
+}

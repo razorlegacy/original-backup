@@ -1,0 +1,315 @@
+
+/***** WORKSPACE - SHARED *****/
+.originButton-arrow {
+	width: 12px;
+	height: 12px;
+	background: transparent url(/administrator/components/com_emc_origin/assets/images/icon-arrow-close.png) no-repeat 0 0;
+}
+
+.image .ui-resizable-handle {
+	display: none;
+}
+
+
+#views.desktop-active #views-desktop,
+#views.tablet-active #views-tablet,
+#views.mobile-active #views-mobile,
+#panel-tabs.layers-active #tab-layers,
+#panel-tabs.assets-active #tab-assets,
+#panel-states.initial-active #initial,
+#panel-states.triggered-active #triggered,
+#schedules .schedule-active {
+	opacity: 1;
+	cursor: default;
+}
+
+#schedules .originButton-arrow,
+#panel-states .originButton-arrow {
+	position: absolute;
+	top: 7px;
+}
+
+#schedules .schedule-active .originButton-arrow,
+#panel-states.initial-active #initial .originButton-arrow,
+#panel-states.triggered-active #triggered .originButton-arrow {
+	background: transparent url(/administrator/components/com_emc_origin/assets/images/icon-arrow-open.png) no-repeat 0 0;
+}
+
+#panel,
+#views {
+	width: 250px;
+}
+
+#panel {
+	height: 600px;
+}
+
+#panel {
+	z-index: 100000;
+}
+
+#panel-add {
+	z-index: 99999;
+}
+
+#layers,
+#assets,
+#components,
+#editor {
+	display: none;
+}
+
+.layers-active #layers,
+.assets-active #assets,
+.components-active #components,
+.editor-active #editor {
+	display: block;
+}
+
+/***** WORKSPACE - SCHEDULE *****/
+#schedules {
+	position: absolute;
+	top: 0;
+	left: 250px;
+}
+
+.schedule {
+	display: inline-block;
+	margin: 0 0 0 5px;
+	padding: 0 10px;
+	height: 26px;
+	background-color: black;
+	font-size: .8em;
+	line-height: 26px;
+	cursor: pointer;
+}
+
+.schedule-label {
+	padding-left: 18px;
+}
+
+/***** WORKSPACE - PANEL *****/
+#panel {
+position: relative;
+float: left;
+margin-left: -100%;
+box-shadow: 7px 0 5px -2px rgba(0, 0, 0, 0.5);
+}
+
+#panel-add {
+	position: absolute;
+/* left: 250px; */
+	left: -100px;
+	width: 350px;
+	height: 600px;
+}
+
+#panel-add #add-close {
+	top: 10px;
+	right: 0;
+	background-position: center top;
+}
+
+#panel-tabs {
+	position: relative;
+	margin: 10px auto;
+	width: 98%;
+	height: 42px;
+}
+
+#panel-tabs>a,
+#panel-add #add-close {
+	position: absolute;
+	width: 52px;
+	height: 42px;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: .8em;
+	line-height: 70px;
+}
+
+#tab-layers {
+	left: 0;
+	background: transparent url(/administrator/components/com_emc_origin/assets/images/icon-layers.png) no-repeat center top;
+}
+
+#tab-assets {
+	left: 50%;
+	margin-left: -26px;
+	background: transparent url(/administrator/components/com_emc_origin/assets/images/icon-assets.png) no-repeat center top;
+}
+
+#tab-add {
+	right: 0px;
+	background: transparent url(/administrator/components/com_emc_origin/assets/images/icon-add.png) no-repeat center top;
+}
+
+#panel-content {
+	position: relative;
+	padding: 0 10px;
+}
+
+#panel-states>div {
+	display: inline-block;
+	width: 50%;
+	text-indent: 10px;
+	cursor: pointer;
+	position: relative;
+}
+
+#panel-states .panel-label {
+	padding-left: 15px;
+}
+
+#layers .layer {
+	position: relative;
+	margin: 10px 0;
+	height: 32px;
+	line-height: 32px;
+}
+
+.layer .layer-title {
+	padding-left: 36px;
+	overflow: hidden;
+	display: inline-block;
+	width: 160px;
+}
+
+.layer .layer-thumbnail {
+	position: absolute;
+	top: 3px;
+	left: 0;
+	height: 26px;
+}
+
+.layer .layer-edit {
+	position: absolute;
+	right: 0;
+	top: 3px;
+	width: 26px;
+	background-position: right center;
+	font-size: 0px;
+}
+
+#components,
+#editor {
+	padding: 0 10px;
+}
+
+#components h2,
+#editor h2 {
+	background-position: left center;
+	background-repeat: no-repeat;
+	text-indent: 32px;
+	margin-top: 10px;
+	height: 42px;
+	line-height: 42px;
+}
+
+#editor-save {
+	position: absolute;
+	right: 10px;
+	width: 70px;
+	height: 26px;
+	background-position: right center;
+	text-transform: uppercase;
+	font-size: 1.1em;
+	line-height: 26px;
+}
+
+#assets .asset {
+	cursor: pointer;
+	overflow: hidden;
+}
+
+/***** EDITOR - COMPONENTS/CONTENT/CONFIG *****/
+.component-group {
+	margin: 10px 0;
+}
+
+li.component-item {
+	cursor: pointer;
+	margin: 5px;
+	display: inline-block;
+	width: 60px;
+	height: 60px;
+	position: relative;
+}
+
+li.component-item a {
+	position: absolute;
+	top: 0;
+	text-transform: capitalize;
+	font-size: .9em;
+	text-align: center;
+}
+
+#editor-content {
+	margin: 10px 0;
+}
+
+#trigger-content.toggle-active #trigger-toggle, 
+#trigger-content.remove-active #trigger-remove,
+#trigger-event.click-active #trigger-click,
+#trigger-event.hover-active #trigger-hover {
+	opacity: 1;
+}
+
+#trigger-content.toggle-active #trigger-toggle .originButton-arrow,
+#trigger-content.remove-active #trigger-remove .originButton-arrow,
+#trigger-event.click-active #trigger-click .originButton-arrow,
+#trigger-event.hover-active #trigger-hover .originButton-arrow {
+	visibility: visible;
+}
+
+.content-group .originButton {
+	position: relative;
+	height: 32px;
+	display: inline-block;
+	width: 52px;
+	padding-left: 15px;
+	margin-left: 10px;
+	cursor: pointer;
+}
+
+.content-group .originButton .originButton-arrow {
+	position: absolute;
+	top: 6px;
+	left: 0;
+	visibility: hidden;
+}
+
+#editor-embed textarea {
+	width: 100%;
+	height: 300px;
+}
+
+#editor-config {
+	position: relative;
+	width: 100%;
+	height: 150px;
+}
+
+#config-coords,
+#config-dimensions,
+#config-level {
+	position: absolute;
+	top: 20px;
+	width: 50%;
+	text-align: center;
+}
+
+#config-dimensions {
+	right: 0;
+}
+
+#config-level {
+	top: auto;
+	bottom: 0;
+	width: 100%;
+}
+
+#editor-config input {
+	margin: 5px;
+	width: 42px;
+}
