@@ -15,12 +15,16 @@ a img {
 .content {
 	position: relative;
 	margin: 0 auto;
-	width: 970px;
+	width: 980px;
 	height: 100%;
 }
 
 .content>* {
 	position: absolute;
+}
+
+.click {
+	cursor: pointer;	
 }
 
 .trigger {
@@ -31,18 +35,19 @@ a img {
 
 
 /***** HORIZON *****/
-#emcHorizon #default,
-#emcHorizon #expand {
+#emcHorizon #initial,
+#emcHorizon #triggered {
 	position: absolute;
 	width: 100%;
+	background: transparent no-repeat center top;
 }
 
-#emcHorizon #default {
+#emcHorizon #initial {
 	z-index: 1;
 	height: 50px;
 }
 
-body#emcHorizon #expand {
+body#emcHorizon #triggered {
 	z-index: 0;
 	height: 250px;
 }

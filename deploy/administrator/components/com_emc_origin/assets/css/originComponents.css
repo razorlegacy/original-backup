@@ -1,0 +1,27 @@
+.component-cta {
+	background-color: rgba(0, 94, 171, .3);
+}
+.component-cta.active {
+	outline-color: rgba(0, 94, 171, .8);
+}
+
+.component-embed {
+	background-color: rgba(163, 8, 0, .3);
+}
+.component-embed.active {
+	outline-color: rgba(163, 8, 0, .8);
+}
+
+.component-image {
+	background-color: rgba(253, 186, 48, .3);
+}
+.component-image.active {
+	outline-color: rgba(253, 186, 48, .8);
+}
+
+.component-video {
+	background-color: rgba(73, 23, 106, .3);
+}
+.component-video.active {
+	outline-color: rgba(73, 23, 106, .8);
+}

@@ -21,13 +21,16 @@
 	$document->addScript('components/com_emc_origin/assets/js/origin.min.js');
 	//$document->addScript('/libraries/evolve/js/ajaxFileUploader/jquery.fileupload.js');
 	
+	
+	//USED FOR CONTENT IFRAMES
 	$document->addScript('/components/com_emc_origin/assets/js/origin.js');
-	$document->addScript('/components/com_emc_origin/assets/js/origin-dev.js');
+	//$document->addScript('/components/com_emc_origin/assets/js/origin-dev.js');
 	
 	$document->addStyleSheet('/libraries/evolve/css/angularui/angular-ui.min.css');
 	$document->addStyleSheet('/libraries/evolve/css/codemirror/codemirror.css');
 	$document->addStyleSheet('/libraries/evolve/css/codemirror/night.css');
 	$document->addStyleSheet('components/com_emc_origin/assets/css/originAzure.css');
+	$document->addStyleSheet('components/com_emc_origin/assets/css/originComponents.css');
 	
 	//Frontend piggyback
 	//$document->addStyleSheet('/components/com_emc_origin/assets/css/emcOrigin.css');

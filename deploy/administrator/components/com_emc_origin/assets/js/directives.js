@@ -19,8 +19,8 @@ angular.module('originApp.directives', [])
 	.directive('config', function() {
 		return {
 			restrict: 'A',
-			link: function(scope, element, attrs) {
-				element.keyup(function(event) {
+			link: function(scope, element, attrs) {			
+				element.keypress(function(event) {
 					
 					if(event.keyCode === 38 || event.keyCode === 40) {
 						switch(event.keyCode) {
@@ -35,36 +35,13 @@ angular.module('originApp.directives', [])
 	                    			element.val(value+'px');
 								break;
 						}
-						
 						scope.$apply(function() {
 	                    	scope.originEditor.content_config[attrs.config] 	= element.val();
-	                    	//Update workspace
+	                    	//Update workspace - SHOULD THIS UPDATE WORKSPACE???
 	                    	//console.log(scope.originEditor.content_config[attrs.config]);
 	                    	$j('#workspace #content-'+scope.originEditor.id).css(attrs.config, element.val());
 	                    });
 					}
-/*
-					switch (event.keyCode) {
-	                    case 38:
-	                    	var value 	= element.val().split('px')[0],
-	                    		value 	= Number(value) + 1;
-	                    	element.val(value+'px');
-	                    	
-	                    	scope.$apply(function() {
-	                    		scope.originEditor.content_config[attrs.config] 	= element.val();
-	                    	});	                    	
-	                    	break;
-	                    case 40: 
-	                    	var value 	= element.val().split('px')[0],
-	                    		value 	= Number(value) - 1;
-	                    	element.val(value+'px');
-	                    	
-	                    	scope.$apply(function() {
-	                    		scope.originEditor.content_config[attrs.config] 	= element.val();
-	                    	});
-	                    	break;
-	                }
-*/
 				});
 				
 				element.blur(function(event) {
@@ -74,6 +51,7 @@ angular.module('originApp.directives', [])
 	                
 	                scope.$apply(function() {
 	                    scope.originEditor.content_config[attrs.config] 	= element.val();
+	                    $j('#workspace #content-'+scope.originEditor.id).css(attrs.config, element.val());
 	                });              
 				});
 			}
@@ -83,26 +61,11 @@ angular.module('originApp.directives', [])
 		return {
 			restrict: 'A',
 			link: function(scope, element, attrs) {
-			/*
-	scope.$watch('originEditor.content_config.top', function() {
-					console.log('here');
-				});
-*/
-			
-				//Apply parent's CSS
-				var parentCSS	= {},
-					elementCSS	= '';
-				$j.each(scope.content.content_config, function(key, value) {
-					parentCSS[key]	= value;
-					elementCSS		+= key+':'+value+';';
-				});
-				element.css(parentCSS);
-				element.html(_.template(scope.content.content_render)({style: 'style='+elementCSS}));
-				
 				//Double click opens config
 				element.dblclick(function() {
 					scope.$apply(function() {
 						//scope.originEditor.content_config[attrs.config] 	= element.val();
+						//INCORRECT VALUE!!
 						scope.panelSlideEditor(scope.content.content_data.type, scope.content);
 	                });
 				});
@@ -110,14 +73,23 @@ angular.module('originApp.directives', [])
 				//Resizable on supported elements
 				element.resizable({
 					containment: 'parent',
+					handles: 'all',
 					stop: function(event, ui) {
-						
+						var config = {
+							top: 	Math.round(ui.position.top)+'px',
+							left: 	Math.round(ui.position.left)+'px',
+							width: 	Math.round(ui.helper.width())+'px',
+							height: Math.round(ui.helper.height())+'px',
+							zIndex: ui.helper.css('z-index')
+						}
+						scope.originServices('content_config', {id: scope.content.id, oid: origin_id, config: config});
 					}
 				});
 				
 				//Make it draggable too
 				element.draggable({
 					containment: 'parent',
+					iframeFix: true,
 					stop: function(event, ui) {
 						//construct config dataset
 						var config = {
@@ -132,6 +104,37 @@ angular.module('originApp.directives', [])
 						scope.originServices('content_config', {id: scope.content.id, oid: origin_id, config: config});
 					}
 				});
+				
+				scope.$watch('originObj.reset', function() {
+					//Apply parent's CSS
+					var parentCSS	= {},
+						elementCSS	= '',
+						contentElement = element.children().not('.ui-resizable-handle');
+					$j.each(scope.content.content_config, function(key, value) {
+						parentCSS[key]	= value;
+						elementCSS		+= key+':'+value+';';
+					});
+					element.css(parentCSS);
+					
+					if(contentElement.size() > 0) {
+						contentElement.attr('style', elementCSS);
+					} else {
+						element.append(_.template(scope.content.content_render)({style: 'style='+elementCSS}));	
+					}	
+				}, true);
+				
+				
+				//Appends parent type
+				attrs.$observe('type', function(value) {
+					//console.log(value);
+					$j.each(scope.originObj.components, function(group, content) {
+						$j.each(content.content, function(key, name) {
+							if(name.alias === value) {
+								element.addClass('component-'+group+' '+value);
+							}
+						});
+					});
+			    });
 			}
 		}
 	})
@@ -175,6 +178,7 @@ angular.module('originApp.directives', [])
 				element.droppable({
 					accept: '.asset',
 					drop: function(event, ui) {
+					
 						//Pull out data
 						var asset		= ui.draggable.data('asset'),
 							data		= {},
@@ -206,7 +210,7 @@ angular.module('originApp.directives', [])
 								break;
 						}
 						
-						scope.originServices('content', data);
+						scope.originServices('droppable', data);
 					}
 				});
 			}

@@ -38,7 +38,7 @@
 			</div>
 			<div id="workspace" class="originUI-droppable">
 				<div id="" class="workspace-bg" style="background-image: url(/assets/components/com_emc_origin/{{originWorkspace.id}}/{{originObj.config.config[originWorkspace.state_view]}})" workspace>
-					<div id="content-{{content.id}}" class="content {{content.content_data.type}}" ng:repeat="content in originObj.current" ng:class="{active: originEditor.id == content.id}" content></div>
+					<div id="content-{{content.id}}" class="content" ng:repeat="content in originObj.current" ng:class="{active: originEditor.id == content.id}" type="{{content.content_data.type}}" content></div>
 				</div>
 			</div>
 		</div>
@@ -61,18 +61,18 @@
 			<div id="layers" class="" ng:show="originWorkspace.panel == 'layers'">
 				<span id="components-add" class="" ng:click="panelSlideComponents()">add</span>
 				<ul class="originList" layers>
-					<li id="layer-{{layer.id}}" class="layer" ng:repeat="layer in originObj.current | orderBy:layerZindex:true" ng:class="{active: originEditor.id == layer.id}" data-index="{{layer.id}}" layer>
+					<li id="layer-{{layer.id}}" class="layer" ng:repeat="layer in originObj.current | orderBy:layerZindex:true" ng:class="{active: originEditor.id == layer.id}" data-index="{{layer.id}}" data-zindex="{{layer.content_config.zIndex}}" layer>
 						<a href="javascript:void(0);" class="layer-thumbnail" style="background-image: url(/administrator/components/com_emc_origin/assets/images/_components/_thumbnail/{{layer.content_data.type}}.png);">edit</a>
 						<span class="layer-title" ng:click="panelSlideEditor(layer.content_data.type, layer)">{{layer.content_data.title}}-{{layer.id}}</span>
 						<!-- <a href="javascript:void(0);" class="layer-edit originButton originButton-iconEdit" ng:click="panelAdd('edit', $index)">edit</a> -->
 					</li>
 				</ul>
-				<span id="components-background" class="" ng:click="panelSlideBackground()">add</span>	
+				<span id="components-background" class="" ng:click="panelSlideBackground()">set bg</span>	
 			</div>
 			<div id="schedules" class="" ng:show="originWorkspace.panel == 'schedules'">
 				<span id="schedules-add" class="" ng:click="panelSlideScheduler()">add</span>
 				<ul class="originList">
-					<li ng:repeat="schedule in originObj.content">
+					<li ng:repeat="schedule in originObj.content" ng:click="panelSlideScheduler(schedule)" ng:class="{active: originEditor.id == schedule.id}" class="schedule">
 						<!-- <span class="">{{schedule.start_date}}-{{schedule.end_date}}</span> -->
 						<span class="schedule-label">
 							<span class="schedule-label-month">{{schedule.start_date | dateFormat:'M'}}</span>
@@ -85,7 +85,7 @@
 							<span class="schedule-label-day">{{schedule.end_date | dateFormat: 'd'}}</span>
 							<span class="schedule-label-year">{{schedule.end_date | dateFormat: 'yy'}}</span>
 						</span>
-						<a href="javascript:void(0)" ng:click="panelSlideScheduler(schedule)">edit</a>
+						<!-- <a href="javascript:void(0)" ng:click="panelSlideScheduler(schedule)">edit</a> -->
 					</li>
 				</ul>
 			</div>
@@ -124,8 +124,8 @@
 			</div>
 			<div id="components" class="panel-content" ng:show="originWorkspace.panelSlideContent == 'components'">
 				<h2>Components</h2>
-				<div class="component-group" ng:repeat="component in originObj.components | orderBy:'group'">
-					<h3>{{component.group}}</h3>
+				<div class="component-group" ng:repeat="(type, component) in originObj.components | orderBy:'group'">
+					<h3>{{type}}</h3>
 					<ul class="originList">
 						<li class="component-item" ng:repeat="content in component.content | orderBy:'name'">
 							<a href="javascript:void(0);" class="originButton" ng:click="panelSlideEditor(content.alias)" style="background-image: url({{content.imgLarge}});">{{content.name}}</a>

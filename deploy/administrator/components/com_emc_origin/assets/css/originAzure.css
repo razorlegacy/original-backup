@@ -363,12 +363,51 @@ div#azure-content-wrapper {
 	cursor: pointer;
 }
 
+div.content {
+	position: absolute;
+}
+
+div.content:hover iframe {
+	display: none;
+}
+
 .content.ui-draggable-dragging {
 	opacity: .5;
 }
 
 .image .ui-resizable-handle {
 	display: none;
+}
+
+.content .ui-resizable-n {
+	top: 0;
+}
+
+.content .ui-resizable-ne {
+	top: 0;
+	right: 0;
+}
+
+.content .ui-resizable-e {
+	right: 0;
+}
+
+.content .ui-resizable-s {
+	bottom: 0;
+}
+
+.content .ui-resizable-sw {
+	left: 0;
+	bottom: 0;
+}
+
+.content .ui-resizable-w {
+	left: 0;
+}
+
+.content .ui-resizable-nw {
+	left: 0;
+	top: 0;
 }
 
 #icons-add {
@@ -407,7 +446,9 @@ div#azure-content-wrapper {
 
 /***** WORKSPACE - CONTENT *****/
 #workspace .content.active {
-	outline: 2px dashed #006ac0;
+	outline-width: 1px;
+	outline-style: dashed;
+	/* outline: 2px dashed #006ac0; */
 }
 
 /***** WORKSPACE - PANEL *****/
@@ -460,8 +501,9 @@ div#azure-content-wrapper {
 	
 }
 
+li.asset,
 li.layer,
-li.asset {
+li.schedule {
 	position: relative;
 	margin: 0;
 	padding: 0 10px;	
@@ -470,13 +512,15 @@ li.asset {
 	cursor: pointer;
 }
 
+li.asset:hover,
 li.layer:hover,
-li.asset:hover {
+li.schedule:hover {
 	background-color: #696969;
 }
 
 li.asset.active,
-li.layer.active {
+li.layer.active,
+li.schedule.active {
 	height: 38px;
 	border: 2px solid #696969;
 	line-height: 38px;
@@ -488,7 +532,8 @@ li.asset.active {
 }
 
 li.asset.active:after,
-li.layer.active:after {
+li.layer.active:after,
+li.schedule.active:after {
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -509,6 +554,7 @@ li.layer.active .layer-thumbnail {
 	height: 100%;
 	text-align: right;
 	cursor: pointer;
+	overflow: hidden;
 }
 
 .layer .layer-thumbnail {
@@ -734,7 +780,7 @@ li.component-item a {
 }
 
 #editor-embed .CodeMirror-scroll {
-	
+	height: 200px;
 }
 
 /***** WORKSPACE - PREVIEW *****/
@@ -811,34 +857,6 @@ li.component-item a {
 
 }
 
-/* #schedules {
-	position: absolute; */
-
-/* top: 0; */
-
-/* left: 250px; */
-
-/* }
-
-.schedule {
-	display: inline-block; */
-
-/* margin: 0 0 0 5px; */
-
-/* padding: 0 10px; */
-
-/* height: 26px; */
-
-/* font-size: .8em; */
-
-/* line-height: 26px; */
-
-/* cursor: pointer; */
-
-/* }
-
-.schedule-label {
-	padding-left: 18px; */
 
 /***** WORKSPACE - STATES *****/
 #states a,
@@ -902,6 +920,8 @@ li.component-item a {
 
 /***** TOGGLE SWITCH *****/
 .onoffswitch {
+	display: inline-block;
+	vertical-align: bottom;
     position: relative; width: 100px;
     -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
 }
@@ -929,17 +949,36 @@ li.component-item a {
     background-clip: padding-box;
 }
 
+.onoffswitch-inner {
+	background-color: #19191A; color: #BDBDBD;
+}
+
 .onoffswitch-inner:before {
-    content: "HOVER";
+    /* content: "HOVER"; */
     padding-left: 8px;
-    background-color: #19191A; color: #BDBDBD;
 }
 
 .onoffswitch-inner:after {
-    content: "CLICK";
+    /* content: "CLICK"; */
     padding-right: 8px;
-    background-color: #19191A; color: #BDBDBD;
+    /* background-color: #19191A; color: #BDBDBD; */
     text-align: right;
+}
+
+#switch-trigger-state .onoffswitch-inner:before {
+	content: 'HOVER';
+}
+
+#switch-trigger-state .onoffswitch-inner:after {
+	content: 'CLICK'
+}
+
+#switch-trigger-effect .onoffswitch-inner:before {
+	content: 'REMOVE';
+}
+
+#switch-trigger-effect .onoffswitch-inner:after {
+	content: 'TOGGLE'
 }
 
 .onoffswitch-switch {

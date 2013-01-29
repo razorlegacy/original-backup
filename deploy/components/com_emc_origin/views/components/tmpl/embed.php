@@ -3,16 +3,23 @@
 <?php
 	$json		= file_get_contents("http://{$_SERVER['HTTP_HOST']}/index.php?option=com_emc_origin&task=json&id={$this->oid}");
 	$jsonObj	= json_decode($json);
-	$types		= array('default', 'expand', 'mobile-default', 'mobile-expand', 'tablet-default', 'tablet-expand');
+	$types		= array('initial_desktop', 'triggered_desktop', 'initial_mobile', 'triggered_mobile', 'initial_tablet', 'triggered_tablet');
 
 	foreach($jsonObj->content as $schedule) {
 		if($schedule->id === $this->sid) {
 			foreach($types as $type) {
 				foreach($schedule->$type as $id=>$content) {
-					if(preg_match('/"id":"'.$this->id.'"/', $content->content_data)) {
-						$embed	= json_decode($content->content_data)->content;
+					if($this->id === $content->id) {
+						$embed	= $content->content_data->embed;
 						break;
 					}
+/*
+					if(preg_match('/"id":"'.$this->id.'"/', $content)) {
+						echo 'here';
+						$embed	= json_decode($content->content_data)->embed;
+						break;
+					}
+*/
 				}
 			}
 			break;

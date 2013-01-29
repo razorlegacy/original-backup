@@ -167,8 +167,13 @@
 			return $origin;
 		 }
 		
-		
-			
-				
+		/**
+		* Pulls one content row
+		**/
+		function loadContent($cid) {
+			$query	= "SELECT * FROM #__emc_origin_content WHERE id='{$cid}'";
+			$this->_originDB->setQuery($query);
+			return $this->_originDB->loadObject();
+		}
     }
 ?>

@@ -102,8 +102,29 @@ var workspaceCtrl = function($scope, $filter, loadJSON, Workspace) {
 		'state_view':'initial_desktop'
 	};
 	
-	//Load JSON feeds
-	Workspace.loadOrigin({id: origin_id}, function(data) {
+	//Load static component feed
+	Workspace.get('/administrator/components/com_emc_origin/assets/data/components.json').then(function(data) {
+		$scope.originObj.components = data;
+		
+		//Load assets
+		Workspace.get('index.php?option=com_emc_origin&task=jsonAssets&id='+origin_id).then(function(data) {
+			$scope.originObj.assets	= data;
+			
+			//LOad Origin data
+			Workspace.get('index.php?option=com_emc_origin&task=jsonOrigin&id='+origin_id).then(function(data) {
+				/*
+$scope.originObj.content	= data.content;
+				$scope.originObj.config		= data.config;
+				
+				$scope.originObj.current 	= $scope.originObj.content[$scope.originWorkspace.schedule][$scope.originWorkspace.state+'_'+$scope.originWorkspace.view];
+*/
+				refreshOrigin(data);
+				document.title				= 'Origin | '+$scope.originObj.config.name;
+			});
+		});
+	});
+		
+/*
 		$scope.originObj.content	= data.content;
 		$scope.originObj.config		= data.config;
 		$scope.originObj.assets		= Workspace.loadAssets({id: origin_id});
@@ -111,7 +132,9 @@ var workspaceCtrl = function($scope, $filter, loadJSON, Workspace) {
 		$scope.originObj.current 	= $scope.originObj.content[$scope.originWorkspace.schedule][$scope.originWorkspace.state+'_'+$scope.originWorkspace.view];
 		//$scope.originObj.springboard= Workspace.loadSpringboard();
 		document.title				= 'Origin | '+$scope.originObj.config.name;
-	});
+		
+		console.log($scope.originObj.components);
+*/
 	
 	$scope.workspaceUI = function(type, value) {
 		$scope.originWorkspace[type]		= value;
@@ -137,62 +160,86 @@ var workspaceCtrl = function($scope, $filter, loadJSON, Workspace) {
 			case 'background_save':
 				$scope.originObj.config.config[$scope.originWorkspace.state_view] = $scope.background;
 				
-				Workspace.saveOrigin({data: $scope.originObj.config}, function(data) {
-					azure._originNotification('Background saved');
-					refreshOrigin(data);
+				Workspace.post('saveOrigin', $scope.originObj.config).then(function(data) {
+					$j('html, body').animate({scrollTop: 0}, 'fast', function() {
+						azure._originNotification('Background saved');
+						refreshOrigin(data);
+					});
 				});
 				break;
-			case 'content_create':
-				break;
-			case 'content':
-				Workspace.createContent({data: data}, function(data) {
-					azure._originNotification('Content added to workspace');
-					refreshOrigin(data);
-				});
-				break;
+			//case 'content_create':
+			//	break;
 			case 'content_config':
-				Workspace.saveContentConfig({data: data}, function(data) {
+				Workspace.post('saveContentConfig', data).then(function(data) {
 					azure._originNotification('Workspace updated');
 					refreshOrigin(data);
 				});
 				break;
 			case 'delete':
 				data.oid	= origin_id;
-				Workspace.deleteContent({data: data}, function(data) {
+				Workspace.post('deleteContent', data).then(function(data) {
 					azure._originNotification('Item has been deleted', 'alert');
 					$scope.panelSlide('close');
 					refreshOrigin(data);
 				});
 				break;
+			case 'droppable':
+				Workspace.post('createContent', data).then(function(data) {
+					azure._originNotification('Content added to workspace');
+					refreshOrigin(data);
+				});
+				break;
 			case 'order':
-				Workspace.saveOrder({data: data}, function(data) {
+				Workspace.post('saveOrder', data).then(function(data) {
 					azure._originNotification('Item order has been updated');
 					refreshOrigin(data);
 				});
 				break;
 			case 'save':
-				console.log($scope.originEditor);
-/*
 				var data = {
-					'id':		$scope.originEditor.id,
-					'oid':		origin_id,
-					'config':	$scope.originEditor.content_config
+					'content_config':	$scope.originEditor.content_config,
+					'content_data':		$scope.originEditor.content_data,
+					'content_render':	$scope.originEditor.content_render,
+					'id':				$scope.originEditor.id,
+					'oid':				origin_id,
+					'sid':				$scope.originObj.content[$scope.originWorkspace.schedule].id,
+					'state':			$scope.originWorkspace.state_view
 				};
-				Workspace.saveContentConfig({data: data}, function(data) {
-					azure._originNotification('Content saved');
-					refreshOrigin(data);
-					$scope.panelSlide('close');
-				});
-*/
+				
+				//If there's an content id, update
+				if(data.id) {
+					Workspace.post('saveContent', data).then(function(data) {
+						$scope.panelSlide('close');
+						$j('html, body').animate({scrollTop: 0}, 'fast').promise().done(function() {
+							azure._originNotification('Content added to workspace');
+							refreshOrigin(data);
+						});
+					});
+				} else {	
+					Workspace.post('createContent', data).then(function(data) {
+						$scope.panelSlide('close');
+						azure._originNotification('Content added to workspace');
+						refreshOrigin(data);
+					});
+				}
+				break;
 		}
 	}
 	
 	function refreshOrigin(data) {
-		$scope.originObj.content	= data.content;
-		$scope.originObj.config		= data.config;
-		$scope.originObj.current 	= $scope.originObj.content[$scope.originWorkspace.schedule][$scope.originWorkspace.state+'_'+$scope.originWorkspace.view];
-		
-		//if($scope.originWorkspace.panelSlide === 'open') ;
+	
+		if(!$scope.$$phase) {
+			$scope.$apply(function() {
+				$scope.originObj.content	= data.content;
+				$scope.originObj.config		= data.config;
+				$scope.originObj.current 	= $scope.originObj.content[$scope.originWorkspace.schedule][$scope.originWorkspace.state+'_'+$scope.originWorkspace.view];
+	        });	
+		} else {
+			//NOT SURE.... FIND A BETTER WAY!
+			$scope.originObj.content	= data.content;
+			$scope.originObj.config		= data.config;
+			$scope.originObj.current 	= $scope.originObj.content[$scope.originWorkspace.schedule][$scope.originWorkspace.state+'_'+$scope.originWorkspace.view];
+		}
 	}
 	
 	$scope.panelSlide = function(action) {
@@ -201,6 +248,12 @@ var workspaceCtrl = function($scope, $filter, loadJSON, Workspace) {
 				$j('#panel-slide').animate({left: '0'}, duration);
 				$scope.originWorkspace.panelSlide 	= 'close';
 				$scope.originEditor					= {};
+				
+				if($scope.originObj.reset) {
+					$scope.originObj.reset = '';
+				} else {
+					$scope.originObj.reset = true;
+				}
 				break;
 			case 'open':
 				$j('#panel-slide').animate({left: '300'}, duration);
@@ -238,33 +291,49 @@ var workspaceCtrl = function($scope, $filter, loadJSON, Workspace) {
 	}
 	
 	$scope.panelSlideEditor = function(type, model) {
+		$scope.editor								= '';
+	
 		if($scope.originWorkspace.panelSlide === 'close') $scope.panelSlide('open');
 		
 		$scope.originWorkspace.panelSlideContent	= 'editor';
 		$scope.editor								= '/administrator/components/com_emc_origin/assets/templates/'+type+'.php';
-		$scope.originEditor							= (!model)? {empty: true}: model;
+		//$scope.originEditor							= (!model)? {empty: true, content: {}}: angular.copy(model);
 		
+		var zIndexSelect			= $j('#layers .layer'),
+			zIndexArray				= [];			
+		for(var i=0; typeof(zIndexSelect[i]) != 'undefined'; zIndexArray.push(zIndexSelect[i++].getAttribute('data-zindex')));
+		
+		if(!model) {
+			$scope.originEditor = {
+				empty: true, //is this needed?
+				content_data: {
+					'type': type
+				},
+				content_config: {
+					'left': '0px',
+					'top':	'0px',
+					'zIndex':(Math.max.apply(Math, zIndexArray) + 1).toString()
+				}
+			}
+		} else {
+			$scope.originEditor	= angular.copy(model);
+		}
+
 		$scope.originWorkspace.panelEditor			= type;
 		
 		//Special conditions for certain templates
 		switch(type) {
 			case 'springboard':
 				if($j.isEmptyObject($scope.springboard)) {
-					Workspace.loadSpringboard(function(data) {
+					//Workspace.loadSpringboard(function(data) {
+					//'loadSpringboard': {method: 'GET', params: {task: 'jsonSpringboard'}},
+					Workspace.get('index.php?option=com_emc_origin&task=jsonSpringboard').then(function(data) {
 						//console.log(data);
 						$scope.springboard 		= data;
 					});	
 				}
 				break;
 		}
-/*
-		$j.grep($scope.originObj.current, function(element, index) {
-			if(element.id === model.id) {
-				console.log(element);
-				$scope.originEditor		= element;
-			}
-		});
-*/
 	}
 	
 /*
@@ -335,7 +404,7 @@ var workspaceCtrl = function($scope, $filter, loadJSON, Workspace) {
 		},
 		done: function(e, data) {
 			//$scope.uiChange('panel', 'assets');
-			$scope.originObj.assets		= Workspace.loadAssets({id: origin_id});
+			$scope.originObj.assets		= Workspace.get('index.php?option=com_emc_origin&task=jsonAssets&id='+origin_id);
 			//$scope.assets = Workspace.loadAssets({id: origin_id});
 		}
 	});

@@ -1,79 +1,80 @@
-[{
-	"group": "embed",
-	"color": "#a30800",
-	"content": [
-		{
-			"name": "embed",
-			"alias": "embed",
-			"description": "",
-			"imgLarge": "/administrator/components/com_emc_origin/assets/images/_components/_large/embed.png",
-			"imgThumb": "/administrator/components/com_emc_origin/assets/images/_components/_thumbnail/embed.png"
-		},
-		{
-			"name": "flash",
-			"alias": "flash",
-			"description": "",
-			"imgLarge": "/administrator/components/com_emc_origin/assets/images/_components/_large/flash.png",
-			"imgThumb": "/administrator/components/com_emc_origin/assets/images/_components/_thumbnail/flash.png"
-		}
-	]},
-	{
-	"group": "image",
-	"color": "#fdba30",
-	"content": [
-		{
-			"name": "image",
-			"alias": "image",
-			"description": "",
-			"imgLarge": "/administrator/components/com_emc_origin/assets/images/_components/_large/image.png",
-			"imgThumb": "/administrator/components/com_emc_origin/assets/images/_components/_thumbnail/image.png"
-		}
-	]},
-	{
-	"group": "cta",
-	"color": "#005eab",
-	"content": [
-		{
-			"name": "trigger",
-			"alias": "trigger",
-			"description": "",
-			"imgLarge": "/administrator/components/com_emc_origin/assets/images/_components/_large/trigger.png",
-			"imgThumb": "/administrator/components/com_emc_origin/assets/images/_components/_thumbnail/trigger.png"
-		},
-		{
-			"name": "link",
-			"alias": "link",
-			"description": "It's a link...",
-			"imgLarge": "/administrator/components/com_emc_origin/assets/images/_components/_large/link.png",
-			"imgThumb": "/administrator/components/com_emc_origin/assets/images/_components/_thumbnail/link.png"
-		},
-		{
-			"name": "dfp link",
-			"alias": "dfp",
-			"description": "It's a link...",
-			"imgLarge": "/administrator/components/com_emc_origin/assets/images/_components/_large/link.png",
-			"imgThumb": "/administrator/components/com_emc_origin/assets/images/_components/_thumbnail/link.png"
-		}
-	]},
-	{
-	"group": "video",
-	"color": "#49176a",
-	"content": [
-		{
-			"name": "SB Video",
-			"alias": "springboard",
-			"description": "",
-			"imgLarge": "/administrator/components/com_emc_origin/assets/images/_components/_large/springboard.png",
-			"imgThumb": "/administrator/components/com_emc_origin/assets/images/_components/_thumbnail/springboard.png"
-			
-		},
-		{
-			"name": "youtube",
-			"alias": "youtube",
-			"description": "",
-			"imgLarge": "/administrator/components/com_emc_origin/assets/images/_components/_large/youtube.png",
-			"imgThumb": "/administrator/components/com_emc_origin/assets/images/_components/_thumbnail/youtube.png"
-			
-		}
-	]}
-]
+{
+	"cta": {
+		"color": "#005eab",
+		"content": [
+			{
+				"name": "trigger",
+				"alias": "trigger",
+				"description": "",
+				"imgLarge": "/administrator/components/com_emc_origin/assets/images/_components/_large/trigger.png",
+				"imgThumb": "/administrator/components/com_emc_origin/assets/images/_components/_thumbnail/trigger.png"
+			},
+			{
+				"name": "link",
+				"alias": "link",
+				"description": "It's a link...",
+				"imgLarge": "/administrator/components/com_emc_origin/assets/images/_components/_large/link.png",
+				"imgThumb": "/administrator/components/com_emc_origin/assets/images/_components/_thumbnail/link.png"
+			},
+			{
+				"name": "dfp link",
+				"alias": "dfp",
+				"description": "It's a link...",
+				"imgLarge": "/administrator/components/com_emc_origin/assets/images/_components/_large/dfp.png",
+				"imgThumb": "/administrator/components/com_emc_origin/assets/images/_components/_thumbnail/dfp.png"
+			}
+		]	
+	},
+	"embed": {
+		"color": "#a30800",
+		"content": [
+			{
+				"name": "embed",
+				"alias": "embed",
+				"description": "",
+				"imgLarge": "/administrator/components/com_emc_origin/assets/images/_components/_large/embed.png",
+				"imgThumb": "/administrator/components/com_emc_origin/assets/images/_components/_thumbnail/embed.png"
+			},
+			{
+				"name": "flash",
+				"alias": "flash",
+				"description": "",
+				"imgLarge": "/administrator/components/com_emc_origin/assets/images/_components/_large/flash.png",
+				"imgThumb": "/administrator/components/com_emc_origin/assets/images/_components/_thumbnail/flash.png"
+			}
+		]
+	},
+	"image": {
+		"color": "#fdba30",
+		"content": [
+			{
+				"name": "image",
+				"alias": "image",
+				"description": "",
+				"imgLarge": "/administrator/components/com_emc_origin/assets/images/_components/_large/image.png",
+				"imgThumb": "/administrator/components/com_emc_origin/assets/images/_components/_thumbnail/image.png"
+			}
+		]
+	},
+	"video": {
+		"color": "#49176a",
+		"content": [
+			{
+				"name": "SB Video",
+				"alias": "springboard",
+				"description": "",
+				"imgLarge": "/administrator/components/com_emc_origin/assets/images/_components/_large/springboard.png",
+				"imgThumb": "/administrator/components/com_emc_origin/assets/images/_components/_thumbnail/springboard.png"
+				
+			},
+			{
+				"name": "youtube",
+				"alias": "youtube",
+				"description": "",
+				"imgLarge": "/administrator/components/com_emc_origin/assets/images/_components/_large/youtube.png",
+				"imgThumb": "/administrator/components/com_emc_origin/assets/images/_components/_thumbnail/youtube.png"
+				
+			}
+		]
+	}
+}

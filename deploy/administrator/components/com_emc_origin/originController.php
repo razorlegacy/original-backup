@@ -79,7 +79,7 @@
             $document 	= $doc;
             $document->setMimeEncoding('application/json');
             
-            $data 				= json_decode(file_get_contents('php://input'))->data;
+            $data 				= json_decode(file_get_contents('php://input'));
             $record['id']		= $data->id;
             $record['oid']		= $data->id;
             $record['name']		= $data->name;
@@ -100,7 +100,7 @@
             $document 	= $doc;
             $document->setMimeEncoding('application/json');
 			
-			$data				= json_decode(file_get_contents('php://input'))->data;
+			$data				= json_decode(file_get_contents('php://input'));
 			$record['oid']		= $data->oid;
 			$record['sid']		= $data->sid;
 			$record['content']	= json_encode($data->content_data);
@@ -108,10 +108,23 @@
 			$record['render']	= $data->content_render;
 			$record['state']	= $data->state;
 			
-			$originModel = &$this->getModel('save');
-			$originModel->saveGeneric($record, 'content');
+			$originModel	= &$this->getModel('save');
+			$cid			= $originModel->saveGeneric($record, 'content');
 			
-			//print_r($record);
+			//Special case: iframed content
+			switch($data->content_data->type) {
+				case 'embed':
+					$originLoad			= &$this->getModel('query');
+					$content			= $originLoad->loadContent($cid);
+					$contentUrl			= "http://{$_SERVER['HTTP_HOST']}/index.php?option=com_emc_origin&task=content&template=embed&id={$cid}&oid={$record['oid']}&sid={$record['sid']}";
+					$record['id']		= $cid;
+					$record['render']	= str_replace('%cid%', $contentUrl, $content->render);
+					$originModel->saveGeneric($record, 'content');
+					
+					break;
+			}
+			
+			
 			echo $this->jsonOrigin($record['oid']);
         }
         
@@ -124,7 +137,7 @@
             $document 	= $doc;
             $document->setMimeEncoding('application/json');
 			
-			$data				= json_decode(file_get_contents('php://input'))->data;
+			$data				= json_decode(file_get_contents('php://input'));
 			$originModel		= &$this->getModel('save');
 			$originModel->deleteGeneric('content', 'id', $data->id);
 			
@@ -140,15 +153,34 @@
             $document 	= $doc;
             $document->setMimeEncoding('application/json');
 			
-			$data				= json_decode(file_get_contents('php://input'))->data;
-			$record['id']		= $data->content->id;
-			$record['content']	= json_encode($data->content);
-			$record['config']	= json_encode($data->config);
+			$data				= json_decode(file_get_contents('php://input'));
+			$record['id']		= $data->id;
+			$record['oid']		= $data->oid;
+			$record['sid']		= $data->sid;
+			$record['content']	= json_encode($data->content_data);
+			$record['config']	= json_encode($data->content_config);
+			$record['render']	= $data->content_render;
+			$record['state']	= $data->state;
 			
 			$originModel	= &$this->getModel('save');
-			$originModel->saveGeneric($record, 'content');
+			$cid			= $originModel->saveGeneric($record, 'content');
 			
-			//echo json_encode(array('test'=>'testing'));
+			//if(!$data->id) {
+				//Special case: iframed content
+				switch($data->content_data->type) {
+					case 'embed':
+						$originLoad			= &$this->getModel('query');
+						$content			= $originLoad->loadContent($cid);
+						$contentUrl			= "http://{$_SERVER['HTTP_HOST']}/index.php?option=com_emc_origin&task=content&template=embed&id={$cid}&oid={$record['oid']}&sid={$record['sid']}";
+						$record['id']		= $cid;
+						$record['render']	= str_replace(array('%cid%', '%id%'), array($contentUrl, $cid), $content->render);
+						$originModel->saveGeneric($record, 'content');
+						
+						break;
+				}
+			//}
+			
+			echo $this->jsonOrigin($record['oid']);
 		}
 		
 		/**
@@ -160,16 +192,15 @@
             $document 	= $doc;
             $document->setMimeEncoding('application/json');
 			
-			$data			= json_decode(file_get_contents('php://input'))->data;
+			$data			= json_decode(file_get_contents('php://input'));
 			$record['id']	= $data->id;
 			$record['oid']	= $data->oid;
 			$record['config']=json_encode($data->config);
-						
+			
 			$originModel = &$this->getModel('save');
 			$originModel->saveGeneric($record, 'content');
 			
 			echo $this->jsonOrigin($record['oid']);
-			//print_r($record);
 		}
 		
 		
@@ -183,7 +214,7 @@
             $document->setMimeEncoding('application/json');
 			$originModel= &$this->getModel('save');
 			
-			$data			= json_decode(file_get_contents('php://input'))->data;
+			$data			= json_decode(file_get_contents('php://input'));
 			
 			foreach($data as $key=>$value) {
 				$record['id']		= $value->id;
@@ -193,7 +224,6 @@
 				//print_r($record);
 			}
 			echo $this->jsonOrigin($data[0]->oid);
-			
 		}
         
         /***** JSON Feeds *****/
@@ -239,6 +269,7 @@
             $view = &$this->getView('json');
             $view->setModel($this->getModel('query'), true);
             $view->setLayout('origin');
+
             $view->displayOrigin(JRequest::getVar('id', $id));
         }
         

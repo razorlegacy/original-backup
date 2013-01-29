@@ -8,7 +8,7 @@ class OriginViewAd extends JView {
     function display($id) {
     	$originModel	= &$this->getModel('query');
     	$originConfig	= $originModel->getOriginRow($id);
-    	$this->assignRef('originConfig', $originConfig);
+    	$this->assignRef('originConfigObj', $originConfig);
 /*
 		$originModel	= &$this->getModel('query');
     	$origin 		= $originModel->getOrigin($id);
